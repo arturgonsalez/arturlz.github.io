@@ -232,31 +232,36 @@ footer.footer {
   border-bottom: 1px solid var(--ink);
   background: var(--blue);
   color: #fff;
-  padding: 20px 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 .marquee {
   overflow: hidden;
   cursor: default;
+  width: 100%;
 }
 .marquee:hover .marquee__track {
   animation-play-state: paused;
 }
 .marquee__track {
   display: flex;
+  align-items: center;
   gap: 40px;
   width: max-content;
   animation: marquee 30s linear infinite;
   will-change: transform;
 }
 .marquee__item {
-  font-size: clamp(32px, 4.4vw, 56px);
+  font-size: 50px;
+  line-height: 1;
   flex-shrink: 0;
 }
 .marquee__sep {
-  font-size: clamp(32px, 4.4vw, 56px);
+  font-size: 50px;
   font-weight: 700;
   flex-shrink: 0;
-  line-height: 0.92;
+  line-height: 1;
 }
 
 @keyframes marquee {

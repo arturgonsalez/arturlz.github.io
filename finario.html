@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finario — Case Study · Artur Lopez Zarytskyi</title>
+  <meta name="description" content="Finario: capital planning SaaS. Solo product designer since Jan 2024, redesigning the platform end to end.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────────────── -->
+<nav class="cs-nav" id="cs-nav">
+  <a href="index.html" class="cs-nav__back">
+    <span class="cs-nav__back-dot" aria-hidden="true"></span>
+    <span>Artur L.Z.</span>
+  </a>
+  <div class="cs-nav__sections" role="list">
+    <button class="cs-nav__sec cs-nav__sec--active" data-target="overview" style="opacity: 1; color: rgb(0, 0, 0)">Context</button>
+    <button class="cs-nav__sec" data-target="problem" style="color: rgb(0, 0, 0)">Problem</button>
+    <button class="cs-nav__sec" data-target="initiatives" style="color: rgb(0, 0, 0)">Work</button>
+    <button class="cs-nav__sec" data-target="impact" style="color: rgb(0, 0, 0)">Impact</button>
+    <button class="cs-nav__sec" data-target="reflection" style="color: rgb(0, 0, 0)">Reflection</button>
+  </div>
+  <div class="cs-nav__progress mono" id="scroll-progress">00%</div>
+</nav>
+
+<!-- ─── 01 HERO ──────────────────────────────────────────────────────── -->
+<section class="cs-hero" id="hero">
+  <div class="cs-hero__top">
+    <div class="cs-hero__pills">
+      <span class="pill">FinTech · SaaS</span>
+      <span class="pill">Capital planning</span>
+      <span class="pill pill--accent">✦ Full platform redesign</span>
+      <span class="pill">Solo Designer</span>
+      <span class="pill">Since Jan 2024</span>
+    </div>
+    <div class="mono cs-hero__meta">
+      (01) — CASE STUDY<br>
+      ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<br>
+      FINARIO · 2024–Present<br>
+      PRODUCT / UX DESIGN
+    </div>
+  </div>
+
+  <h1 class="display cs-hero__h1" style="letter-spacing: -0.44px; line-height: 1">
+    Redesigning the<br>
+    platform finance<br>
+    leaders trust<br>
+  </h1>
+
+  <div class="cs-hero__bottom">
+    <p class="cs-hero__lead">Finario is the capex planning tool a lot of big finance teams actually run their budgets on. I came in <em class="text-blue text-semibold">in January 2024 as the only designer</em>, and I've been working on every part of it since.</p>
+    <div class="cs-hero__stats">
+      <div class="cs-hero__stat-num">1→1</div>
+      <div class="cs-hero__stat-label">Solo designer, looking after<br>the whole product</div>
+    </div>
+    <div class="mono cs-hero__attrs">
+      ROLE — Solo product designer<br>
+      SCOPE — End to end<br>
+      INDUSTRY — FinTech, capex planning<br>
+      YEAR — 2024 onwards<br>
+      TEAM — Just me on design, ~15 engineers
+    </div>
+  </div>
+
+  <figure class="cs-hero-image">
+    <div class="cs-image-placeholder" aria-label="Finario hero image" data-image-name="images/finario/hero.jpg">
+      <span class="mono">images/finario/hero.jpg</span>
+    </div>
+  </figure>
+</section>
+
+<!-- ─── 02 CONTEXT ───────────────────────────────────────────────────── -->
+<section class="cs-section" id="overview">
+  <div class="cs-label">(02) — Context</div>
+  <h2 class="display cs-h2">The single source<br>of truth for<br>enterprise capex</h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">If you've ever seen how big companies plan capital spending, it's mostly spreadsheets, email threads, and a SharePoint folder nobody fully trusts. Finario is the tool a lot of those teams have moved to instead. Budgets, approvals, forecasts, reporting, all in one place, sitting on top of whatever ERP they already run.</p>
+      <p class="cs-body">It's used in 70+ countries across all kinds of industries, from manufacturing to energy to consumer goods. The same screens have to work for a $5,000 line item and for projects worth several hundred million. So the product has a lot of depth: currencies, fiscal years, NPV, IRR, work breakdowns, the whole finance vocabulary is built in.</p>
+    </div>
+    <div>
+      <div class="cs-3col" style="grid-template-columns:1fr; border: 1px solid var(--ink);">
+        <div class="cs-3col__item" style="border-right:none;">
+          <div class="cs-label">Company snapshot</div>
+          <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
+            PRODUCT — Finario<br>
+            CATEGORY — Enterprise capex planning<br>
+            REACH — 70+ countries, 30+ industries<br>
+            CURRENCIES — 80+ supported<br>
+            COMPLIANCE — SOC 2 Type 2
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-3col" style="margin-top:48px;">
+    <div class="cs-3col__item">
+      <div class="cs-label">(01)</div>
+      <div class="cs-3col__title">High-stakes financial UX</div>
+      <p class="cs-3col__body">People are signing off on real money in here. A confusing screen isn't just annoying, it's an audit risk and sometimes a bad investment decision.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">(02)</div>
+      <div class="cs-3col__title">Domain depth, not generic forms</div>
+      <p class="cs-3col__body">Capex has its own language. Fiscal years, cost curves, ROI models. The product has to actually understand it, not paper over it with generic UI.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">(03)</div>
+      <div class="cs-3col__title">Global enterprise reality</div>
+      <p class="cs-3col__body">Multiple currencies, multiple languages, deep org hierarchies, complicated approval rules. Whatever I design has to hold up in all of that.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 03 PROBLEM ───────────────────────────────────────────────────── -->
+<section class="cs-section" id="problem">
+  <div class="cs-label">(03) — The Problem</div>
+  <h2 class="display cs-h2">A powerful platform,<br>asking too much<br>of the people<br>using it</h2>
+
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">When I joined, the product worked. Customers were getting real value out of it. The problem was that it had been built and added to for over a decade, and you could feel that on every screen. Buttons everywhere, every option visible at once, hierarchies that made sense to whoever shipped that feature in 2017.</p>
+      <p class="cs-body">It was great if you used it every day. If you only logged in once a month to approve something or check a forecast, which is most users honestly, it was a lot. The job wasn't to dumb anything down. It was to make the same product feel obvious to the people who didn't live in it.</p>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat__num">10+ yrs
+<div style="font-size: 20px;"><br></div>
+</div>
+      <div class="cs-stat__label">of features layered on top of each other,<br>without breaking what power users rely on</div>
+    </div>
+  </div>
+
+  <div class="cs-3col" style="margin-top:48px;">
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 01</div>
+      <div class="cs-3col__title">Capability over clarity</div>
+      <p class="cs-3col__body">No clear primary action on most screens. New users couldn't tell what they were supposed to click. Veterans were running on muscle memory.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 02</div>
+      <div class="cs-3col__title">Inconsistent patterns</div>
+      <p class="cs-3col__body">Submitting, approving, forecasting all worked slightly differently depending on where you were in the app. Each area had been designed in its own time.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 03</div>
+      <div class="cs-3col__title">No system, no scale</div>
+      <p class="cs-3col__body">No shared components, no tokens, no agreed patterns. Every new feature meant re-deciding what a button or a table should look like.</p>
+    </div>
+  </div>
+
+  <div class="cs-quote">
+    <p class="cs-quote__text">"This is where our financial truth lives. It should look like it knows that."</p>
+    <div class="cs-quote__attr">— Customer call, early 2024</div>
+  </div>
+
+  <figure class="cs-image-figure">
+    <div class="cs-image-placeholder" aria-label="Finario problem visualization">
+      <span class="mono">images/finario/problem.jpg</span>
+    </div>
+    <figcaption class="mono">FIG. 01 — The platform pre-redesign</figcaption>
+  </figure>
+</section>
+
+<!-- ─── 04 ROLE ───────────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(04) — Role</div>
+  <h2 class="display cs-h2" style="line-height: 1">Solo Product Designer.<br>since Jan 2024<span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">I'm the only designer at Finario. There's nobody else in design above me, next to me, or under me. Every flow, screen, component, icon, micro-interaction, anything you see in the product, that's me.</p>
+      <p class="cs-body">In practice that means I'm in the room for almost everything. Working through scope with PMs, sitting with engineers while they build, jumping on customer calls, owning the design system as it gets built piece by piece. It's not a hand-off role, and that's the part I like most about it.</p>
+    </div>
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2.2; color:var(--ink-soft);">
+        <div style="color:var(--muted); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Responsibilities</div>
+        STRATEGY — Roadmap input, design vision<br>
+        PRODUCT — Discovery, IA, flows, UI<br>
+        SYSTEM — Tokens, components, patterns<br>
+        CRAFT — Visual, motion, iconography<br>
+        PARTNERSHIP — Eng pairing, customer calls
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-timeline">
+    <div class="cs-timeline__track">
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Q1 '24</div>
+        <div class="cs-timeline__label">Audit + foundation</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Q2 '24</div>
+        <div class="cs-timeline__label">Design system v1</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Q3 '24</div>
+        <div class="cs-timeline__label">Core flow redesigns</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Q4 '24</div>
+        <div class="cs-timeline__label">Approvals + forecasting</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">2025</div>
+        <div class="cs-timeline__label">Reporting + analytics</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Now</div>
+        <div class="cs-timeline__label">Continuous platform work</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 05 INITIATIVES ───────────────────────────────────────────────── -->
+<section class="cs-section" id="initiatives">
+  <div class="cs-label">(05) — Initiatives</div>
+  <h2 class="display cs-h2" style="line-height: 1">Three bets.<br>One direction<span class="text-blue">.</span></h2>
+  <p class="cs-body" style="max-width:560px;">Roughly speaking the work breaks down into three threads. 
+They've been going on at the same time and feeding each other since day one.</p>
+  <div class="cs-init-grid" style="grid-template-columns:repeat(3, 1fr);">
+    <div class="cs-init-card cs-init-card--accent" style="cursor:default;">
+      <div class="cs-init-card__num">(01)</div>
+      <div class="cs-init-card__title">Platform Redesign</div>
+      <div class="cs-init-card__desc">Rethinking the main flows: investments, approvals, forecasting, reporting.</div>
+      <div class="cs-init-card__impact">↳ A coherent platform</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(02)</div>
+      <div class="cs-init-card__title">Design System</div>
+      <div class="cs-init-card__desc">From zero. Tokens, components, patterns, the foundation everything else sits on.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Single source of truth</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(03)</div>
+      <div class="cs-init-card__title">Cross-Functional Practice</div>
+      <div class="cs-init-card__desc">Getting design into the conversations early, with PMs, engineers, customers, instead of at the end.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Faster, sharper decisions</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 06 DEEP DIVE ─────────────────────────────────────────────────── -->
+<section class="cs-section" id="dd-main">
+  <div class="cs-dd-header">
+    <span class="cs-dd-tag">Deep Dive</span>
+    <div class="cs-label">Platform Redesign</div>
+  </div>
+  <h2 class="display cs-h2" style="line-height: 1;">Keep the depth.<br>Lower the floor</h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">First thing I did was put every screen of the product on one big board and just look at it. Investment forms, approval queues, forecast tables, dashboards, reports. What I was looking for wasn't what made each one different. It was what they all had in common.</p>
+      <p class="cs-body" style="margin-top:16px;">Pretty quickly it was clear: every screen is doing some mix of the same five things. Help you orient, show you data, let you filter it, let you act on it, let you report on it. The screens didn't agree on how to do any of those. Getting them to agree was where most of the wins came from.</p>
+    </div>
+    <div>
+      <div class="cs-label">The approach</div>
+      <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
+        AUDIT — Every screen in the product<br>
+        INTERVIEWS — Customers across 6+ industries<br>
+        PAIRING — Daily with engineering<br>
+        VALIDATION — On every customer call I could
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-decision-list">
+    <div class="cs-decision">
+      <div class="cs-decision__num">01</div>
+      <div>
+        <div class="cs-decision__title">A shared layout grammar</div>
+        <p class="cs-decision__body">Header for context, main work area, side panel for related stuff, sticky toolbar at the bottom. Same idea everywhere. Once you've used one screen, you know how the others work.</p>
+        <div class="cs-decision__tradeoff">Trade-off: long-time users had to relearn a few of their favourite layouts. We rolled it out gradually so the parity was visible.</div>
+      </div>
+    </div>
+    <div class="cs-decision">
+      <div class="cs-decision__num">02</div>
+      <div>
+        <div class="cs-decision__title">Investment as the unit</div>
+        <p class="cs-decision__body">An investment is the thing Finario was always about. Approvals, forecasts and reports are all just different views into one. Once we built around that idea, the product stopped feeling like five separate apps stitched together.</p>
+        <div class="cs-decision__tradeoff">Result: fewer screens, more depth per screen. People stopped getting lost in submenus.</div>
+      </div>
+    </div>
+    <div class="cs-decision">
+      <div class="cs-decision__num">03</div>
+      <div>
+        <div class="cs-decision__title">Design system before features</div>
+        <p class="cs-decision__body">I refused to ship a single redesigned screen until the basics were in place. Tokens, the type system, the core components. Q1 looked slow from the outside. Everything after Q1 was way faster.</p>
+        <div class="cs-decision__tradeoff">Trade-off: needed leadership to trust me through that first quarter. Paid back several times over.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-before-after">
+    <div class="cs-ba-tabs">
+      <button class="cs-ba-tab cs-ba-tab--active" data-panel="before-1">Before</button>
+      <button class="cs-ba-tab" data-panel="after-1">After</button>
+    </div>
+    <div class="cs-ba-panel cs-ba-panel--active" id="before-1">
+      <div class="cs-ba-screen"><span>images/finario/before.jpg</span></div>
+    </div>
+    <div class="cs-ba-panel" id="after-1">
+      <div class="cs-ba-screen"><span>images/finario/after.jpg</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 07 IMPACT ────────────────────────────────────────────────────── -->
+<section class="cs-section" id="impact">
+  <div class="cs-label">(07) — Impact</div>
+  <h2 class="display cs-h2">The work,<br>measured<span class="text-blue">.</span></h2>
+  <div class="cs-metric-grid">
+    <div class="cs-metric cs-metric--hero">
+      <div class="cs-metric__num">1</div>
+      <div class="cs-metric__label">designer looking after<br>the whole product</div>
+      <div class="cs-metric__context">JAN 2024 → PRESENT<br>NO HAND-OFFS</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">Full</div>
+      <div class="cs-metric__label">redesign in flight,<br>shipping in waves</div>
+      <div class="cs-metric__context">PHASED ACROSS<br>EVERY CORE FLOW</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">0→1</div>
+      <div class="cs-metric__label">design system,<br>built from scratch</div>
+      <div class="cs-metric__context">TOKENS, COMPONENTS<br>PATTERNS, DOCS</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">70+</div>
+      <div class="cs-metric__label">countries the new<br>UI gets used in</div>
+      <div class="cs-metric__context">GLOBAL ENTERPRISE<br>FROM DAY ONE</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">∞</div>
+      <div class="cs-metric__label">customer calls and<br>pairing sessions</div>
+      <div class="cs-metric__context">EMBEDDED IN PRODUCT<br>+ ENGINEERING LOOPS</div>
+    </div>
+  </div>
+  <div style="margin-top:24px; padding:16px 20px; border:1px solid var(--hairline); border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); line-height:1.6;">
+    NOTE — Finario is still ongoing, and the real product metrics aren't mine to share. The numbers above are about scope and ownership, not business outcomes.
+  </div>
+</section>
+
+<!-- ─── 08 OUTCOMES ──────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(08) — Outcomes</div>
+  <h2 class="display cs-h2">What changed.<br>What it earned<span class="text-blue">.</span></h2>
+  <table class="cs-ba-table">
+    <thead>
+      <tr><th>Before</th><th class="arrow">→</th><th>After</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>No design system, every feature reinvented the basics</td><td class="arrow">→</td><td>Tokens, components and patterns, all built from scratch</td></tr>
+      <tr><td>Three different ways to do the same five jobs</td><td class="arrow">→</td><td>One shared layout used across the product</td></tr>
+      <tr><td>Every option shouting at the same volume</td><td class="arrow">→</td><td>A clear primary action, with the rest tucked away properly</td></tr>
+      <tr><td>Design as a step at the end</td><td class="arrow">→</td><td>Design embedded with PMs and engineers from the start</td></tr>
+      <tr><td>Customer feedback only via PMs</td><td class="arrow">→</td><td>I'm in customer calls directly</td></tr>
+      <tr><td>A product that grew by accident</td><td class="arrow">→</td><td>A product that feels like it was made on purpose</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:64px; padding:64px 32px; background:var(--blue); text-align:center; border:1px solid var(--blue);">
+    <div style="font-family:'Inter Tight',sans-serif; font-weight:700; font-size:clamp(80px,12vw,160px); letter-spacing:-0.05em; line-height:0.9; color:#fff;">1→1</div>
+    <div style="margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.6); text-transform:uppercase;">Solo designer · the whole product</div>
+  </div>
+</section>
+
+<!-- ─── 09 REFLECTION ────────────────────────────────────────────────── -->
+<section class="cs-section" id="reflection">
+  <div class="cs-label">(09) — Reflection</div>
+  <h2 class="display cs-h2">What I'd do<br>differently<span class="text-blue">.</span></h2>
+  <div class="cs-reflect-grid">
+    <div class="cs-reflect-col">
+      <div class="cs-reflect-col__header">What worked</div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Doing the system first</div>
+        <p class="cs-reflect-item__body">It felt slow at the time. Looking back, it's the single best decision I made. Everything after that quarter was noticeably faster, and the product started feeling consistent without me having to police it.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Being in customer calls</div>
+        <p class="cs-reflect-item__body">Hearing customers directly is just different from reading a Notion summary. The way someone says "yeah, it's fine" when it clearly isn't, that doesn't survive a second-hand telling.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Working really closely with engineering</div>
+        <p class="cs-reflect-item__body">I'm in Slack with the engineers all day. We catch things together that would have been a back-and-forth otherwise. The closer the loop, the better the thing that ships.</p>
+      </div>
+    </div>
+    <div class="cs-reflect-col">
+      <div class="cs-reflect-col__header">What I'd do differently</div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Document as I go</div>
+        <p class="cs-reflect-item__body">I shipped patterns way faster than I wrote them down. As the team grows that gap is going to start hurting. If I were starting over I'd write the docs at the same time, not later.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Set up some design metrics earlier</div>
+        <p class="cs-reflect-item__body">I spent year one on craft and shipping. I'd now love to be able to point at adoption and quality numbers. Easier to defend the work, easier to spot what's not landing.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Write the vision down</div>
+        <p class="cs-reflect-item__body">A lot of where the product is going lives in my head and in conversations. Putting it on paper would let other people pull in the same direction without having to ask me every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLOSING ──────────────────────────────────────────────────────── -->
+<div class="cs-closing-quote">
+  <p class="cs-closing-quote__text display">
+    "When you're the only designer, your job isn't to draw every pixel. It's to make sure the product feels like one person made it."
+  </p>
+  <div class="cs-closing-quote__attr">Artur Lopez Zarytskyi · Finario · 2024–Present</div>
+  <div style="margin-top:32px; display:flex; justify-content:center; gap:16px;">
+    <a href="index.html" class="btn btn--primary" style="max-width:200px;"><span>← Back to portfolio</span></a>
+    <a href="mailto:artur@lopezzarytskyi.com" class="btn btn--outline" style="max-width:200px;"><span>Get in touch</span><span>↗</span></a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <span class="mono">© 2026 ARTUR LOPEZ ZARYTSKYI</span>
+  <span class="mono">FINARIO CASE STUDY · 2024–Present</span>
+  <a href="#top" class="mono footer__back-to-top">↑ BACK TO TOP</a>
+</footer>
+
+<script src="case-study.js"></script>
+</body>
+</html>

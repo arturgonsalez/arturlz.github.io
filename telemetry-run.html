@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telemetry.run — Case Study · Artur Lopez Zarytskyi</title>
+  <meta name="description" content="Telemetry.run: Developer Tools · Observability. Product Designer, 5 months.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────────────── -->
+<nav class="cs-nav" id="cs-nav">
+  <a href="index.html" class="cs-nav__back">
+    <span class="cs-nav__back-dot" aria-hidden="true"></span>
+    <span>Artur L.Z.</span>
+  </a>
+  <div class="cs-nav__sections" role="list">
+    <button class="cs-nav__sec cs-nav__sec--active" data-target="overview">Context</button>
+    <button class="cs-nav__sec" data-target="problem">Problem</button>
+    <button class="cs-nav__sec" data-target="initiatives">Work</button>
+    <button class="cs-nav__sec" data-target="impact">Impact</button>
+    <button class="cs-nav__sec" data-target="reflection">Reflection</button>
+  </div>
+  <div class="cs-nav__progress mono" id="scroll-progress">00%</div>
+</nav>
+
+<!-- ─── 01 HERO ──────────────────────────────────────────────────────── -->
+<section class="cs-hero" id="hero">
+  <div class="cs-hero__top">
+    <div class="cs-hero__pills">
+      <span class="pill">Dev Tools</span>
+      <span class="pill">Observability</span>
+      <span class="pill pill--accent">✦ −71% MTTI</span>
+      <span class="pill">Product Designer</span>
+      <span class="pill">5 months</span>
+    </div>
+    <div class="mono cs-hero__meta">
+      (01) — CASE STUDY<br>
+      ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<br>
+      TELEMETRY.RUN · 2022<br>
+      PRODUCT / UX DESIGN
+    </div>
+  </div>
+
+  <h1 class="display cs-hero__h1">
+    Designing for<br>
+    a 3am pager<br>
+    <span class="text-blue" aria-hidden="true">.</span>
+  </h1>
+
+  <div class="cs-hero__bottom">
+    <p class="cs-hero__lead">Telemetry.run is an observability platform for backend engineers. I redesigned the incident-triage flow so on-call engineers could go from <em class="text-blue text-semibold">pager to root cause</em> in <em class="underline-em">71% less time</em> — measured through synthetic incident drills and live MTTI.</p>
+    <div class="cs-hero__stats">
+      <div class="cs-hero__stat-num">−71%</div>
+      <div class="cs-hero__stat-label">Time-to-first-insight in<br>incident triage flow</div>
+    </div>
+    <div class="mono cs-hero__attrs">
+      ROLE — Product Designer<br>
+      SCOPE — End-to-end<br>
+      INDUSTRY — Developer Tools · Observability<br>
+      YEAR — 2022<br>
+      TEAM — 2 designers · 8 engineers
+    </div>
+  </div>
+
+  <!-- HERO IMAGE — Replace with real artwork: images/telemetry-run/hero.jpg -->
+  <figure class="cs-hero-image">
+    <div class="cs-image-placeholder" aria-label="Telemetry.run hero image">
+      <span class="mono">images/telemetry-run/hero.jpg</span>
+    </div>
+  </figure>
+</section>
+
+<!-- ─── 02 CONTEXT ───────────────────────────────────────────────────── -->
+<section class="cs-section" id="overview">
+  <div class="cs-label">(02) — Context</div>
+  <h2 class="display cs-h2">Designing for<br>the worst<br>moment of someone's<br>week<br><span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">Incident triage is a hostile design context. The user is half-awake, often on a phone, scared they're going to make it worse, and looking at a tool they only open when something is broken. Familiarity has decayed since their last incident.</p>
+      <p class="cs-body">Telemetry.run had powerful primitives — fast queries, deep traces — but the incident flow asked the on-call engineer to be a power user at the moment they were least equipped to be one.</p>
+    </div>
+    <div>
+      <div class="cs-3col" style="grid-template-columns:1fr; border: 1px solid var(--ink);">
+        <div class="cs-3col__item" style="border-right:none;">
+          <div class="cs-label">Company snapshot</div>
+          <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
+            STAGE — Series A Dev Tool<br>
+            USERS — Backend engineers · SREs<br>
+            PRIMITIVES — Logs · Traces · Metrics<br>
+            PRIMARY UX — Query + dashboard<br>
+            INCIDENT VOLUME — Variable, bursty
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-3col" style="margin-top:48px;">
+    <div class="cs-3col__item">
+      <div class="cs-label">(01)</div>
+      <div class="cs-3col__title">Cold-start design</div>
+      <p class="cs-3col__body">Users open the product when something is broken. There is no warm-up, no learning curve, no second chance. The first 10 seconds matter more than the next 10 minutes.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">(02)</div>
+      <div class="cs-3col__title">Power vs. accessibility</div>
+      <p class="cs-3col__body">Power users want raw query languages and shortcuts. Sleep-deprived users want guided paths. The product had to be both.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">(03)</div>
+      <div class="cs-3col__title">Phone-first triage</div>
+      <p class="cs-3col__body">Half of pages are acknowledged from a phone. The triage flow had to work on a 6-inch screen, in dark mode, with one thumb.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 03 PROBLEM ───────────────────────────────────────────────────── -->
+<section class="cs-section" id="problem">
+  <div class="cs-label">(03) — The Problem</div>
+  <h2 class="display cs-h2">Dashboards are<br>designed for browsing.<br>Incidents need<br>a path<br><span class="text-blue">.</span></h2>
+
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">Telemetry's incident flow dropped the on-call engineer onto a dashboard. Nine widgets, no obvious next step. The implicit message was "browse around, you'll find it" — a fine message for a workday, a hostile one at 3am.</p>
+      <p class="cs-body">Engineers compensated by building runbooks, but the runbooks lived in Notion, the alerts in PagerDuty, the dashboards in Telemetry. The incident response was a tab-switching exercise where each tab assumed you remembered the last one.</p>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat__num">7 tabs</div>
+      <div class="cs-stat__label">Average context-switches<br>per incident, pre-redesign</div>
+    </div>
+  </div>
+
+  <div class="cs-3col" style="margin-top:48px;">
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 01</div>
+      <div class="cs-3col__title">Dashboard-as-default</div>
+      <p class="cs-3col__body">The incident landing page was a dashboard. Useful for monitoring, useless for triage. No clear "what now" call to action.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 02</div>
+      <div class="cs-3col__title">Lost context across tabs</div>
+      <p class="cs-3col__body">Linking from PagerDuty into Telemetry didn't carry the alert context. Engineers re-typed queries from screenshots.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 03</div>
+      <div class="cs-3col__title">Power-user defaults</div>
+      <p class="cs-3col__body">Default views assumed the user knew their service topology. New on-call rotators had no on-ramp.</p>
+    </div>
+  </div>
+
+  <div class="cs-quote">
+    <p class="cs-quote__text">"I open Telemetry and immediately Cmd-K my way to the runbook in another tab. The product is the runbook."</p>
+    <div class="cs-quote__attr">— On-call SRE, research interview</div>
+  </div>
+
+  <!-- PROBLEM IMAGE — Replace: images/telemetry-run/problem.jpg -->
+  <figure class="cs-image-figure">
+    <div class="cs-image-placeholder" aria-label="Telemetry.run problem visualization">
+      <span class="mono">images/telemetry-run/problem.jpg</span>
+    </div>
+    <figcaption class="mono">FIG. 01 — The original surface</figcaption>
+  </figure>
+</section>
+
+<!-- ─── 04 ROLE ───────────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(04) — Role</div>
+  <h2 class="display cs-h2">Product Designer.<br>5 months<span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">I owned the incident-triage workstream end-to-end, paired with one designer focused on dashboards. We worked closely with the on-call rotation team — backend engineers who carried the pager — and ran biweekly synthetic incident drills with them.</p>
+      <p class="cs-body">My remit covered the full incident loop: alert hand-off, triage landing, root-cause exploration, and post-incident artifacts.</p>
+    </div>
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2.2; color:var(--ink-soft);">
+        <div style="color:var(--muted); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Responsibilities</div>
+        RESEARCH — Pager observation · Drill protocol<br>
+        DESIGN — Triage flow · Mobile · Dark UX<br>
+        VALIDATION — Synthetic drills · MTTI tracking<br>
+        GTM — Doc · Office hours · Field rollout
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-timeline">
+    <div class="cs-timeline__track">
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M1</div>
+        <div class="cs-timeline__label">On-call shadowing</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M1</div>
+        <div class="cs-timeline__label">Drill protocol</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M2</div>
+        <div class="cs-timeline__label">Triage flow design</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M3</div>
+        <div class="cs-timeline__label">Mobile + dark mode</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M4</div>
+        <div class="cs-timeline__label">Drills + iteration</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M5</div>
+        <div class="cs-timeline__label">Rollout + MTTI tracking</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 05 INITIATIVES ───────────────────────────────────────────────── -->
+<section class="cs-section" id="initiatives">
+  <div class="cs-label">(05) — Initiatives</div>
+  <h2 class="display cs-h2">Three bets.<br>One direction<span class="text-blue">.</span></h2>
+  <p class="cs-body" style="max-width:560px;">Three changes turned the incident landing from a dashboard into a guided path — without removing anything power users relied on.</p>
+  <div class="cs-init-grid" style="grid-template-columns:repeat(3, 1fr);">
+    <div class="cs-init-card cs-init-card--accent" style="cursor:default;">
+      <div class="cs-init-card__num">(01)</div>
+      <div class="cs-init-card__title">Triage Landing</div>
+      <div class="cs-init-card__desc">A single-page guided path replacing the default dashboard for paged engineers.</div>
+      <div class="cs-init-card__impact">↳ −71% MTTI</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(02)</div>
+      <div class="cs-init-card__title">Context Hand-off</div>
+      <div class="cs-init-card__desc">Alerts carry their full query context into Telemetry. No re-typing.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ −7 → 2 tab switches</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(03)</div>
+      <div class="cs-init-card__title">Mobile Triage</div>
+      <div class="cs-init-card__desc">A first-class mobile flow for the half of pages acknowledged from a phone.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Phone triage viable</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 06 DEEP DIVE ─────────────────────────────────────────────────── -->
+<section class="cs-section" id="dd-main">
+  <div class="cs-dd-header">
+    <span class="cs-dd-tag">Deep Dive</span>
+    <div class="cs-label">Triage Landing</div>
+  </div>
+  <h2 class="display cs-h2">From dashboard<br>to decision<br><span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">The triage landing replaces the dashboard for any user arriving from a page. It opens with the alert's context loaded, the relevant service in focus, and three suggested next moves: see the trace, see the recent deploys, see comparable past incidents.</p>
+      <p class="cs-body" style="margin-top:16px;">It's deliberately opinionated. Every suggestion is a one-tap detour with a "back to triage" gesture. Power users can drop to the raw query in two keystrokes. Tired users can follow the path.</p>
+    </div>
+    <div>
+      <div class="cs-label">The research</div>
+      <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
+        6 PAGER OBSERVATIONS — Real incidents, with consent<br>
+        12 SYNTHETIC DRILLS — Biweekly, controlled<br>
+        POST-INCIDENT REVIEWS — 30 over 3 months<br>
+        MTTI TRACKING — Pre / post comparison
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-decision-list">
+    <div class="cs-decision">
+      <div class="cs-decision__num">01</div>
+      <div>
+        <div class="cs-decision__title">Suggest, don't solve</div>
+        <p class="cs-decision__body">The triage view suggests next steps based on heuristics — recent deploys, similar past incidents, error spike sources — but never auto-jumps. The engineer chooses; the system narrows the option space.</p>
+        <div class="cs-decision__tradeoff">Trade-off → some users wanted "auto-resolve". The argument: incidents are one-of-a-kind, and the cost of being wrong is high. Heuristics inform, they don't decide.</div>
+      </div>
+    </div>
+    <div class="cs-decision">
+      <div class="cs-decision__num">02</div>
+      <div>
+        <div class="cs-decision__title">One-tap detours, one-tap return</div>
+        <p class="cs-decision__body">Every suggested action opens a focused view (trace, deploy log, etc.) with a persistent "back to triage" gesture. Engineers stop losing their place when they explore.</p>
+        <div class="cs-decision__tradeoff">Outcome → tab switching dropped from 7 to 2 in synthetic drills. The product became the runbook.</div>
+      </div>
+    </div>
+    <div class="cs-decision">
+      <div class="cs-decision__num">03</div>
+      <div>
+        <div class="cs-decision__title">Mobile as a first-class surface</div>
+        <p class="cs-decision__body">Designed the triage flow mobile-first, dark-mode-first. Half of pages are acknowledged from a phone; designing for the desk first meant designing for the wrong moment.</p>
+        <div class="cs-decision__tradeoff">Trade-off → some power features (multi-pane query) were desktop-only. We accepted the gap and called it out in docs.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEFORE/AFTER IMAGES — Replace:
+       images/telemetry-run/before.jpg — original surface
+       images/telemetry-run/after.jpg  — redesigned surface -->
+  <div class="cs-before-after">
+    <div class="cs-ba-tabs">
+      <button class="cs-ba-tab cs-ba-tab--active" data-panel="before-1">Before</button>
+      <button class="cs-ba-tab" data-panel="after-1">After</button>
+    </div>
+    <div class="cs-ba-panel cs-ba-panel--active" id="before-1">
+      <div class="cs-ba-screen"><span>images/telemetry-run/before.jpg</span></div>
+    </div>
+    <div class="cs-ba-panel" id="after-1">
+      <div class="cs-ba-screen"><span>images/telemetry-run/after.jpg</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 07 IMPACT ────────────────────────────────────────────────────── -->
+<section class="cs-section" id="impact">
+  <div class="cs-label">(07) — Impact</div>
+  <h2 class="display cs-h2">The work,<br>measured<span class="text-blue">.</span></h2>
+  <div class="cs-metric-grid">
+    <div class="cs-metric cs-metric--hero">
+      <div class="cs-metric__num">−71%</div>
+      <div class="cs-metric__label">Time-to-first-insight<br>Triage landing</div>
+      <div class="cs-metric__context">SYNTHETIC DRILL<br>PRE / POST AVG</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">7→2</div>
+      <div class="cs-metric__label">Tab switches per incident</div>
+      <div class="cs-metric__context">CONTEXT HAND-OFF<br>+ ONE-TAP DETOURS</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">+22 NPS</div>
+      <div class="cs-metric__label">On-call engineer NPS</div>
+      <div class="cs-metric__context">POST-ROLLOUT<br>3-MONTH SURVEY</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">50%</div>
+      <div class="cs-metric__label">Pages acknowledged on mobile</div>
+      <div class="cs-metric__context">NOW SUPPORTED<br>FIRST-CLASS</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">12</div>
+      <div class="cs-metric__label">Synthetic drills run</div>
+      <div class="cs-metric__context">BIWEEKLY<br>WITH ROTATORS</div>
+    </div>
+  </div>
+  <div style="margin-top:24px; padding:16px 20px; border:1px solid var(--hairline); border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); line-height:1.6;">
+    NOTE — Some metrics are directional based on data available at the time. Where possible, figures reflect controlled comparisons; otherwise stakeholder-validated estimates.
+  </div>
+</section>
+
+<!-- ─── 08 OUTCOMES ──────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(08) — Outcomes</div>
+  <h2 class="display cs-h2">What changed.<br>What it earned<span class="text-blue">.</span></h2>
+  <table class="cs-ba-table">
+    <thead>
+      <tr><th>Before</th><th class="arrow">→</th><th>After</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Dashboard as incident landing</td><td class="arrow">→</td><td>Triage landing with guided path</td></tr>
+      <tr><td>Alerts drop user without context</td><td class="arrow">→</td><td>Context hand-off carries the query</td></tr>
+      <tr><td>Mobile usable but unloved</td><td class="arrow">→</td><td>Mobile-first triage flow</td></tr>
+      <tr><td>7 tab switches per incident</td><td class="arrow">→</td><td>2 tab switches per incident</td></tr>
+      <tr><td>Runbooks lived in Notion</td><td class="arrow">→</td><td>Runbook patterns embedded in product</td></tr>
+      <tr><td>Power-user defaults everywhere</td><td class="arrow">→</td><td>Guided path + power-user shortcuts</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:64px; padding:64px 32px; background:var(--blue); text-align:center; border:1px solid var(--blue);">
+    <div style="font-family:'Inter Tight',sans-serif; font-weight:700; font-size:clamp(80px,12vw,160px); letter-spacing:-0.05em; line-height:0.9; color:#fff;">−71%</div>
+    <div style="margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.6); text-transform:uppercase;">Time-to-first-insight in · incident triage flow</div>
+  </div>
+</section>
+
+<!-- ─── 09 REFLECTION ────────────────────────────────────────────────── -->
+<section class="cs-section" id="reflection">
+  <div class="cs-label">(09) — Reflection</div>
+  <h2 class="display cs-h2">What I'd do<br>differently<span class="text-blue">.</span></h2>
+  <div class="cs-reflect-grid">
+    <div class="cs-reflect-col">
+      <div class="cs-reflect-col__header">What worked</div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Synthetic drills as a research mode</div>
+        <p class="cs-reflect-item__body">Biweekly drills with real on-call engineers were the highest-signal research method I've used. Cheaper than ride-alongs, more realistic than usability tests.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Mobile-first as a design constraint</div>
+        <p class="cs-reflect-item__body">Designing for the phone forced ruthless prioritisation that improved the desktop UX too. The constraint was a gift.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Suggest-don't-solve as a stance</div>
+        <p class="cs-reflect-item__body">In a domain where being wrong is expensive, narrowing the option space without choosing for the user was the right line. It's now a team principle.</p>
+      </div>
+    </div>
+    <div class="cs-reflect-col">
+      <div class="cs-reflect-col__header">What I'd do differently</div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Earlier alignment with PagerDuty</div>
+        <p class="cs-reflect-item__body">The context hand-off needed cooperation from the alert source. Earlier conversations would have unblocked deeper integration sooner.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Tighter MTTI definition</div>
+        <p class="cs-reflect-item__body">"Time-to-first-insight" was easy to game. A sharper, externally-verifiable metric would have made the result harder to dispute.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Power-user docs in parallel</div>
+        <p class="cs-reflect-item__body">I undersold the redesign to power users initially — they perceived it as "training wheels". Better launch comms would have closed that gap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLOSING ──────────────────────────────────────────────────────── -->
+<div class="cs-closing-quote">
+  <p class="cs-closing-quote__text display">
+    "The product's job is to make the worst moment of your week 71% shorter. Everything else is decoration."
+  </p>
+  <div class="cs-closing-quote__attr">Artur Lopez Zarytskyi · Telemetry.run · 2022</div>
+  <div style="margin-top:32px; display:flex; justify-content:center; gap:16px;">
+    <a href="index.html" class="btn btn--primary" style="max-width:200px;"><span>← Back to portfolio</span></a>
+    <a href="mailto:artur@lopezzarytskyi.com" class="btn btn--outline" style="max-width:200px;"><span>Get in touch</span><span>↗</span></a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <span class="mono">© 2026 ARTUR LOPEZ ZARYTSKYI</span>
+  <span class="mono">TELEMETRY.RUN CASE STUDY · 2022</span>
+  <a href="#top" class="mono footer__back-to-top">↑ BACK TO TOP</a>
+</footer>
+
+<script src="case-study.js"></script>
+</body>
+</html>

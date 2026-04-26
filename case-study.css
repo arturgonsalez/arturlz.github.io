@@ -1,0 +1,813 @@
+/* ─── CASE STUDY OVERRIDES & ADDITIONS ───────────────────────────── */
+
+    body > * { max-width: 1280px; margin-inline: auto; }
+
+    /* ─── CASE NAV ──────────────────────────────────────────────────── */
+    .cs-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      margin: 16px;
+      background: var(--ink);
+      color: var(--bg);
+      border-radius: 999px;
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+    }
+    .cs-nav__back {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--bg);
+      transition: opacity 0.15s;
+    }
+    .cs-nav__back:hover { opacity: 0.7; }
+    .cs-nav__back-dot {
+      width: 26px; height: 26px;
+      border-radius: 999px;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+    .cs-nav__sections {
+      display: flex;
+      gap: 4px;
+    }
+    .cs-nav__sec {
+      padding: 8px 14px;
+      font-size: 12px;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: rgba(244,242,236,0.6);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .cs-nav__sec:hover {
+      border-color: rgba(244,242,236,0.3);
+      color: var(--bg);
+    }
+    .cs-nav__sec--active {
+      border-color: rgba(244,242,236,0.3);
+      color: var(--ink);
+      background: var(--bg);
+    }
+    .cs-nav__progress {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: rgba(244,242,236,0.5);
+    }
+
+    /* ─── CS SHARED ──────────────────────────────────────────────────── */
+    .cs-section {
+      padding: 80px 32px;
+      border-bottom: 1px solid var(--ink);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .cs-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .cs-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .cs-h2 {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.92;
+      font-size: clamp(56px, 7vw, 96px);
+      margin-bottom: 48px;
+    }
+    .cs-h3 {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      font-size: clamp(28px, 3vw, 40px);
+      margin-bottom: 16px;
+    }
+    .cs-body {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      max-width: 600px;
+    }
+    .cs-body + .cs-body { margin-top: 16px; }
+    .accent { color: var(--blue); }
+    .hairline-top { border-top: 1px solid var(--ink); padding-top: 32px; margin-top: 32px; }
+
+    /* ─── HERO ───────────────────────────────────────────────────────── */
+    .cs-hero {
+      padding: 48px 32px 0;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.7s ease 0.1s forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .cs-hero__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+    }
+    .cs-hero__pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .cs-hero__meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      text-align: right;
+      color: var(--muted);
+      line-height: 1.8;
+      white-space: nowrap;
+    }
+    .cs-hero__h1 {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.86;
+      font-size: clamp(72px, 12vw, 160px);
+      margin-top: 28px;
+    }
+    .cs-hero__bottom {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      align-items: end;
+      border-top: 1px solid var(--ink);
+      padding-top: 24px;
+      padding-bottom: 48px;
+    }
+    .cs-hero__lead {
+      font-size: clamp(16px, 1.6vw, 21px);
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      max-width: 380px;
+    }
+    .cs-hero__stats {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cs-hero__stat-num {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      color: var(--blue);
+    }
+    .cs-hero__stat-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .cs-hero__attrs {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      line-height: 2;
+      color: var(--ink-soft);
+    }
+
+    /* ─── OVERVIEW 3-COL ──────────────────────────────────────────────── */
+    .cs-3col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-top: 1px solid var(--ink);
+    }
+    .cs-3col__item {
+      padding: 28px 24px;
+      border-bottom: 1px solid var(--ink);
+    }
+    .cs-3col__item:not(:last-child) { border-right: 1px solid var(--ink); }
+    .cs-3col__title {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      margin: 12px 0 8px;
+    }
+    .cs-3col__body {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    /* ─── QUOTE ──────────────────────────────────────────────────────── */
+    .cs-quote {
+      background: var(--blue-soft);
+      border-left: 4px solid var(--blue);
+      padding: 32px 40px;
+      margin: 48px 0 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .cs-quote__text {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 600;
+      font-size: clamp(18px, 2vw, 26px);
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+    .cs-quote__attr {
+      margin-top: 16px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ─── CHALLENGE GRID ─────────────────────────────────────────────── */
+    .cs-challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+      margin-top: 40px;
+    }
+    .cs-challenge {
+      padding: 28px 24px;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition: background 0.2s ease;
+    }
+    .cs-challenge:hover { background: var(--paper); }
+    .cs-challenge--accent {
+      background: var(--blue);
+      color: #fff;
+    }
+    .cs-challenge--accent:hover { background: #0a2be0; }
+    .cs-challenge__num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .cs-challenge--accent .cs-challenge__num { color: rgba(255,255,255,0.6); }
+    .cs-challenge__title {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .cs-challenge__body {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+    .cs-challenge--accent .cs-challenge__body { color: rgba(255,255,255,0.8); }
+
+    /* ─── TIMELINE ───────────────────────────────────────────────────── */
+    .cs-timeline {
+      position: relative;
+      margin-top: 48px;
+      padding: 24px 0;
+      border-top: 1px solid var(--ink);
+    }
+    .cs-timeline__track {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .cs-timeline__step {
+      flex: 1;
+      position: relative;
+      padding: 0 0 32px;
+    }
+    .cs-timeline__step::before {
+      content: "";
+      position: absolute;
+      top: 8px; left: 0;
+      width: 100%; height: 2px;
+      background: var(--hairline);
+    }
+    .cs-timeline__step:first-child::before { width: calc(100% - 8px); left: 8px; }
+    .cs-timeline__dot {
+      width: 16px; height: 16px;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 2px solid var(--ink);
+      position: relative;
+      z-index: 1;
+      transition: background 0.2s;
+    }
+    .cs-timeline__step:hover .cs-timeline__dot { background: var(--blue); border-color: var(--blue); }
+    .cs-timeline__period {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+    .cs-timeline__label {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: -0.01em;
+      margin-top: 4px;
+    }
+
+    /* ─── 2-COL LAYOUT ───────────────────────────────────────────────── */
+    .cs-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .cs-2col--60-40 { grid-template-columns: 3fr 2fr; }
+    .cs-2col--40-60 { grid-template-columns: 2fr 3fr; }
+
+    /* ─── STAT CALLOUT ───────────────────────────────────────────────── */
+    .cs-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cs-stat__num {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      font-size: clamp(64px, 8vw, 112px);
+      color: var(--blue);
+    }
+    .cs-stat__label {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ─── INITIATIVES CARDS ──────────────────────────────────────────── */
+    .cs-init-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .cs-init-card {
+      border: 1px solid var(--ink);
+      background: var(--paper);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .cs-init-card:hover { background: var(--bg); transform: translateY(-2px); }
+    .cs-init-card--accent {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+    .cs-init-card--accent:hover { background: #0a2be0; }
+    .cs-init-card__num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .cs-init-card--accent .cs-init-card__num { color: rgba(255,255,255,0.6); }
+    .cs-init-card__title {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: auto 0 0;
+    }
+    .cs-init-card__desc {
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 8px;
+      color: var(--muted);
+    }
+    .cs-init-card--accent .cs-init-card__desc { color: rgba(255,255,255,0.7); }
+    .cs-init-card__impact {
+      margin-top: 12px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--blue);
+    }
+    .cs-init-card--accent .cs-init-card__impact { color: #fff; }
+
+    /* ─── DEEP DIVE ──────────────────────────────────────────────────── */
+    .cs-dd-header {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: 8px;
+    }
+    .cs-dd-tag {
+      background: var(--blue);
+      color: #fff;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+    .cs-decision-list {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--ink);
+    }
+    .cs-decision {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--hairline);
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 24px;
+      cursor: pointer;
+    }
+    .cs-decision:hover .cs-decision__title { color: var(--blue); }
+    .cs-decision__num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--blue);
+      line-height: 1;
+      padding-top: 4px;
+    }
+    .cs-decision__title {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      transition: color 0.15s;
+    }
+    .cs-decision__body {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+    .cs-decision__tradeoff {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    /* ─── BEFORE/AFTER TOGGLE ────────────────────────────────────────── */
+    .cs-before-after {
+      margin-top: 48px;
+      border: 1px solid var(--ink);
+      overflow: hidden;
+    }
+    .cs-ba-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--ink);
+    }
+    .cs-ba-tab {
+      flex: 1;
+      padding: 14px 24px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      border-right: 1px solid var(--ink);
+      cursor: pointer;
+      color: var(--muted);
+      transition: background 0.15s, color 0.15s;
+    }
+    .cs-ba-tab:last-child { border-right: none; }
+    .cs-ba-tab--active {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .cs-ba-panel {
+      display: none;
+      padding: 40px;
+    }
+    .cs-ba-panel--active { display: block; }
+    .cs-ba-screen {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: repeating-linear-gradient(135deg, rgba(10,10,10,0.04) 0 8px, transparent 8px 16px);
+      border: 1px dashed var(--hairline);
+      display: grid;
+      place-items: center;
+      border-radius: 4px;
+    }
+    .cs-ba-screen span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .cs-ba-annotations {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cs-ba-ann {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .cs-ba-ann::before {
+      content: "→";
+      color: var(--blue);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    /* ─── DESIGN SYSTEM TOKEN GRID ───────────────────────────────────── */
+    .cs-token-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .cs-token {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cs-token__swatch {
+      aspect-ratio: 1/1;
+      border-radius: 8px;
+      border: 1px solid var(--hairline);
+    }
+    .cs-token__name {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .cs-token__hex {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      color: var(--ink);
+    }
+
+    /* ─── COMPONENT ROW ──────────────────────────────────────────────── */
+    .cs-component-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding: 28px;
+      background: var(--paper);
+      border: 1px solid var(--hairline);
+    }
+    .cs-comp-pill {
+      padding: 8px 16px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      font-size: 12px;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    /* ─── IMPACT METRICS ─────────────────────────────────────────────── */
+    .cs-metric-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+      margin-top: 48px;
+    }
+    .cs-metric {
+      padding: 32px 28px;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cs-metric--hero { background: var(--blue); color: #fff; }
+    .cs-metric__num {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      font-size: clamp(48px, 5vw, 72px);
+    }
+    .cs-metric--hero .cs-metric__num { color: #fff; }
+    .cs-metric__label {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.4;
+    }
+    .cs-metric--hero .cs-metric__label { color: rgba(255,255,255,0.8); }
+    .cs-metric__context {
+      margin-top: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+    }
+    .cs-metric--hero .cs-metric__context { color: rgba(255,255,255,0.5); }
+
+    /* ─── BEFORE/AFTER TABLE ─────────────────────────────────────────── */
+    .cs-ba-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 48px;
+      font-size: 14px;
+    }
+    .cs-ba-table th {
+      text-align: left;
+      padding: 12px 20px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--ink);
+    }
+    .cs-ba-table th:last-child { color: var(--blue); }
+    .cs-ba-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--hairline);
+      line-height: 1.45;
+    }
+    .cs-ba-table tr:hover td { background: var(--paper); }
+    .cs-ba-table .arrow { color: var(--blue); font-weight: 700; text-align: center; }
+
+    /* ─── COLLAB 3-COL ───────────────────────────────────────────────── */
+    .cs-collab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-top: 1px solid var(--ink);
+      margin-top: 48px;
+    }
+    .cs-collab-item {
+      padding: 32px 28px;
+      border-bottom: 1px solid var(--ink);
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+    }
+    .cs-collab-item:not(:last-child) { border-right: 1px solid var(--ink); }
+    .cs-collab-item__role {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .cs-collab-item__title {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      font-size: clamp(22px, 2.5vw, 32px);
+      letter-spacing: -0.03em;
+      margin: 16px 0 20px;
+    }
+    .cs-collab-item__body {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+    .cs-collab-item__outcome {
+      margin-top: auto;
+      padding-top: 20px;
+      font-size: 13px;
+      color: var(--blue);
+      font-weight: 500;
+      border-top: 1px solid var(--hairline);
+    }
+
+    /* ─── REFLECTION 2-COL ───────────────────────────────────────────── */
+    .cs-reflect-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--ink);
+      margin-top: 48px;
+    }
+    .cs-reflect-col {
+      padding: 32px;
+    }
+    .cs-reflect-col:first-child { border-right: 1px solid var(--ink); }
+    .cs-reflect-col__header {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .cs-reflect-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .cs-reflect-item__title {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .cs-reflect-item__body {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+    .cs-closing-quote {
+      text-align: center;
+      padding: 80px 32px;
+      border-bottom: 1px solid var(--ink);
+    }
+    .cs-closing-quote__text {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      font-size: clamp(28px, 4vw, 56px);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+    .cs-closing-quote__attr {
+      margin-top: 24px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+    @media (max-width: 1023px) {
+      .cs-nav__sections { display: none; }
+      .cs-3col { grid-template-columns: 1fr 1fr; }
+      .cs-challenge-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-init-grid { grid-template-columns: repeat(3, 1fr); }
+      .cs-metric-grid { grid-template-columns: 1fr 1fr; }
+      .cs-collab-grid { grid-template-columns: 1fr; }
+      .cs-collab-item { border-right: none !important; }
+      .cs-hero__bottom { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 767px) {
+      .cs-section { padding: 48px 20px; }
+      .cs-hero { padding: 24px 20px 0; }
+      .cs-hero__top { flex-direction: column; }
+      .cs-hero__meta { display: none; }
+      .cs-hero__bottom { grid-template-columns: 1fr; }
+      .cs-2col, .cs-2col--60-40, .cs-2col--40-60 { grid-template-columns: 1fr; gap: 32px; }
+      .cs-3col { grid-template-columns: 1fr; }
+      .cs-challenge-grid { grid-template-columns: 1fr 1fr; }
+      .cs-init-grid { grid-template-columns: 1fr 1fr; }
+      .cs-metric-grid { grid-template-columns: 1fr; }
+      .cs-reflect-grid { grid-template-columns: 1fr; }
+      .cs-reflect-col:first-child { border-right: none; border-bottom: 1px solid var(--ink); }
+      .cs-token-grid { grid-template-columns: repeat(4, 1fr); }
+      .cs-ba-table { font-size: 12px; }
+    }
+
+/* ─── HERO + CONTEXT IMAGES (case study) ─────────────────────────── */
+.cs-hero-image {
+  margin: 48px 0 0;
+}
+.cs-image-figure {
+  margin: 48px 0 0;
+}
+.cs-image-figure figcaption {
+  margin-top: 12px;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cs-image-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: repeating-linear-gradient(135deg, rgba(10,10,10,0.04) 0 8px, transparent 8px 16px);
+  border: 1px dashed var(--hairline);
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+}
+.cs-image-placeholder span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+}

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadence — Case Study · Artur Lopez Zarytskyi</title>
+  <meta name="description" content="Cadence: B2B SaaS · Design System. Lead Product Designer, 8 months.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────────────── -->
+<nav class="cs-nav" id="cs-nav">
+  <a href="index.html" class="cs-nav__back">
+    <span class="cs-nav__back-dot" aria-hidden="true"></span>
+    <span>Artur L.Z.</span>
+  </a>
+  <div class="cs-nav__sections" role="list">
+    <button class="cs-nav__sec cs-nav__sec--active" data-target="overview">Context</button>
+    <button class="cs-nav__sec" data-target="problem">Problem</button>
+    <button class="cs-nav__sec" data-target="initiatives">Work</button>
+    <button class="cs-nav__sec" data-target="impact">Impact</button>
+    <button class="cs-nav__sec" data-target="reflection">Reflection</button>
+  </div>
+  <div class="cs-nav__progress mono" id="scroll-progress">00%</div>
+</nav>
+
+<!-- ─── 01 HERO ──────────────────────────────────────────────────────── -->
+<section class="cs-hero" id="hero">
+  <div class="cs-hero__top">
+    <div class="cs-hero__pills">
+      <span class="pill">B2B · SaaS</span>
+      <span class="pill">Design System</span>
+      <span class="pill pill--accent">✦ 60% Velocity</span>
+      <span class="pill">Lead Designer</span>
+      <span class="pill">8 months</span>
+    </div>
+    <div class="mono cs-hero__meta">
+      (01) — CASE STUDY<br>
+      ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<br>
+      CADENCE · 2024<br>
+      PRODUCT / UX DESIGN
+    </div>
+  </div>
+
+  <h1 class="display cs-hero__h1">
+    Designing the<br>
+    system that the<br>
+    system needed<br>
+    <span class="text-blue" aria-hidden="true">.</span>
+  </h1>
+
+  <div class="cs-hero__bottom">
+    <p class="cs-hero__lead">Cadence is a marketing automation suite that had grown across 3 acquired products and 5 fragmented codebases. I led the design system rebuild that <em class="text-blue text-semibold">unified eight surfaces</em> and turned shipping a feature from <em class="underline-em">a fortnight</em> into <em class="underline-em">a sprint</em>.</p>
+    <div class="cs-hero__stats">
+      <div class="cs-hero__stat-num">~60%</div>
+      <div class="cs-hero__stat-label">Faster feature shipping<br>after design system rollout</div>
+    </div>
+    <div class="mono cs-hero__attrs">
+      ROLE — Lead Product Designer<br>
+      SCOPE — End-to-end<br>
+      INDUSTRY — B2B SaaS · Design System<br>
+      YEAR — 2024<br>
+      TEAM — 4 designers · 18 engineers
+    </div>
+  </div>
+
+  <!-- HERO IMAGE — Replace with real artwork: images/cadence/hero.jpg -->
+  <figure class="cs-hero-image">
+    <div class="cs-image-placeholder" aria-label="Cadence hero image">
+      <span class="mono">images/cadence/hero.jpg</span>
+    </div>
+  </figure>
+</section>
+
+<!-- ─── 02 CONTEXT ───────────────────────────────────────────────────── -->
+<section class="cs-section" id="overview">
+  <div class="cs-label">(02) — Context</div>
+  <h2 class="display cs-h2">Three products,<br>one customer,<br>zero cohesion<br><span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">Cadence's parent company had stitched together a marketing suite by acquiring point tools — campaign builder, analytics, and CDP — each with its own design language, navigation, and data model.</p>
+      <p class="cs-body">Customers experienced it as one product. The team experienced it as three. Every feature meant duplicating UI work three times, with three different sets of inconsistencies to reconcile.</p>
+    </div>
+    <div>
+      <div class="cs-3col" style="grid-template-columns:1fr; border: 1px solid var(--ink);">
+        <div class="cs-3col__item" style="border-right:none;">
+          <div class="cs-label">Company snapshot</div>
+          <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
+            STAGE — Series C SaaS<br>
+            TEAMS — 3 product squads<br>
+            CODEBASES — 5 (legacy + acquired)<br>
+            PLATFORMS — Web + Email composer<br>
+            DESIGN MATURITY — Mid, fragmented
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-3col" style="margin-top:48px;">
+    <div class="cs-3col__item">
+      <div class="cs-label">(01)</div>
+      <div class="cs-3col__title">Acquired surfaces</div>
+      <p class="cs-3col__body">Three independent products with their own component libraries, spacing scales, and visual languages — all sharing a customer.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">(02)</div>
+      <div class="cs-3col__title">Speed mandate</div>
+      <p class="cs-3col__body">Leadership wanted feature parity across surfaces in two quarters. Without a system, the math didn't work — every ship was 3× the work.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">(03)</div>
+      <div class="cs-3col__title">Trust deficit</div>
+      <p class="cs-3col__body">Past system attempts had stalled. Engineering had stopped believing tokens would stick. The first job was rebuilding faith.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 03 PROBLEM ───────────────────────────────────────────────────── -->
+<section class="cs-section" id="problem">
+  <div class="cs-label">(03) — The Problem</div>
+  <h2 class="display cs-h2">Every feature shipped<br>three times — and three<br>subtly differently<br><span class="text-blue">.</span></h2>
+
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">A campaign-status badge looked like a pill in one product, a chip in another, and an inline label in the third. Engineering teams kept re-implementing the same primitives because the alternative — coordinating across squads — was harder than rebuilding.</p>
+      <p class="cs-body">The cost wasn't just velocity. Customers were quietly losing trust in a product that couldn't describe its own state consistently.</p>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat__num">3×</div>
+      <div class="cs-stat__label">Multiplier on every UI change<br>before the system shipped</div>
+    </div>
+  </div>
+
+  <div class="cs-3col" style="margin-top:48px;">
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 01</div>
+      <div class="cs-3col__title">Token chaos</div>
+      <p class="cs-3col__body">47 distinct shades of gray across the surfaces. 9 different "primary" buttons. Spacing inconsistent down to the 1px.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 02</div>
+      <div class="cs-3col__title">Pattern drift</div>
+      <p class="cs-3col__body">Same task — say, scheduling a campaign — used 3 different interaction models. Users had to relearn within a single session.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 03</div>
+      <div class="cs-3col__title">No shared language</div>
+      <p class="cs-3col__body">Designers and engineers used different names for the same thing. "Tag" meant 4 different concepts. Specs translated badly.</p>
+    </div>
+  </div>
+
+  <div class="cs-quote">
+    <p class="cs-quote__text">"We're not a product. We're three products in a trenchcoat — and our users can tell."</p>
+    <div class="cs-quote__attr">— PM lead, kickoff workshop</div>
+  </div>
+
+  <!-- PROBLEM IMAGE — Replace: images/cadence/problem.jpg -->
+  <figure class="cs-image-figure">
+    <div class="cs-image-placeholder" aria-label="Cadence problem visualization">
+      <span class="mono">images/cadence/problem.jpg</span>
+    </div>
+    <figcaption class="mono">FIG. 01 — The original surface</figcaption>
+  </figure>
+</section>
+
+<!-- ─── 04 ROLE ───────────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(04) — Role</div>
+  <h2 class="display cs-h2">Lead Product Designer.<br>8 months<span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">I led a design team of four — embedded one designer per product squad, plus a system specialist — and ran the design system as its own track of work, with its own roadmap and metrics.</p>
+      <p class="cs-body">My remit covered system architecture, governance, contributor model, design–engineering alignment, and the migration plan that kept the lights on while we rebuilt the foundation.</p>
+    </div>
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2.2; color:var(--ink-soft);">
+        <div style="color:var(--muted); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Responsibilities</div>
+        STRATEGY — System roadmap · Migration plan<br>
+        ARCHITECTURE — Tokens · Components · Patterns<br>
+        GOVERNANCE — Contribution model · Reviews<br>
+        ENABLEMENT — Workshops · Docs · Pairing
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-timeline">
+    <div class="cs-timeline__track">
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Q1</div>
+        <div class="cs-timeline__label">Audit + alignment</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Q1</div>
+        <div class="cs-timeline__label">Token foundation</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Q2</div>
+        <div class="cs-timeline__label">Core components</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Q2</div>
+        <div class="cs-timeline__label">Surface migration</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Q3</div>
+        <div class="cs-timeline__label">Patterns + docs</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">Q3</div>
+        <div class="cs-timeline__label">Adoption + KPIs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 05 INITIATIVES ───────────────────────────────────────────────── -->
+<section class="cs-section" id="initiatives">
+  <div class="cs-label">(05) — Initiatives</div>
+  <h2 class="display cs-h2">Three bets.<br>One direction<span class="text-blue">.</span></h2>
+  <p class="cs-body" style="max-width:560px;">Three workstreams ran in parallel — each with a clear hypothesis and shipping cadence — feeding the same migration backlog.</p>
+  <div class="cs-init-grid" style="grid-template-columns:repeat(3, 1fr);">
+    <div class="cs-init-card cs-init-card--accent" style="cursor:default;">
+      <div class="cs-init-card__num">(01)</div>
+      <div class="cs-init-card__title">Token Foundation</div>
+      <div class="cs-init-card__desc">Semantic tokens across color, type, space, and motion — replacing 47 grays with 8 intentional ones.</div>
+      <div class="cs-init-card__impact">↳ Single source of truth</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(02)</div>
+      <div class="cs-init-card__title">Component Library</div>
+      <div class="cs-init-card__desc">40+ components built once, consumed across 3 products via a shared package.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ ~60% faster feature builds</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(03)</div>
+      <div class="cs-init-card__title">Migration Playbook</div>
+      <div class="cs-init-card__desc">Surface-by-surface adoption plan with feature-flag rollout and zero-downtime parity.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ 8 surfaces migrated, no regressions</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 06 DEEP DIVE ─────────────────────────────────────────────────── -->
+<section class="cs-section" id="dd-main">
+  <div class="cs-dd-header">
+    <span class="cs-dd-tag">Deep Dive</span>
+    <div class="cs-label">Token Foundation</div>
+  </div>
+  <h2 class="display cs-h2">From 47 grays to 8.<br>From taste to system<br><span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">Color tokens were where the system had to start — they were the most visibly broken and the cheapest place to demonstrate value. The original system had no semantic layer: every component referenced raw hex values, drifting independently over time.</p>
+      <p class="cs-body" style="margin-top:16px;">The bet: introduce a semantic layer (text-primary, surface-raised, border-strong) on top of a primitive layer, and migrate components one at a time. The primitive scale stays small and intentional; semantics carry meaning across light, dark, and brand variants.</p>
+    </div>
+    <div>
+      <div class="cs-label">The research</div>
+      <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
+        AUDITED — 5 codebases, ~12k usages<br>
+        CATEGORISED — 47 grays → 8 intents<br>
+        DESIGNED — 3 themes from same scale<br>
+        MIGRATED — Codemod-driven, automatable
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-decision-list">
+    <div class="cs-decision">
+      <div class="cs-decision__num">01</div>
+      <div>
+        <div class="cs-decision__title">Semantic layer over primitives</div>
+        <p class="cs-decision__body">Every component references semantics ("text-primary"), never primitives. This decouples theme from implementation and made dark mode a 2-week feature instead of a quarter.</p>
+        <div class="cs-decision__tradeoff">Trade-off → slower onboarding for new designers — semantics require thinking about intent. Worth it.</div>
+      </div>
+    </div>
+    <div class="cs-decision">
+      <div class="cs-decision__num">02</div>
+      <div>
+        <div class="cs-decision__title">Codemod-first migration</div>
+        <p class="cs-decision__body">Wrote a codemod that auto-replaced 80% of color usages. Manual review caught the ambiguous cases. 12k changes shipped in two weeks instead of two quarters.</p>
+        <div class="cs-decision__tradeoff">Trade-off → invested 3 weeks in tooling before any visible UI shipped. Engineering buy-in was the unlock.</div>
+      </div>
+    </div>
+    <div class="cs-decision">
+      <div class="cs-decision__num">03</div>
+      <div>
+        <div class="cs-decision__title">Themes as first-class</div>
+        <p class="cs-decision__body">Light, dark, and a high-contrast accessibility theme all derived from the same token contract. No theme-specific overrides allowed.</p>
+        <div class="cs-decision__tradeoff">Outcome → a new theme is a config file, not a project.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEFORE/AFTER IMAGES — Replace:
+       images/cadence/before.jpg — original surface
+       images/cadence/after.jpg  — redesigned surface -->
+  <div class="cs-before-after">
+    <div class="cs-ba-tabs">
+      <button class="cs-ba-tab cs-ba-tab--active" data-panel="before-1">Before</button>
+      <button class="cs-ba-tab" data-panel="after-1">After</button>
+    </div>
+    <div class="cs-ba-panel cs-ba-panel--active" id="before-1">
+      <div class="cs-ba-screen"><span>images/cadence/before.jpg</span></div>
+    </div>
+    <div class="cs-ba-panel" id="after-1">
+      <div class="cs-ba-screen"><span>images/cadence/after.jpg</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 07 IMPACT ────────────────────────────────────────────────────── -->
+<section class="cs-section" id="impact">
+  <div class="cs-label">(07) — Impact</div>
+  <h2 class="display cs-h2">The work,<br>measured<span class="text-blue">.</span></h2>
+  <div class="cs-metric-grid">
+    <div class="cs-metric cs-metric--hero">
+      <div class="cs-metric__num">~60%</div>
+      <div class="cs-metric__label">Faster feature shipping<br>Post-system rollout</div>
+      <div class="cs-metric__context">MEASURED VIA SPRINT THROUGHPUT<br>3-MONTH ROLLING AVG</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">8</div>
+      <div class="cs-metric__label">Surfaces migrated</div>
+      <div class="cs-metric__context">ZERO USER-FACING<br>REGRESSIONS</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">47→8</div>
+      <div class="cs-metric__label">Gray tokens</div>
+      <div class="cs-metric__context">SEMANTIC<br>LAYER ADDED</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">40+</div>
+      <div class="cs-metric__label">Components shipped</div>
+      <div class="cs-metric__context">ACROSS 3 PRODUCTS</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">2 wks</div>
+      <div class="cs-metric__label">Dark mode build<br>(was: a quarter)</div>
+      <div class="cs-metric__context">THEME CONTRACT<br>UNLOCKED IT</div>
+    </div>
+  </div>
+  <div style="margin-top:24px; padding:16px 20px; border:1px solid var(--hairline); border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); line-height:1.6;">
+    NOTE — Some metrics are directional based on data available at the time. Where possible, figures reflect controlled comparisons; otherwise stakeholder-validated estimates.
+  </div>
+</section>
+
+<!-- ─── 08 OUTCOMES ──────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(08) — Outcomes</div>
+  <h2 class="display cs-h2">What changed.<br>What it earned<span class="text-blue">.</span></h2>
+  <table class="cs-ba-table">
+    <thead>
+      <tr><th>Before</th><th class="arrow">→</th><th>After</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>47 grays, 9 primary buttons across 3 products</td><td class="arrow">→</td><td>Semantic token contract, 8 grays</td></tr>
+      <tr><td>Each feature implemented 3× across surfaces</td><td class="arrow">→</td><td>Build once, consume everywhere</td></tr>
+      <tr><td>Dark mode estimated as a quarter of work</td><td class="arrow">→</td><td>Shipped in 2 weeks via theme contract</td></tr>
+      <tr><td>No design-engineering shared vocabulary</td><td class="arrow">→</td><td>Component names mirror code names exactly</td></tr>
+      <tr><td>System contributions blocked on one team</td><td class="arrow">→</td><td>Open contribution model with review SLA</td></tr>
+      <tr><td>No system metrics tracked</td><td class="arrow">→</td><td>Adoption % per surface, on a public dashboard</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:64px; padding:64px 32px; background:var(--blue); text-align:center; border:1px solid var(--blue);">
+    <div style="font-family:'Inter Tight',sans-serif; font-weight:700; font-size:clamp(80px,12vw,160px); letter-spacing:-0.05em; line-height:0.9; color:#fff;">~60%</div>
+    <div style="margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.6); text-transform:uppercase;">Faster feature shipping · after design system rollout</div>
+  </div>
+</section>
+
+<!-- ─── 09 REFLECTION ────────────────────────────────────────────────── -->
+<section class="cs-section" id="reflection">
+  <div class="cs-label">(09) — Reflection</div>
+  <h2 class="display cs-h2">What I'd do<br>differently<span class="text-blue">.</span></h2>
+  <div class="cs-reflect-grid">
+    <div class="cs-reflect-col">
+      <div class="cs-reflect-col__header">What worked</div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Investing in tooling before pixels</div>
+        <p class="cs-reflect-item__body">The codemod migration was the single highest-leverage thing we built. Three weeks of infra investment unlocked twelve weeks of migration.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Making semantics, not styles, the contract</div>
+        <p class="cs-reflect-item__body">Components reference intent, not color. This decoupling made the dark mode launch trivial and pushed designers toward better systems thinking.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Embedding designers in squads</div>
+        <p class="cs-reflect-item__body">A central system team would have built the right thing for the wrong customer. Embedded designers carried system improvements upstream from real product work.</p>
+      </div>
+    </div>
+    <div class="cs-reflect-col">
+      <div class="cs-reflect-col__header">What I'd do differently</div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Earlier cross-functional governance</div>
+        <p class="cs-reflect-item__body">I underestimated how much governance needed PM and engineering co-ownership. Set that up earlier and the contribution model would have stabilised faster.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Ship the docs before the components</div>
+        <p class="cs-reflect-item__body">Several components shipped without good docs and got misused. Treat docs as gating, not a follow-up.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Quantify the baseline harder</div>
+        <p class="cs-reflect-item__body">The "60% faster" number is directional. Better baseline instrumentation would have let me defend the system's ROI more sharply.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLOSING ──────────────────────────────────────────────────────── -->
+<div class="cs-closing-quote">
+  <p class="cs-closing-quote__text display">
+    "A design system is the slowest, most boring thing you can ship — until it's the only reason you can ship anything else."
+  </p>
+  <div class="cs-closing-quote__attr">Artur Lopez Zarytskyi · Cadence · 2024</div>
+  <div style="margin-top:32px; display:flex; justify-content:center; gap:16px;">
+    <a href="index.html" class="btn btn--primary" style="max-width:200px;"><span>← Back to portfolio</span></a>
+    <a href="mailto:artur@lopezzarytskyi.com" class="btn btn--outline" style="max-width:200px;"><span>Get in touch</span><span>↗</span></a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <span class="mono">© 2026 ARTUR LOPEZ ZARYTSKYI</span>
+  <span class="mono">CADENCE CASE STUDY · 2024</span>
+  <a href="#top" class="mono footer__back-to-top">↑ BACK TO TOP</a>
+</footer>
+
+<script src="case-study.js"></script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiet Hours — Case Study · Artur Lopez Zarytskyi</title>
+  <meta name="description" content="Quiet Hours: iOS · Consumer · Wellbeing. Founding Designer, 6 months to launch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────────────── -->
+<nav class="cs-nav" id="cs-nav">
+  <a href="index.html" class="cs-nav__back">
+    <span class="cs-nav__back-dot" aria-hidden="true"></span>
+    <span>Artur L.Z.</span>
+  </a>
+  <div class="cs-nav__sections" role="list">
+    <button class="cs-nav__sec cs-nav__sec--active" data-target="overview">Context</button>
+    <button class="cs-nav__sec" data-target="problem">Problem</button>
+    <button class="cs-nav__sec" data-target="initiatives">Work</button>
+    <button class="cs-nav__sec" data-target="impact">Impact</button>
+    <button class="cs-nav__sec" data-target="reflection">Reflection</button>
+  </div>
+  <div class="cs-nav__progress mono" id="scroll-progress">00%</div>
+</nav>
+
+<!-- ─── 01 HERO ──────────────────────────────────────────────────────── -->
+<section class="cs-hero" id="hero">
+  <div class="cs-hero__top">
+    <div class="cs-hero__pills">
+      <span class="pill">iOS · Consumer</span>
+      <span class="pill">Wellbeing</span>
+      <span class="pill pill--accent">✦ Featured by Apple</span>
+      <span class="pill">Founding Designer</span>
+      <span class="pill">6 months</span>
+    </div>
+    <div class="mono cs-hero__meta">
+      (01) — CASE STUDY<br>
+      ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<br>
+      QUIET HOURS · 2024<br>
+      PRODUCT / UX DESIGN
+    </div>
+  </div>
+
+  <h1 class="display cs-hero__h1">
+    Designing time<br>
+    that doesn't<br>
+    demand attention<br>
+    <span class="text-blue" aria-hidden="true">.</span>
+  </h1>
+
+  <div class="cs-hero__bottom">
+    <p class="cs-hero__lead">Quiet Hours is an iOS app for protected focus blocks — a calmer, more deliberate alternative to screen-time apps. I joined as <em class="text-blue text-semibold">founding designer</em> and shaped the product from a Notion doc through to <em class="underline-em">App Store launch</em> and an <em class="underline-em">Apple feature</em>.</p>
+    <div class="cs-hero__stats">
+      <div class="cs-hero__stat-num">4.8★</div>
+      <div class="cs-hero__stat-label">App Store rating across<br>2,400+ reviews at 90 days</div>
+    </div>
+    <div class="mono cs-hero__attrs">
+      ROLE — Founding Designer<br>
+      SCOPE — End-to-end<br>
+      INDUSTRY — iOS · Consumer · Wellbeing<br>
+      YEAR — 2024<br>
+      TEAM — 3 founders · 1 designer (me)
+    </div>
+  </div>
+
+  <!-- HERO IMAGE — Replace with real artwork: images/quiet-hours/hero.jpg -->
+  <figure class="cs-hero-image">
+    <div class="cs-image-placeholder" aria-label="Quiet Hours hero image">
+      <span class="mono">images/quiet-hours/hero.jpg</span>
+    </div>
+  </figure>
+</section>
+
+<!-- ─── 02 CONTEXT ───────────────────────────────────────────────────── -->
+<section class="cs-section" id="overview">
+  <div class="cs-label">(02) — Context</div>
+  <h2 class="display cs-h2">A wellbeing app<br>that refuses to<br>feel like a chore<br><span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">Most focus and screen-time apps rely on guilt. Streaks, leaderboards, "you used your phone 4 hours today" — engagement loops borrowed from the very products they're protecting users from.</p>
+      <p class="cs-body">The Quiet Hours bet: the calmest app you'll have on your phone. No streaks, no scores, no notifications outside of the ones you opted into. Just well-designed time, repeated.</p>
+    </div>
+    <div>
+      <div class="cs-3col" style="grid-template-columns:1fr; border: 1px solid var(--ink);">
+        <div class="cs-3col__item" style="border-right:none;">
+          <div class="cs-label">Company snapshot</div>
+          <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
+            STAGE — Pre-seed → Seed<br>
+            PLATFORM — iOS native (SwiftUI)<br>
+            AUDIENCE — Knowledge workers, parents<br>
+            PRICING — Freemium · subscription<br>
+            LAUNCH — Q3 2024
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-3col" style="margin-top:48px;">
+    <div class="cs-3col__item">
+      <div class="cs-label">(01)</div>
+      <div class="cs-3col__title">Anti-streak philosophy</div>
+      <p class="cs-3col__body">No gamification. Skipping a day is fine. Quiet Hours protects time, it doesn't score it.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">(02)</div>
+      <div class="cs-3col__title">Trust over telemetry</div>
+      <p class="cs-3col__body">On-device by default. Your focus data never leaves the phone. Sold this as a feature, not a constraint.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">(03)</div>
+      <div class="cs-3col__title">Calm by construction</div>
+      <p class="cs-3col__body">Every interaction interrogated for noise: did this transition need to animate? Did this number need to be there?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 03 PROBLEM ───────────────────────────────────────────────────── -->
+<section class="cs-section" id="problem">
+  <div class="cs-label">(03) — The Problem</div>
+  <h2 class="display cs-h2">Wellbeing apps<br>are usually the<br>loudest things<br>on the phone<br><span class="text-blue">.</span></h2>
+
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">In early research, six of eight participants had a "wellbeing graveyard" — folders of focus, meditation, and screen-time apps they'd uninstalled or muted. The pattern was consistent: install during a moment of intent, abandon when the app started demanding the very attention it was supposed to protect.</p>
+      <p class="cs-body">The product opportunity wasn't a better feature set — it was a calmer one.</p>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat__num">6/8</div>
+      <div class="cs-stat__label">Research participants had<br>uninstalled previous focus apps</div>
+    </div>
+  </div>
+
+  <div class="cs-3col" style="margin-top:48px;">
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 01</div>
+      <div class="cs-3col__title">Streak guilt</div>
+      <p class="cs-3col__body">Users described feeling worse, not better, after missing a day. The streak became the thing being protected, not the focus.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 02</div>
+      <div class="cs-3col__title">Notification creep</div>
+      <p class="cs-3col__body">Apps that opted users into push by default, or buried opt-outs in settings. The first thing the user did was disable the app.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">Failure mode 03</div>
+      <div class="cs-3col__title">Visual loudness</div>
+      <p class="cs-3col__body">Bright gradients, achievement badges, oversized progress rings. Users said "the app stresses me out" — the antithesis of the value prop.</p>
+    </div>
+  </div>
+
+  <div class="cs-quote">
+    <p class="cs-quote__text">"It's the only app I've ever told my partner about without sarcasm."</p>
+    <div class="cs-quote__attr">— TestFlight user, week 4</div>
+  </div>
+
+  <!-- PROBLEM IMAGE — Replace: images/quiet-hours/problem.jpg -->
+  <figure class="cs-image-figure">
+    <div class="cs-image-placeholder" aria-label="Quiet Hours problem visualization">
+      <span class="mono">images/quiet-hours/problem.jpg</span>
+    </div>
+    <figcaption class="mono">FIG. 01 — The original surface</figcaption>
+  </figure>
+</section>
+
+<!-- ─── 04 ROLE ───────────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(04) — Role</div>
+  <h2 class="display cs-h2">Founding Designer.<br>6 months to launch<span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">I joined as the first non-engineer hire and the only designer. Reported to the CEO. My remit covered everything from positioning and IA through to UI, motion, app icon, App Store listing, and onboarding.</p>
+      <p class="cs-body">I worked one room over from the iOS engineer for the entire build. Most decisions were made on a shared whiteboard, then reflected in Figma — not the other way around.</p>
+    </div>
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2.2; color:var(--ink-soft);">
+        <div style="color:var(--muted); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Responsibilities</div>
+        POSITIONING — Brand · Voice · Naming<br>
+        PRODUCT — IA · Flows · Onboarding<br>
+        CRAFT — UI · Motion · Sound · Icon<br>
+        GTM — App Store · Site · Email
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-timeline">
+    <div class="cs-timeline__track">
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M1</div>
+        <div class="cs-timeline__label">Research + positioning</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M2</div>
+        <div class="cs-timeline__label">Brand + IA</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M3</div>
+        <div class="cs-timeline__label">Core flows</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M4</div>
+        <div class="cs-timeline__label">TestFlight v1</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M5</div>
+        <div class="cs-timeline__label">Polish + motion</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">M6</div>
+        <div class="cs-timeline__label">Launch + features</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 05 INITIATIVES ───────────────────────────────────────────────── -->
+<section class="cs-section" id="initiatives">
+  <div class="cs-label">(05) — Initiatives</div>
+  <h2 class="display cs-h2">Three bets.<br>One direction<span class="text-blue">.</span></h2>
+  <p class="cs-body" style="max-width:560px;">Three product bets defined the launch — each a deliberate move away from the wellbeing-app default.</p>
+  <div class="cs-init-grid" style="grid-template-columns:repeat(3, 1fr);">
+    <div class="cs-init-card cs-init-card--accent" style="cursor:default;">
+      <div class="cs-init-card__num">(01)</div>
+      <div class="cs-init-card__title">The Quiet Block</div>
+      <div class="cs-init-card__desc">A protected time window that's calm to start, calm to end, and silent in between.</div>
+      <div class="cs-init-card__impact">↳ Core retention driver</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(02)</div>
+      <div class="cs-init-card__title">No-Streak Progress</div>
+      <div class="cs-init-card__desc">A weekly recap that celebrates patterns, not perfection. No streaks. No public scores.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Differentiator vs. category</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(03)</div>
+      <div class="cs-init-card__title">Trust by Default</div>
+      <div class="cs-init-card__desc">On-device data, opt-in everything. Privacy as the headline feature.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Apple feature placement</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 06 DEEP DIVE ─────────────────────────────────────────────────── -->
+<section class="cs-section" id="dd-main">
+  <div class="cs-dd-header">
+    <span class="cs-dd-tag">Deep Dive</span>
+    <div class="cs-label">The Quiet Block</div>
+  </div>
+  <h2 class="display cs-h2">One screen.<br>Many opinions.<br>Zero noise<br><span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">The Quiet Block is the central interaction — a protected window of focus time. Most focus apps add controls (extend, pause, edit goal); we removed them. Once a block starts, the user has exactly one option: stop. Everything else is read-only.</p>
+      <p class="cs-body" style="margin-top:16px;">This required hard product decisions: no extending, no pausing, no in-block editing. Friction-by-design. The screen during a block looks almost empty. That emptiness is the feature.</p>
+    </div>
+    <div>
+      <div class="cs-label">The research</div>
+      <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
+        8 USER INTERVIEWS — Pre-build<br>
+        20 DIARY-STUDY DAYS — Across 5 testers<br>
+        TESTFLIGHT — 12 weeks, 80 testers<br>
+        BEHAVIOURAL DATA — On-device only
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-decision-list">
+    <div class="cs-decision">
+      <div class="cs-decision__num">01</div>
+      <div>
+        <div class="cs-decision__title">Removable, not editable</div>
+        <p class="cs-decision__body">A running block can be stopped. It cannot be edited, extended, or paused. The simplicity removes negotiation with yourself, which is where focus apps usually lose users.</p>
+        <div class="cs-decision__tradeoff">Trade-off → some users wanted "extend by 5 min". We held the line. Retention was higher with the simpler version.</div>
+      </div>
+    </div>
+    <div class="cs-decision">
+      <div class="cs-decision__num">02</div>
+      <div>
+        <div class="cs-decision__title">Calm motion, not absent motion</div>
+        <p class="cs-decision__body">Animations are slow, soft, and asymmetric. The block edge breathes — barely. Static feels lifeless; conventional motion feels demanding. We landed on motion you barely notice unless you look.</p>
+        <div class="cs-decision__tradeoff">Outcome → reviewers consistently called the app "calming" — verbatim, in App Store reviews.</div>
+      </div>
+    </div>
+    <div class="cs-decision">
+      <div class="cs-decision__num">03</div>
+      <div>
+        <div class="cs-decision__title">Sound design as a feature</div>
+        <p class="cs-decision__body">Each block has an optional ambient sound, designed in collaboration with a composer. Loops are non-repeating. Volume defaults to imperceptible.</p>
+        <div class="cs-decision__tradeoff">Trade-off → audio added 2 weeks of engineering time. It's the most-mentioned feature in 5★ reviews.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEFORE/AFTER IMAGES — Replace:
+       images/quiet-hours/before.jpg — original surface
+       images/quiet-hours/after.jpg  — redesigned surface -->
+  <div class="cs-before-after">
+    <div class="cs-ba-tabs">
+      <button class="cs-ba-tab cs-ba-tab--active" data-panel="before-1">Before</button>
+      <button class="cs-ba-tab" data-panel="after-1">After</button>
+    </div>
+    <div class="cs-ba-panel cs-ba-panel--active" id="before-1">
+      <div class="cs-ba-screen"><span>images/quiet-hours/before.jpg</span></div>
+    </div>
+    <div class="cs-ba-panel" id="after-1">
+      <div class="cs-ba-screen"><span>images/quiet-hours/after.jpg</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 07 IMPACT ────────────────────────────────────────────────────── -->
+<section class="cs-section" id="impact">
+  <div class="cs-label">(07) — Impact</div>
+  <h2 class="display cs-h2">The work,<br>measured<span class="text-blue">.</span></h2>
+  <div class="cs-metric-grid">
+    <div class="cs-metric cs-metric--hero">
+      <div class="cs-metric__num">4.8★</div>
+      <div class="cs-metric__label">App Store rating<br>2,400+ reviews</div>
+      <div class="cs-metric__context">90 DAYS POST-LAUNCH<br>EN-US STORE</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">Featured</div>
+      <div class="cs-metric__label">By Apple — Apps We Love<br>Health & Fitness</div>
+      <div class="cs-metric__context">WEEK 6<br>POST-LAUNCH</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">38%</div>
+      <div class="cs-metric__label">Day-30 retention<br>Free → paid</div>
+      <div class="cs-metric__context">CATEGORY MEDIAN<br>~12%</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">120k</div>
+      <div class="cs-metric__label">Downloads at 90 days</div>
+      <div class="cs-metric__context">ZERO PAID<br>ACQUISITION</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">0</div>
+      <div class="cs-metric__label">Push notifications<br>(by default)</div>
+      <div class="cs-metric__context">OPT-IN ONLY<br>NEVER OPT-OUT</div>
+    </div>
+  </div>
+  <div style="margin-top:24px; padding:16px 20px; border:1px solid var(--hairline); border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); line-height:1.6;">
+    NOTE — Some metrics are directional based on data available at the time. Where possible, figures reflect controlled comparisons; otherwise stakeholder-validated estimates.
+  </div>
+</section>
+
+<!-- ─── 08 OUTCOMES ──────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(08) — Outcomes</div>
+  <h2 class="display cs-h2">What changed.<br>What it earned<span class="text-blue">.</span></h2>
+  <table class="cs-ba-table">
+    <thead>
+      <tr><th>Before</th><th class="arrow">→</th><th>After</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Streak-based engagement loop</td><td class="arrow">→</td><td>Pattern recap, no streaks</td></tr>
+      <tr><td>Push notifications by default</td><td class="arrow">→</td><td>Opt-in only, never opt-out</td></tr>
+      <tr><td>Editable in-block (extend, pause)</td><td class="arrow">→</td><td>Read-only — stop or finish</td></tr>
+      <tr><td>Cloud-synced behavioural data</td><td class="arrow">→</td><td>On-device by default</td></tr>
+      <tr><td>Generic SF Symbols and stock UI</td><td class="arrow">→</td><td>Custom iconography, restrained palette</td></tr>
+      <tr><td>Loud onboarding tour</td><td class="arrow">→</td><td>90-second silent walkthrough</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:64px; padding:64px 32px; background:var(--blue); text-align:center; border:1px solid var(--blue);">
+    <div style="font-family:'Inter Tight',sans-serif; font-weight:700; font-size:clamp(80px,12vw,160px); letter-spacing:-0.05em; line-height:0.9; color:#fff;">4.8★</div>
+    <div style="margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.6); text-transform:uppercase;">App Store rating across · 2,400+ reviews at 90 days</div>
+  </div>
+</section>
+
+<!-- ─── 09 REFLECTION ────────────────────────────────────────────────── -->
+<section class="cs-section" id="reflection">
+  <div class="cs-label">(09) — Reflection</div>
+  <h2 class="display cs-h2">What I'd do<br>differently<span class="text-blue">.</span></h2>
+  <div class="cs-reflect-grid">
+    <div class="cs-reflect-col">
+      <div class="cs-reflect-col__header">What worked</div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Saying no to category conventions</div>
+        <p class="cs-reflect-item__body">Every choice that worked started as "what if we just didn't". No streaks, no push, no edit-during-block. The product's identity is in those subtractions.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Sound as a first-class material</div>
+        <p class="cs-reflect-item__body">Treating audio as a core design surface, not a polish item, was the single most-loved decision. Sound design is underrated in product design.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Whiteboard-first, Figma-second</div>
+        <p class="cs-reflect-item__body">Working physically with the engineer kept the loop tight. Specs only existed when something needed to be re-explained.</p>
+      </div>
+    </div>
+    <div class="cs-reflect-col">
+      <div class="cs-reflect-col__header">What I'd do differently</div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Brand work earlier</div>
+        <p class="cs-reflect-item__body">I let positioning slip until month 2. The first round of UI was generic because we didn't yet have a voice. Brand should've been week 1.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Plan for the Apple feature</div>
+        <p class="cs-reflect-item__body">Being featured caught us flat-footed. I'd invest in store assets, video, and onboarding load-tests as if a feature were coming, every time.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Test the no-streak hypothesis harder</div>
+        <p class="cs-reflect-item__body">I had conviction but limited evidence. With more rigorous A/B I could have made the differentiator harder to copy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLOSING ──────────────────────────────────────────────────────── -->
+<div class="cs-closing-quote">
+  <p class="cs-closing-quote__text display">
+    "The best wellbeing tool is the one that asks for the least of you."
+  </p>
+  <div class="cs-closing-quote__attr">Artur Lopez Zarytskyi · Quiet Hours · 2024</div>
+  <div style="margin-top:32px; display:flex; justify-content:center; gap:16px;">
+    <a href="index.html" class="btn btn--primary" style="max-width:200px;"><span>← Back to portfolio</span></a>
+    <a href="mailto:artur@lopezzarytskyi.com" class="btn btn--outline" style="max-width:200px;"><span>Get in touch</span><span>↗</span></a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <span class="mono">© 2026 ARTUR LOPEZ ZARYTSKYI</span>
+  <span class="mono">QUIET HOURS CASE STUDY · 2024</span>
+  <a href="#top" class="mono footer__back-to-top">↑ BACK TO TOP</a>
+</footer>
+
+<script src="case-study.js"></script>
+</body>
+</html>
