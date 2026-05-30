@@ -1,38 +1,74 @@
 # Artur Lopez Zarytskyi — Portfolio
 
-Personal portfolio website. Static site — no build step required.
+The personal portfolio site of Artur Lopez Zarytskyi, a product designer with
+eight years of experience across fintech, SaaS, and consumer products.
 
-## Stack
+A static, dependency-free website: hand-written HTML, CSS, and a little vanilla
+JavaScript. No build step, no framework, no package install. Open `index.html`
+and it runs.
 
-- Vanilla HTML / CSS / JS
-- Google Fonts (Inter Tight + JetBrains Mono)
-- GitHub Pages via GitHub Actions
+## Structure
 
-## Development
+```
+portfolio/
+├── index.html              # Landing page — intro, work index, services, contact
+│
+├── finario.html            # Case study — Finario capex platform redesign
+├── arbolus.html            # Case study — Arbolus expert-network platform
+├── beam-health.html        # Case study — Beam Health
+├── cadence.html            # Case study — Cadence
+├── magma.html              # Case study — Magma
+├── telemetry-run.html      # Case study — Telemetry observability tool
+│
+├── styles.css              # Global tokens + landing-page styles
+├── case-study.css          # Shared case-study layout (nav, hero, before/after)
+├── case-study.js           # Shared case-study behavior (scroll reveal, toggles)
+├── script.js               # Landing-page behavior
+│
+├── finario-mockups.css     # Scoped inline product UI for the Finario study
+├── beam-mockups.css        # Scoped inline product UI for the Beam study
+├── telemetry-mockups.css   # Scoped inline product UI for the Telemetry study
+│
+├── portrait.png            # Profile image (nav avatar + landing)
+├── thumb-*.png / *.svg     # Case-study cover thumbnails
+└── assets/                 # Per-project case-study imagery
+```
 
-Open `index.html` directly in a browser, or use VS Code's Live Server extension for hot reload.
+Each case study links back to `index.html` via the nav avatar in the top-left.
 
-## Deploy (first time)
+## Running locally
 
-1. Create a new **public** repo on github.com (e.g. `portfolio` or `arturlz.github.io`)
-2. In this directory, run:
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-   git push -u origin main
-   ```
-3. On GitHub: **Settings → Pages → Source → GitHub Actions**
-4. The workflow fires automatically — your site is live at `https://YOUR_USERNAME.github.io/YOUR_REPO/`
+It's a static site, so any of these work:
 
-If the repo is named exactly `YOUR_USERNAME.github.io`, the site will be at `https://YOUR_USERNAME.github.io` (no subdirectory).
+```bash
+# Option 1 — just open it
+open index.html
 
-## Customise before launch
+# Option 2 — serve it (recommended, avoids file:// quirks)
+python3 -m http.server 8000
+# then visit http://localhost:8000
+```
 
-| What | Where |
-|------|-------|
-| Email address | `index.html` — search `artur@lopezzarytskyi.com` |
-| Social links | `index.html` — the `contact__links` list |
-| CV link | `index.html` — the "Read CV →" button `href` |
-| Portrait photo | Replace `about__portrait` placeholder with `<img src="portrait.jpg" alt="Artur">` |
-| Case study images | Replace each `card__image` placeholder with a real `<img>` or `<video>` |
-| Availability blurb | `index.html` — `contact__now` paragraph |
-| "Available Q3" pill | `index.html` — update copy as availability changes |
+## Deploying to GitHub Pages
+
+1. Push this folder's contents to the repository root (so `index.html` sits at
+   the top level).
+2. In the repo: **Settings → Pages → Source → Deploy from a branch**, pick your
+   branch and the `/ (root)` folder.
+3. The site publishes at `https://<username>.github.io/<repo>/`.
+
+No build, no CI, no environment variables required — all links are relative.
+
+## Design notes
+
+- **Type & color** live as CSS custom properties at the top of `styles.css`.
+- **Product mockups** in the case studies are recreated in pure HTML/CSS
+  (no screenshots), namespaced under `*-mockups.css` files so each study's UI
+  styling stays isolated.
+- The shared `case-study.css` drives the consistent nav, hero, and
+  before/after components across every case-study page — edit it once to update
+  all of them.
+
+## Contact
+
+artur@lopezzarytskyi.com
