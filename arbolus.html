@@ -3,18 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arbolus — Case Study · Artur Lopez Zarytskyi</title>
-  <meta name="description" content="How I redesigned Arbolus's B2B AI knowledge platform and drove a 5× increase in expert booking conversions.">
+  <title>Arbolus, case study · Artur Lopez Zarytskyi</title>
+  <meta name="description" content="Building and scaling the design system for Arbolus, a B2B expert insights platform for private equity and consulting. Two-person product design team, shipping Canopy, AI Summaries, Channels and Connect alongside a full platform redesign.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
-
   <link rel="stylesheet" href="case-study.css">
+
+  <!-- Arbolus accent override, scoped to this page only -->
+  <style>
+    body[data-case="arbolus"] {
+      --blue:      #6157FC;
+      --blue-soft: #ECEAFF;
+      --orange:      #FF6B2C;
+      --orange-soft: #FFE9DD;
+    }
+    body[data-case="arbolus"] .cs-init-card--accent:hover { background: #4a40e8; }
+    /* Align titles consistently across the initiatives grid */
+    body[data-case="arbolus"] .cs-init-card__title { margin: 14px 0 0; }
+    body[data-case="arbolus"] .cs-init-card__impact { margin-top: auto; padding-top: 12px; }
+    body[data-case="arbolus"] .cs-pair-card {
+      border: 1px solid var(--ink);
+      padding: 24px;
+      background: var(--paper);
+    }
+    body[data-case="arbolus"] .cs-pair-card__header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 16px; margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--hairline);
+    }
+    body[data-case="arbolus"] .cs-pair-card__title {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px; font-weight: 600; letter-spacing: -0.01em;
+    }
+    body[data-case="arbolus"] .cs-pair-card__list {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px; line-height: 2;
+      color: var(--ink-soft);
+    }
+    body[data-case="arbolus"] .cs-pair-card__list strong { color: var(--ink); font-weight: 500; }
+    body[data-case="arbolus"] .text-orange { color: var(--orange); }
+
+    /* ── Real-screenshot frames, scoped to Arbolus ───────────────────── */
+    body[data-case="arbolus"] .cs-shot {
+      position: relative;
+      background: #efece4;
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px -30px rgba(10,10,10,0.18), 0 2px 4px rgba(10,10,10,0.04);
+    }
+    body[data-case="arbolus"] .cs-shot__chrome {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 14px;
+      background: #e7e3d8;
+      border-bottom: 1px solid var(--ink);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    body[data-case="arbolus"] .cs-shot__dots {
+      display: inline-flex; gap: 5px; margin-right: 8px;
+    }
+    body[data-case="arbolus"] .cs-shot__dots span {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: #c8c2b3; border: 1px solid rgba(10,10,10,0.18);
+    }
+    body[data-case="arbolus"] .cs-shot__url { flex: 1; opacity: 0.7; }
+    body[data-case="arbolus"] .cs-shot__tag { color: var(--blue); font-weight: 600; }
+    body[data-case="arbolus"] .cs-shot__img {
+      display: block; width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top center;
+      background: #fff;
+      /* Higher-quality downsampling on retina + sharper rendering */
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: high-quality;
+      image-rendering: crisp-edges;
+      -ms-interpolation-mode: bicubic;
+      backface-visibility: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Force higher source resolution by scaling the bitmap up slightly,
+       which makes the browser pick a sharper downsample step on HiDPI. */
+    @media (min-resolution: 1.5dppx) {
+      body[data-case="arbolus"] .cs-shot__img {
+        image-rendering: auto;
+      }
+    }
+    body[data-case="arbolus"] .cs-shot__img--pano {
+      aspect-ratio: 3 / 1;
+    }
+    body[data-case="arbolus"] .cs-shot__img--portrait {
+      aspect-ratio: 4 / 5;
+    }
+    body[data-case="arbolus"] .cs-shot__caption {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 16px; margin-top: 14px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; color: var(--muted);
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    body[data-case="arbolus"] .cs-shot__caption strong {
+      color: var(--ink); font-weight: 500;
+    }
+
+    /* Gallery of screens — uniform 2-col grid, every cell same size */
+    body[data-case="arbolus"] .cs-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 24px;
+      margin-top: 32px;
+    }
+    body[data-case="arbolus"] .cs-gallery--triptych {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    body[data-case="arbolus"] .cs-gallery--full > * { grid-column: 1 / -1; }
+    @media (max-width: 900px) {
+      body[data-case="arbolus"] .cs-gallery,
+      body[data-case="arbolus"] .cs-gallery--triptych {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Triptych header — describes a coherent block of related shots */
+    body[data-case="arbolus"] .cs-triptych-block {
+      margin-top: 48px;
+      border: 1px solid var(--ink);
+      padding: 28px;
+      background: var(--paper);
+    }
+    body[data-case="arbolus"] .cs-triptych-block__head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    body[data-case="arbolus"] .cs-triptych-block__tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 4px;
+    }
+    body[data-case="arbolus"] .cs-triptych-block__title {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 20px; font-weight: 600; letter-spacing: -0.01em;
+      margin: 0 0 8px;
+    }
+    body[data-case="arbolus"] .cs-triptych-block__desc {
+      font-size: 14px; color: var(--ink-soft); line-height: 1.6;
+      max-width: 720px;
+    }
+    body[data-case="arbolus"] .cs-triptych-block .cs-shot__caption {
+      margin-top: 10px;
+      font-size: 10px;
+    }
+
+    /* Override the BA panel — drop the dashed placeholder bg */
+    body[data-case="arbolus"] .cs-ba-screen.cs-ba-screen--real {
+      aspect-ratio: auto;
+      background: none;
+      border: none;
+      padding: 0;
+      display: block;
+    }
+    body[data-case="arbolus"] .cs-ba-screen.cs-ba-screen--real .cs-shot { margin: 0; }
+
+    /* Workspace components — long vertical sheet */
+    body[data-case="arbolus"] .cs-components-sheet {
+      margin-top: 32px;
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #efece4;
+    }
+    body[data-case="arbolus"] .cs-components-sheet__viewport {
+      max-height: 560px;
+      overflow: hidden;
+      position: relative;
+    }
+    body[data-case="arbolus"] .cs-components-sheet__viewport::after {
+      content: "";
+      position: absolute; inset: auto 0 0 0; height: 140px;
+      background: linear-gradient(to bottom, rgba(244,242,236,0), var(--bg));
+      pointer-events: none;
+    }
+    body[data-case="arbolus"] .cs-components-sheet img {
+      display: block; width: 100%; height: auto;
+    }
+    body[data-case="arbolus"] .cs-components-sheet__foot {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 20px;
+      border-top: 1px solid var(--ink);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; color: var(--muted);
+      letter-spacing: 0.06em; text-transform: uppercase;
+      background: #e7e3d8;
+    }
+
+    /* Section opener title above gallery */
+    body[data-case="arbolus"] .cs-gallery-h {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 24px; margin-top: 56px;
+      padding-bottom: 16px; border-bottom: 1px solid var(--ink);
+    }
+    body[data-case="arbolus"] .cs-gallery-h h3 {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
+    }
+    body[data-case="arbolus"] .cs-gallery-h .mono {
+      font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+  </style>
 </head>
-<body>
+<body data-case="arbolus">
 
 <!-- ─── NAV ─────────────────────────────────────────────────────────── -->
 <nav class="cs-nav" id="cs-nav">
@@ -38,59 +248,55 @@
 <section class="cs-hero" id="hero">
   <div class="cs-hero__top">
     <div class="cs-hero__pills">
-      <span class="pill">B2B · SaaS</span>
-      <span class="pill">AI Platform</span>
-      <span class="pill pill--accent">✦ 5× Conversion</span>
-      <span class="pill">Solo Designer</span>
+      <span class="pill">Due diligence data</span>
+      <span class="pill pill--accent">✦ 5× conversion</span>
       <span class="pill">12 months</span>
     </div>
     <div class="mono cs-hero__meta">
-      (01) — CASE STUDY<br>
+      (01) CASE STUDY<br>
       ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<br>
-      ARBOLUS · 2023–2024<br>
+      ARBOLUS · 2023 / 2024<br>
       PRODUCT / UX DESIGN
     </div>
   </div>
 
   <h1 class="display cs-hero__h1">
-    Unlocking<br>
-    the world's<br>
-    offline<span class="text-blue">.</span>
+    Data that buyers<br>
+    actually<br>
+    trust<span class="text-blue">.</span>
   </h1>
 
   <div class="cs-hero__bottom">
     <p class="cs-hero__lead">
-      Arbolus uses ML + NLP to connect businesses with domain experts.
-      I led the product redesign as the
-      <em class="text-blue text-semibold">sole designer</em> —
-      from a fragmented interface to a coherent system that converted <em class="underline-em">5× better</em>.
+      Arbolus is an expert insights platform. Private equity firms and consultants use it to capture <em class="underline-em">attributable buyer perspectives</em> on tech companies before, during and after a deal. I joined as one of
+      <em class="text-blue text-semibold">two product designers</em>, paired with Diego in Italy, and led design across the platform redesign, the company's first real design system, and four new product surfaces, <em class="underline-em">Canopy</em>, <em class="underline-em">AI Summaries</em>, <em class="underline-em">Channels</em> and <em class="underline-em">Connect</em>.
     </p>
     <div class="cs-hero__stats">
       <div class="cs-hero__stat-num">5×</div>
-      <div class="cs-hero__stat-label">Expert booking conversion increase<br>post-platform redesign</div>
+      <div class="cs-hero__stat-label">Lift in insight-to-decision conversion<br>after the platform redesign</div>
     </div>
     <div class="mono cs-hero__attrs">
-      ROLE — Product / UX Designer<br>
-      SCOPE — End-to-end<br>
-      PLATFORM — Web + Responsive<br>
-      YEAR — 2023–2024<br>
-      TEAM — 1 designer (me)
+      ROLE Product / UX designer<br>
+      SCOPE Platform, system, 4 new products<br>
+      PLATFORM Web, responsive<br>
+      YEAR 2023 / 2024<br>
+      TEAM Two designers, in-office eng pairing
     </div>
   </div>
 </section>
 
 <!-- ─── 02 CONTEXT ───────────────────────────────────────────────────── -->
 <section class="cs-section" id="overview">
-  <div class="cs-label">(02) — Context</div>
+  <div class="cs-label">(02) Context</div>
   <h2 class="display cs-h2">What Arbolus<br>actually does<span class="text-blue">.</span></h2>
 
   <div class="cs-2col cs-2col--60-40">
     <div>
       <p class="cs-body">
-        Arbolus is a B2B expert network platform — it uses ML and NLP to surface domain experts, match them to client projects, and facilitate knowledge sessions. Think: a marketplace for human insight, with AI doing the heavy lifting on discovery and quality.
+        Arbolus turns conversations with real B2B buyers into structured, attributable data. Private equity firms, consultants and corporate development teams use it to validate a thesis before a deal, track companies post-investment, and monitor portfolio health. The platform spans <strong>Canopy</strong> async video Q&amp;A, scheduled <strong>Calls</strong>, <strong>Surveys &amp; Panels</strong>, the <strong>Channels</strong> library of pre-recorded expert answers, <strong>Connect</strong> for native expert calls, and an AI layer that summarises responses at scale.
       </p>
       <p class="cs-body">
-        The platform serves two sides: <strong>expert users</strong> — consultants, operators, academics — and <strong>client users</strong> — strategy teams, PE firms, corporate development. Both sides have fundamentally different needs, mental models, and definitions of trust.
+        Two audiences share the same product. <strong>Experts</strong> are the operators, executives and former buyers contributing time, often paid $200–$500 per call. <strong>Clients</strong> are the PE and consulting firms paying for the insight. They have very different mental models of what trust looks like, and the platform has to earn it from both sides.
       </p>
     </div>
     <div>
@@ -98,11 +304,12 @@
         <div class="cs-3col__item" style="border-right:none;">
           <div class="cs-label">Company snapshot</div>
           <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
-            FOUNDED — 2017<br>
-            STAGE — Growth-stage SaaS<br>
-            ML USE — Matching · Summarization · Scoring<br>
-            COMPLIANCE — GDPR · Financial reg · Vetting<br>
-            DESIGN MATURITY — Low at start
+            FOUNDED 2018, London / Barcelona<br>
+            STAGE Series B, $20M, late 2024<br>
+            CUSTOMERS PE, growth equity, consulting<br>
+            EXPERT NETWORK 200k+ B2B professionals<br>
+            TEAM ~150 across four global offices<br>
+            DESIGN MATURITY Low at start
           </div>
         </div>
       </div>
@@ -112,87 +319,93 @@
   <div class="cs-3col" style="margin-top:48px;">
     <div class="cs-3col__item">
       <div class="cs-label">(01)</div>
-      <div class="cs-3col__title">Two user types</div>
-      <p class="cs-3col__body">Experts contributing knowledge and clients consuming it. Different mental models, different trust signals, same underlying infrastructure.</p>
+      <div class="cs-3col__title">Two-sided product</div>
+      <p class="cs-3col__body">Experts contributing buyer perspectives on one side, PE associates and consultants consuming them on the other. Different mental models, different trust signals, the same underlying database.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">(02)</div>
-      <div class="cs-3col__title">AI at the core</div>
-      <p class="cs-3col__body">ML models handle expert matching and quality scoring. The design challenge: make probabilistic AI output feel trustworthy to non-technical users.</p>
+      <div class="cs-3col__title">AI in the critical path</div>
+      <p class="cs-3col__body">Generative models drive Canopy summaries, transcript search, expert matching and scoring. The design problem was making probabilistic output feel honest to a managing director who has never read a model card, and tying every claim back to an attributable quote.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">(03)</div>
-      <div class="cs-3col__title">Compliance-heavy</div>
-      <p class="cs-3col__body">GDPR, expert vetting, and financial regulation meant no design shortcut was free. Every simplification required a legal review cycle.</p>
+      <div class="cs-3col__title">Compliance is not optional</div>
+      <p class="cs-3col__body">Financial services regulation, expert vetting and GDPR meant no shortcut was free. Every change to a label, attribution or flow went through compliance before it shipped.</p>
     </div>
   </div>
 </section>
 
 <!-- ─── 03 PROBLEM ───────────────────────────────────────────────────── -->
 <section class="cs-section" id="problem">
-  <div class="cs-label">(03) — The Problem</div>
-  <h2 class="display cs-h2">The platform knew<br>too much and showed<br>all of it<span class="text-blue">.</span></h2>
+  <div class="cs-label">(03) The problem</div>
+  <h2 class="display cs-h2">A capable product<br>that no one could<br>read<span class="text-blue">.</span></h2>
 
   <div class="cs-2col cs-2col--60-40">
     <div>
       <p class="cs-body">
-        The original platform had accumulated two years of feature additions with no coherent system behind them. Each team had shipped independently. The result: a product that was technically capable but experientially hostile.
+        The platform had two years of feature work behind it and no design system holding it together. Every team had shipped what they needed in the way that made sense to them. The result was a product with most of the right capabilities and very few of them visible.
       </p>
       <p class="cs-body">
-        Three patterns kept surfacing in user sessions — and none of them were about missing features.
+        Three patterns kept showing up in research. None of them were about missing features.
       </p>
     </div>
     <div class="cs-stat">
       <div class="cs-stat__num">3</div>
-      <div class="cs-stat__label">Core failure modes discovered<br>before a single screen was redesigned</div>
+      <div class="cs-stat__label">Failure modes worth fixing<br>before any new pixels</div>
     </div>
   </div>
 
   <div class="cs-3col" style="margin-top:48px;">
     <div class="cs-3col__item">
       <div class="cs-label">Failure mode 01</div>
-      <div class="cs-3col__title">Cognitive overload</div>
-      <p class="cs-3col__body">Expert profiles surfaced 40+ data points with no hierarchy. Users couldn't find signal through the noise. Session booking rates were a fraction of what they should be.</p>
+      <div class="cs-3col__title">Too much, all at once</div>
+      <p class="cs-3col__body">Customer profiles and Canopy responses surfaced over forty fields with no hierarchy. The insight a PE associate needed for a Monday partner meeting was sitting next to metadata that was never read.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">Failure mode 02</div>
-      <div class="cs-3col__title">Broken trust signals</div>
-      <p class="cs-3col__body">Compliance and vetting flows were buried. Clients couldn't quickly assess expert credibility. Deal cycles stretched because sales had to manually validate what the UI should've shown.</p>
+      <div class="cs-3col__title">Trust signals out of reach</div>
+      <p class="cs-3col__body">Attribution, vetting and recency were buried three clicks deep. Sales kept having to confirm by email what the UI should have said on its own. Without those signals, partners would not quote a finding in a deal memo.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">Failure mode 03</div>
-      <div class="cs-3col__title">Zero design language</div>
-      <p class="cs-3col__body">12 different button styles. 3 modal patterns. No token system. Every new feature was a one-off. Developer velocity slowed. Inconsistency eroded confidence in the product.</p>
+      <div class="cs-3col__title">No shared design language</div>
+      <p class="cs-3col__body">Twelve button styles, three modal patterns, no tokens. Engineering kept building the same things twice, and small inconsistencies were stacking up into a confidence problem.</p>
     </div>
   </div>
 
   <div class="cs-quote">
-    <p class="cs-quote__text">"We're losing deals not because of the product, but because people can't see the product."</p>
-    <div class="cs-quote__attr">— Sales feedback, Q1 2023</div>
+    <p class="cs-quote__text">"We're losing deals not because of the product, but because partners can't see the product in the ten minutes they have between meetings."</p>
+    <div class="cs-quote__attr">Sales feedback, Q1 2023</div>
   </div>
 </section>
 
 <!-- ─── 05 ROLE ───────────────────────────────────────────────────────── -->
 <section class="cs-section">
-  <div class="cs-label">(04) — Role</div>
-  <h2 class="display cs-h2">Sole designer.<br>Full ownership<span class="text-blue">.</span></h2>
+  <div class="cs-label">(04) Role</div>
+  <h2 class="display cs-h2">A design pair.<br>Back to back<span class="text-blue">.</span></h2>
 
   <div class="cs-2col cs-2col--60-40">
     <div>
       <p class="cs-body">
-        I joined as the only product designer on a platform that had never had dedicated design leadership. There was no system to inherit — only things to build.
+        Two product designers, working back to back from the Barcelona office. We split the platform by surface, ran daily critique, and pair-reviewed everything that shipped. There was no system to inherit and no playbook to follow, just a backlog and a lot of customers waiting on improvements.
       </p>
       <p class="cs-body">
-        My remit covered the full product loop: discovery, strategy, interaction design, visual design, design system, handoff, and post-ship validation. I also contributed directly to product roadmap prioritization.
+        I owned the <strong>platform redesign</strong>, the <strong>Canopy AI</strong> surfaces, and the <strong>project dashboard</strong>, plus the design system underneath. Full cycle. Discovery, strategy, interaction and visual, handoff, post-launch validation. Plus the room time. Roadmap calls, stakeholder reviews, customer presentations.
       </p>
     </div>
     <div>
-      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2.2; color:var(--ink-soft);">
-        <div style="color:var(--muted); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Responsibilities</div>
-        DISCOVERY — Interviews · Usage analysis · Audit<br>
-        STRATEGY — Roadmap · Scoping · A/B design<br>
-        EXECUTION — IA · Flows · Components · Responsive<br>
-        VALIDATION — Usability tests · Funnel analysis
+      <div class="cs-pair-card">
+        <div class="cs-pair-card__header">
+          <div class="cs-pair-card__title">How we worked</div>
+          <div class="mono" style="font-size:10px; color:var(--muted); letter-spacing:0.1em;">BCN OFFICE</div>
+        </div>
+        <div class="cs-pair-card__list">
+          <strong>CADENCE</strong> Daily critique, back to back<br>
+          <strong>SPLIT</strong> By surface, paired on systems<br>
+          <strong>STAKEHOLDERS</strong> Weekly reviews, sales loop<br>
+          <strong>CUSTOMERS</strong> PE / consulting interviews<br>
+          <strong>HANDOFF</strong> Engineering pairing, no walls
+        </div>
       </div>
     </div>
   </div>
@@ -202,32 +415,32 @@
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
         <div class="cs-timeline__period">Q1 2023</div>
-        <div class="cs-timeline__label">Audit + Discovery</div>
+        <div class="cs-timeline__label">Audit and discovery</div>
       </div>
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
         <div class="cs-timeline__period">Q2 2023</div>
-        <div class="cs-timeline__label">System + Foundation</div>
+        <div class="cs-timeline__label">System foundation</div>
       </div>
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
         <div class="cs-timeline__period">Q3 2023</div>
-        <div class="cs-timeline__label">Platform Redesign</div>
+        <div class="cs-timeline__label">Platform redesign</div>
       </div>
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
         <div class="cs-timeline__period">Q4 2023</div>
-        <div class="cs-timeline__label">AI Features + Surveys</div>
+        <div class="cs-timeline__label">Canopy AI &amp; Surveys</div>
       </div>
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
         <div class="cs-timeline__period">Q1 2024</div>
-        <div class="cs-timeline__label">Channels + Data Tables</div>
+        <div class="cs-timeline__label">Project dashboard</div>
       </div>
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
         <div class="cs-timeline__period">Q2 2024</div>
-        <div class="cs-timeline__label">Handoff + Impact</div>
+        <div class="cs-timeline__label">Handoff and impact review</div>
       </div>
     </div>
   </div>
@@ -235,40 +448,40 @@
 
 <!-- ─── 07 INITIATIVES ───────────────────────────────────────────────── -->
 <section class="cs-section" id="initiatives">
-  <div class="cs-label">(05) — Initiatives</div>
+  <div class="cs-label">(05) Initiatives</div>
   <h2 class="display cs-h2">Five bets.<br>One direction<span class="text-blue">.</span></h2>
-  <p class="cs-body" style="max-width:560px;">Rather than a list of tickets — here's how the work clustered into meaningful strategic initiatives, each with a clear problem hypothesis and a measurable outcome.</p>
+  <p class="cs-body" style="max-width:560px;">Rather than a list of tickets, here is how the year clustered into strategic threads. Each one started with a hypothesis and ended with something we could measure.</p>
 
   <div class="cs-init-grid">
     <a class="cs-init-card cs-init-card--accent" href="#dd-platform">
-      <div class="cs-init-card__num">(01) — Deep dive ↓</div>
-      <div class="cs-init-card__title">Platform Redesign</div>
-      <div class="cs-init-card__desc">End-to-end rethink of expert discovery and booking flow.</div>
+      <div class="cs-init-card__num">(01) Deep dive ↓</div>
+      <div class="cs-init-card__title">Platform &amp; system</div>
+      <div class="cs-init-card__desc">End-to-end rethink of discovery, attribution and request flow across the platform, on top of the company's first real design system, tokens, grid and component library.</div>
       <div class="cs-init-card__impact">↳ 5× conversion rate</div>
     </a>
     <div class="cs-init-card" style="cursor:default;">
       <div class="cs-init-card__num">(02)</div>
-      <div class="cs-init-card__title">AI-Powered Summaries</div>
-      <div class="cs-init-card__desc">Making ML output legible to non-technical users at the moment of decision.</div>
-      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Reduced time-to-insight</div>
+      <div class="cs-init-card__title">Canopy</div>
+      <div class="cs-init-card__desc">Async video Q&amp;A that replaces 10–30 expert calls with a single launch. I shaped the interaction model for how clients author surveys, review video and text responses, and pull out the answers that move a thesis.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Hours of insight per launch</div>
     </div>
     <div class="cs-init-card" style="cursor:default;">
       <div class="cs-init-card__num">(03)</div>
-      <div class="cs-init-card__title">Canopy Survey Tool</div>
-      <div class="cs-init-card__desc">Specialist research instrument for structured expert elicitation.</div>
-      <div class="cs-init-card__impact" style="color:var(--blue);">↳ New product capability</div>
+      <div class="cs-init-card__title">AI Summaries</div>
+      <div class="cs-init-card__desc">As Canopy scaled, qualitative volume outpaced analyst attention. I designed the UX for AI-generated summaries that synthesise dozens of video responses into one readable report, with every claim linked back to its source quote.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Probabilistic output, made trustable</div>
     </div>
     <div class="cs-init-card" style="cursor:default;">
       <div class="cs-init-card__num">(04)</div>
       <div class="cs-init-card__title">Channels</div>
-      <div class="cs-init-card__desc">Video library for async expert knowledge — shifting from live-only to persistent knowledge.</div>
-      <div class="cs-init-card__impact" style="color:var(--blue);">↳ New engagement surface</div>
+      <div class="cs-init-card__desc">A searchable library of pre-recorded expert answers in video and audio. Instead of commissioning a new call, clients search what has already been asked. I designed the discovery experience and the in-page media interactions around transcripts and quotes.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Insight without a new call</div>
     </div>
     <div class="cs-init-card" style="cursor:default;">
       <div class="cs-init-card__num">(05)</div>
-      <div class="cs-init-card__title">Design System</div>
-      <div class="cs-init-card__desc">The foundation that made everything else faster and more consistent.</div>
-      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Dev velocity + coherence</div>
+      <div class="cs-init-card__title">Connect</div>
+      <div class="cs-init-card__desc">A native expert-calling platform built inside Arbolus, replacing the third-party video tools clients had been stitching together. I worked through the call experience, scheduling, recording and compliance, paired in-office with engineering to ship it.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ One product, one transcript</div>
     </div>
   </div>
 </section>
@@ -276,32 +489,32 @@
 <!-- ─── 08 DEEP DIVE 01 ───────────────────────────────────────────────── -->
 <section class="cs-section" id="dd-platform">
   <div class="cs-dd-header">
-    <span class="cs-dd-tag">Deep Dive 01</span>
-    <div class="cs-label">Platform Redesign</div>
+    <span class="cs-dd-tag">Deep dive 01</span>
+    <div class="cs-label">Platform redesign</div>
   </div>
-  <h2 class="display cs-h2">From cluttered<br>to conversion<span class="text-blue">.</span></h2>
+  <h2 class="display cs-h2">From cluttered<br>to converting<span class="text-blue">.</span></h2>
 
   <div class="cs-2col cs-2col--60-40">
     <div>
-      <p class="cs-body">The expert discovery flow was the company's primary revenue lever. Clients who found and booked experts converted to paid. Clients who didn't — churned without ever realising the platform's value.</p>
-      <p class="cs-body" style="margin-top:16px;">The flow was technically functional but experientially broken: too many steps, unclear trust signals, and expert profiles that buried the most important information.</p>
+      <p class="cs-body">Insight discovery was the company's main revenue lever. PE associates who could pull a credible buyer perspective into a deal memo kept renewing. The ones who couldn't, churned without ever feeling the product work.</p>
+      <p class="cs-body" style="margin-top:16px;">The flow was technically functional but experientially broken. Too many steps, the wrong things on the wrong screens, and attribution signals filed in places no one looked.</p>
     </div>
     <div>
       <div class="cs-label">The research</div>
       <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
         12 USER INTERVIEWS<br>
-        6 client-side · 6 expert-side<br><br>
+        6 client side (PE / consulting), 6 expert side<br><br>
         80+ SESSION REPLAYS<br>
-        Booking attempt analysis<br><br>
+        Insight workflows in detail<br><br>
         FUNNEL ANALYSIS<br>
-        Where drop-off actually happened
+        Where users actually dropped off
       </div>
     </div>
   </div>
 
   <div class="cs-quote" style="margin-top:40px;">
-    <p class="cs-quote__text">"Trust is established before the first message. The profile page was doing the work of a CV, not a pitch."</p>
-    <div class="cs-quote__attr">— Key insight from user sessions</div>
+    <p class="cs-quote__text">"Trust is established before the first read. The insight page was doing the work of a CV, not a pitch."</p>
+    <div class="cs-quote__attr">Insight from user sessions</div>
   </div>
 
   <div class="cs-decision-list">
@@ -309,86 +522,273 @@
       <div class="cs-decision__num">01</div>
       <div>
         <div class="cs-decision__title">Lead with relevance, not credentials</div>
-        <p class="cs-decision__body">Restructured expert profiles to show: why this expert for this project (AI-matched reasons) before education and work history. Clients were abandoning at the profile view — not at checkout. The mental model mismatch was the real problem.</p>
-        <div class="cs-decision__tradeoff">Trade-off → Required ML team to expose matching rationale via API. 2 sprints engineering cost. Conversion gain: significant.</div>
+        <p class="cs-decision__body">Insight cards and customer profiles were restructured to answer "why this perspective for this thesis" before showing former titles and tenure. The drop-off was at the profile view, not at checkout. The content order was the problem.</p>
+        <div class="cs-decision__tradeoff">Trade-off. The ML team had to expose matching rationale through a new API, costing two sprints of engineering. The conversion gain made it pay for itself.</div>
       </div>
     </div>
     <div class="cs-decision">
       <div class="cs-decision__num">02</div>
       <div>
-        <div class="cs-decision__title">Collapse compliance into context</div>
-        <p class="cs-decision__body">Instead of a separate "Verified" badge page, surfaced vetting signals inline — at the moment of decision, not before it. Trust signals work best when they appear exactly when trust is needed.</p>
-        <div class="cs-decision__tradeoff">Trade-off → Every copy variation required legal review. Slowed iteration, improved trust measurably.</div>
+        <div class="cs-decision__title">Move attribution into context</div>
+        <p class="cs-decision__body">Vetting, attribution and recency had their own page. We pulled them inline, surfacing them at the moment a client was deciding whether to quote a finding. Trust signals work best when they appear exactly when trust is being weighed.</p>
+        <div class="cs-decision__tradeoff">Trade-off. Every copy variation needed legal review, which slowed iteration. The lift in trust scores justified it.</div>
       </div>
     </div>
     <div class="cs-decision">
       <div class="cs-decision__num">03</div>
       <div>
-        <div class="cs-decision__title">Reduce booking to 3 steps</div>
-        <p class="cs-decision__body">Original: 7-step booking flow with branching for compliance. New: 3-step with compliance handled asynchronously post-booking. The friction wasn't regulatory — it was sequencing. Moving compliance out of the critical path changed the feel entirely.</p>
-        <div class="cs-decision__tradeoff">Trade-off → Required a product policy change, not just a design change. This was the hardest internal sell.</div>
+        <div class="cs-decision__title">Cut the request flow to three steps</div>
+        <p class="cs-decision__body">The original Calls and Surveys request flow had seven steps with compliance gates in the middle. The new one had three, with compliance handled async after submission. The friction was never regulatory, it was the order things happened in.</p>
+        <div class="cs-decision__tradeoff">Trade-off. This was a product policy change, not just a design change. It was the hardest internal sell of the year.</div>
       </div>
     </div>
   </div>
 
   <!-- Before / After -->
-  <div class="cs-before-after">
-    <div class="cs-ba-tabs">
-      <button class="cs-ba-tab cs-ba-tab--active" data-panel="before-1">Before — Original Profile</button>
-      <button class="cs-ba-tab" data-panel="after-1">After — Redesigned Profile</button>
-    </div>
-    <div class="cs-ba-panel cs-ba-panel--active" id="before-1">
-      <div class="cs-ba-screen"><span>expert-profile-before.png</span></div>
-      <div class="cs-ba-annotations">
-        <div class="cs-ba-ann">40+ unordered data points — no hierarchy, no signal prioritisation</div>
-        <div class="cs-ba-ann">Credentials lead (education, titles) — relevance buried below the fold</div>
-        <div class="cs-ba-ann">Compliance badge hidden 3 screens deep — zero trust at decision point</div>
-        <div class="cs-ba-ann">7-step booking flow — compliance gates create friction mid-funnel</div>
+  <!-- Project dashboard — before / after / heat map, one unified block -->
+  <div class="cs-triptych-block">
+    <div class="cs-triptych-block__head">
+      <div class="cs-triptych-block__tag">
+        Project dashboard<br>three views
+      </div>
+      <div>
+        <h3 class="cs-triptych-block__title">From cluttered v0 to a dashboard the project lives on.</h3>
+        <p class="cs-triptych-block__desc">
+          The project dashboard is where a deal team spends most of its time. The redesign restructured it around the next decision, surfaced attribution and recency inline on every insight, and unlocked a heat-map view that lets a partner read a thesis in under a minute. Same data, same project, three points in the work below.
+        </p>
       </div>
     </div>
-    <div class="cs-ba-panel" id="after-1">
-      <div class="cs-ba-screen"><span>expert-profile-after.png</span></div>
-      <div class="cs-ba-annotations">
-        <div class="cs-ba-ann">AI-matched relevance leads — "Why this expert for your project"</div>
-        <div class="cs-ba-ann">Inline compliance signals — vetting status at the point of decision</div>
-        <div class="cs-ba-ann">3-step booking — compliance handled async, not as a gate</div>
-        <div class="cs-ba-ann">Clear information hierarchy — signal before noise, always</div>
+
+    <div class="cs-gallery cs-gallery--triptych">
+      <div>
+        <figure class="cs-shot">
+          <figcaption class="cs-shot__chrome">
+            <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+            <span class="cs-shot__url">/ project / dashboard</span>
+            <span class="cs-shot__tag">v0 · before</span>
+          </figcaption>
+          <img class="cs-shot__img" src="assets/arbolus/project-dashboard-old.png" alt="The original project dashboard before redesign. Three competing primary actions, no clear next step, attribution buried.">
+        </figure>
+        <div class="cs-shot__caption">
+          <span><strong>Before</strong> · v0, 2023</span>
+          <span>3 CTAs · no hierarchy</span>
+        </div>
       </div>
+
+      <div>
+        <figure class="cs-shot">
+          <figcaption class="cs-shot__chrome">
+            <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+            <span class="cs-shot__url">/ project / dashboard</span>
+            <span class="cs-shot__tag">v2 · after</span>
+          </figcaption>
+          <img class="cs-shot__img" src="assets/arbolus/project-dashboard.png" alt="The redesigned project dashboard. Project header summarises status and the one decision that is overdue; insight cards carry inline attribution, recency and match rationale.">
+        </figure>
+        <div class="cs-shot__caption">
+          <span><strong>After</strong> · v2, 2024</span>
+          <span>1 next step · inline trust</span>
+        </div>
+      </div>
+
+      <div>
+        <figure class="cs-shot">
+          <figcaption class="cs-shot__chrome">
+            <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+            <span class="cs-shot__url">/ project / heat-map</span>
+            <span class="cs-shot__tag">heat map</span>
+          </figcaption>
+          <img class="cs-shot__img" src="assets/arbolus/heat-map.png" alt="Project heat map. Sentiment and confidence across themes by respondent, every cell drills into the source quote.">
+        </figure>
+        <div class="cs-shot__caption">
+          <span><strong>Heat map</strong> · same data, read in a minute</span>
+          <span>theme × respondent</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-ba-annotations" style="margin-top:24px;">
+      <div class="cs-ba-ann">Before: three competing primary actions, insight cards identical whether vetted, in-progress or expired</div>
+      <div class="cs-ba-ann">After: project header summarises status and the one decision that is overdue; attribution, vetting state and recency live on every card</div>
+      <div class="cs-ba-ann">Heat map: the same dataset, restructured for partner-level scanning, with every cell drilling back to its source quote</div>
     </div>
   </div>
 
   <div style="margin-top:48px; border-top:1px solid var(--ink); padding-top:40px; display:flex; align-items:baseline; gap:40px;">
     <div class="cs-stat">
       <div class="cs-stat__num">5×</div>
-      <div class="cs-stat__label">Conversion rate increase<br>90-day post-ship comparison</div>
+      <div class="cs-stat__label">Conversion lift<br>90 day post-ship comparison</div>
     </div>
     <div class="cs-stat" style="border-left:1px solid var(--hairline); padding-left:40px;">
       <div class="cs-stat__num">3 mo</div>
-      <div class="cs-stat__label">Research to shipped<br>including compliance review</div>
+      <div class="cs-stat__label">Research to ship<br>Including compliance review</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 10 SELECTED SCREENS ───────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(06) Selected screens</div>
+  <h2 class="display cs-h2">Across the<br>full surface<span class="text-blue">.</span></h2>
+  <p class="cs-body" style="max-width:620px;">
+    A sample from the year. Two user types, one product. Each surface had its own constraints: video on the expert side, scannability on the client side, attribution everywhere. Screens are presented as shipped, then iterated on quarterly after launch.
+  </p>
+
+  <!-- Group 1 — Client workspace, uniform 2-col -->
+  <div class="cs-gallery-h">
+    <h3>Client workspace</h3>
+    <span class="mono">HOME · DISCOVER · CANOPY · TRANSCRIPTS</span>
+  </div>
+
+  <div class="cs-gallery">
+    <div>
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">/ home · default</span>
+          <span class="cs-shot__tag">Main dashboard</span>
+        </figcaption>
+        <img class="cs-shot__img" src="assets/arbolus/main-dash.png" alt="Workspace home. Active projects, pending decisions, recent insights and a single primary action.">
+      </figure>
+      <div class="cs-shot__caption">
+        <span><strong>Workspace home</strong> · one primary action, never two</span>
+        <span>post-onboarding state</span>
+      </div>
+    </div>
+
+    <div>
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">/ home · first session</span>
+          <span class="cs-shot__tag">Empty state</span>
+        </figcaption>
+        <img class="cs-shot__img" src="assets/arbolus/main-dash-empty.png" alt="Empty state for a new workspace. Onboarding guidance, single setup action, and a preview of what the dashboard becomes once seeded.">
+      </figure>
+      <div class="cs-shot__caption">
+        <span><strong>Empty state</strong> · first session, before any project</span>
+        <span>setup CTA · preview rail</span>
+      </div>
+    </div>
+
+    <div>
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">/ discover</span>
+          <span class="cs-shot__tag">Discover experts</span>
+        </figcaption>
+        <img class="cs-shot__img" src="assets/arbolus/discover-experts.png" alt="Discover experts. Faceted search with match-rationale tags, expert cards lead with relevance to the active thesis.">
+      </figure>
+      <div class="cs-shot__caption">
+        <span><strong>Discover experts</strong> · match rationale leads, credentials follow</span>
+        <span>12 col grid</span>
+      </div>
+    </div>
+
+    <div>
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">/ project / canopies</span>
+          <span class="cs-shot__tag">Canopy</span>
+        </figcaption>
+        <img class="cs-shot__img" src="assets/arbolus/canopies.png" alt="Canopy responses. Async video Q&amp;A with question rail, response thumbnails, status pills and synthesis panel.">
+      </figure>
+      <div class="cs-shot__caption">
+        <span><strong>Canopy</strong> · async video Q&amp;A, one launch replaces 10–30 calls</span>
+        <span>response list · synthesis rail</span>
+      </div>
+    </div>
+
+    <div>
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">/ transcripts / 04</span>
+          <span class="cs-shot__tag">Transcripts</span>
+        </figcaption>
+        <img class="cs-shot__img" src="assets/arbolus/transcripts.png" alt="Transcript view. Speaker-attributed transcript synced to video, AI highlights, in-line quote pinning.">
+      </figure>
+      <div class="cs-shot__caption">
+        <span><strong>Transcripts</strong> · quotes pin straight into a memo</span>
+        <span>synced video · speaker timeline</span>
+      </div>
+    </div>
+
+    <div>
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">/ resources</span>
+          <span class="cs-shot__tag">Resources</span>
+        </figcaption>
+        <img class="cs-shot__img" src="assets/arbolus/resources.png" alt="Resources. Centralised library of documents, recordings and references attached to a project, with provenance metadata.">
+      </figure>
+      <div class="cs-shot__caption">
+        <span><strong>Resources</strong> · centralised provenance for everything attached</span>
+        <span>project library · audit trail</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group 2 — AI surfaces & review flows -->
+  <div class="cs-gallery-h">
+    <h3>AI surfaces &amp; review flows</h3>
+    <span class="mono">SUMMARIES · APPROVAL</span>
+  </div>
+
+  <div class="cs-gallery">
+    <div>
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">/ canopy / summary · audiobook</span>
+          <span class="cs-shot__tag">AI Summary</span>
+        </figcaption>
+        <img class="cs-shot__img" src="assets/arbolus/summary-audiobook.png" alt="AI summary audiobook view. Synthesised report with every claim linked to its source video and quote, audio playback for hands-free review.">
+      </figure>
+      <div class="cs-shot__caption">
+        <span><strong>AI Summary, audiobook view</strong> · every claim links to its source quote</span>
+        <span>compliance-safe attribution</span>
+      </div>
+    </div>
+
+    <div>
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">/ compliance / approval-flow</span>
+          <span class="cs-shot__tag">Approval flow</span>
+        </figcaption>
+        <img class="cs-shot__img" src="assets/arbolus/approval-process.png" alt="Multi-step approval flow across compliance, content review and publish. Six states with branching paths for rejection and rework.">
+      </figure>
+      <div class="cs-shot__caption">
+        <span><strong>Approval flow</strong> · async compliance loop behind the 3-step request</span>
+        <span>six states · two reviewer roles</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ─── 11 DESIGN SYSTEM ──────────────────────────────────────────────── -->
 <section class="cs-section">
-  <div class="cs-label">(07) — Design System</div>
-  <h2 class="display cs-h2">The invisible work that<br>made everything else<br>possible<span class="text-blue">.</span></h2>
+  <div class="cs-label">(07) Design system</div>
+  <h2 class="display cs-h2">The invisible work<br>that made everything<br>else possible<span class="text-blue">.</span></h2>
 
   <div class="cs-2col cs-2col--60-40">
     <div>
-      <p class="cs-body">The design system wasn't a separate project — it was a survival tool. Without it, every new screen meant reconciling 3 different button patterns and guessing which spacing scale engineering was actually using.</p>
-      <p class="cs-body" style="margin-top:16px;">Built iteratively alongside feature work, starting with what hurt most: typography, colour, and spacing tokens. The grid system was rebuilt from scratch — previous grid: inconsistent, undocumented. New grid: 12-column, 8px base unit, 3 breakpoints.</p>
+      <p class="cs-body">The system was not a side project. It was a survival tool. Without it, every new screen meant deciding which of three button patterns to use and guessing which spacing scale engineering had picked that month.</p>
+      <p class="cs-body" style="margin-top:16px;">It was built incrementally, alongside feature work, starting with the parts that hurt most. Type, colour and spacing tokens first, then the grid. Previous grid was undocumented and inconsistent. New grid was twelve column, eight pixel base, three breakpoints.</p>
     </div>
     <div>
       <div class="cs-label">System scope</div>
-      <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:11px; line-height:2.1; color:var(--ink-soft);">
-        8 — Semantic colour tokens<br>
-        4 — Type scales<br>
-        3 — Breakpoints<br>
-        12 — Column grid<br>
-        20+ — Components built<br>
-        ~40% — Handoff time reduction
-      </div>
+      <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:11px; line-height:2.1; color:var(--ink-soft);">8 Semantic colour tokens
+2 Accent ramps (purple, orange)
+4 Type scales
+3 Breakpoints
+12 Column grid
+200+ Components built
+~40% Less time on handoff</div>
     </div>
   </div>
 
@@ -410,93 +810,76 @@
       <div class="cs-token__hex">#0a0a0a</div>
     </div>
     <div class="cs-token">
-      <div class="cs-token__swatch" style="background:#2a2a2a;"></div>
-      <div class="cs-token__name">ink-soft</div>
-      <div class="cs-token__hex">#2a2a2a</div>
-    </div>
-    <div class="cs-token">
-      <div class="cs-token__swatch" style="background:#6b6963;"></div>
-      <div class="cs-token__name">muted</div>
-      <div class="cs-token__hex">#6b6963</div>
-    </div>
-    <div class="cs-token">
       <div class="cs-token__swatch" style="background:#d9d6cc;"></div>
       <div class="cs-token__name">hairline</div>
       <div class="cs-token__hex">#d9d6cc</div>
     </div>
     <div class="cs-token">
-      <div class="cs-token__swatch" style="background:#1d3aff;"></div>
-      <div class="cs-token__name">blue</div>
-      <div class="cs-token__hex">#1d3aff</div>
+      <div class="cs-token__swatch" style="background:#6157FC;"></div>
+      <div class="cs-token__name">accent</div>
+      <div class="cs-token__hex">#6157FC</div>
     </div>
     <div class="cs-token">
-      <div class="cs-token__swatch" style="background:#e6e9ff;"></div>
-      <div class="cs-token__name">blue-soft</div>
-      <div class="cs-token__hex">#e6e9ff</div>
+      <div class="cs-token__swatch" style="background:#ECEAFF;"></div>
+      <div class="cs-token__name">accent-soft</div>
+      <div class="cs-token__hex">#ECEAFF</div>
+    </div>
+    <div class="cs-token">
+      <div class="cs-token__swatch" style="background:#FF6B2C;"></div>
+      <div class="cs-token__name">accent-2</div>
+      <div class="cs-token__hex">#FF6B2C</div>
+    </div>
+    <div class="cs-token">
+      <div class="cs-token__swatch" style="background:#FFE9DD;"></div>
+      <div class="cs-token__name">accent-2-soft</div>
+      <div class="cs-token__hex">#FFE9DD</div>
     </div>
   </div>
 
-  <!-- Component inventory -->
-  <div class="hairline-top">
-    <div class="cs-label">Component inventory</div>
-    <div class="cs-component-row">
-      <span class="cs-comp-pill">Button ×4</span>
-      <span class="cs-comp-pill">Input ×4</span>
-      <span class="cs-comp-pill">Card ×3</span>
-      <span class="cs-comp-pill">Badge / Pill</span>
-      <span class="cs-comp-pill">Data Table</span>
-      <span class="cs-comp-pill">Modal ×2</span>
-      <span class="cs-comp-pill">Navigation</span>
-      <span class="cs-comp-pill">AI Content Block</span>
-      <span class="cs-comp-pill">Expert Profile Card</span>
-      <span class="cs-comp-pill">Survey Question ×4</span>
-      <span class="cs-comp-pill">Drawer</span>
-      <span class="cs-comp-pill">Toast / Alert</span>
-    </div>
-  </div>
+
 </section>
 
 <!-- ─── 12 DATA & IMPACT ──────────────────────────────────────────────── -->
 <section class="cs-section" id="impact">
-  <div class="cs-label">(08) — Impact</div>
+  <div class="cs-label">(08) Impact</div>
   <h2 class="display cs-h2">The work,<br>measured<span class="text-blue">.</span></h2>
 
   <div class="cs-metric-grid">
     <div class="cs-metric cs-metric--hero">
       <div class="cs-metric__num">5×</div>
-      <div class="cs-metric__label">Conversion rate increase<br>Expert discovery → booking</div>
-      <div class="cs-metric__context">TRACKED VIA FUNNEL ANALYTICS<br>90-DAY PRE / POST COMPARISON</div>
+      <div class="cs-metric__label">Lift in conversion<br>Discovery to insight requested</div>
+      <div class="cs-metric__context">FUNNEL ANALYTICS<br>90 DAY PRE / POST</div>
     </div>
     <div class="cs-metric">
       <div class="cs-metric__num" style="color:var(--ink);">~40%</div>
-      <div class="cs-metric__label">Reduction in handoff rework</div>
+      <div class="cs-metric__label">Less rework on handoff</div>
       <div class="cs-metric__context">ESTIMATED FROM<br>SPRINT RETROS</div>
     </div>
     <div class="cs-metric">
       <div class="cs-metric__num" style="color:var(--ink);">12</div>
-      <div class="cs-metric__label">User interviews conducted</div>
-      <div class="cs-metric__context">6 CLIENT-SIDE<br>6 EXPERT-SIDE</div>
+      <div class="cs-metric__label">User interviews run</div>
+      <div class="cs-metric__context">6 CLIENT SIDE<br>6 EXPERT SIDE</div>
     </div>
     <div class="cs-metric">
-      <div class="cs-metric__num" style="color:var(--ink);">3mo</div>
+      <div class="cs-metric__num" style="color:var(--ink);">3 mo</div>
       <div class="cs-metric__label">Research to shipped<br>Platform redesign</div>
-      <div class="cs-metric__context">INCL. COMPLIANCE<br>REVIEW CYCLES</div>
+      <div class="cs-metric__context">INCLUDING COMPLIANCE<br>REVIEW CYCLES</div>
     </div>
     <div class="cs-metric">
       <div class="cs-metric__num" style="color:var(--ink);">30+</div>
-      <div class="cs-metric__label">Screens redesigned across<br>2 user types</div>
-      <div class="cs-metric__context">WEB + RESPONSIVE<br>CORE + ADMIN</div>
+      <div class="cs-metric__label">Screens redesigned across<br>two user types</div>
+      <div class="cs-metric__context">WEB AND RESPONSIVE<br>CORE AND ADMIN</div>
     </div>
   </div>
 
   <div style="margin-top:24px; padding:16px 20px; border:1px solid var(--hairline); border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); line-height:1.6;">
-    NOTE — Some metrics are directional due to analytics maturity at time of project. Where exact figures aren't available, ranges reflect stakeholder-validated estimates.
+    NOTE. Some figures are directional because analytics maturity was limited at the start of the project. Where exact numbers are not available, ranges reflect estimates that stakeholders signed off on.
   </div>
 </section>
 
 <!-- ─── 14 OUTCOMES ───────────────────────────────────────────────────── -->
 <section class="cs-section">
-  <div class="cs-label">(09) — Outcomes</div>
+  <div class="cs-label">(09) Outcomes</div>
   <h2 class="display cs-h2">What changed.<br>What it earned<span class="text-blue">.</span></h2>
 
   <table class="cs-ba-table">
@@ -508,57 +891,53 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td>Inconsistent UI patterns (12 button styles)</td><td class="arrow">→</td><td>Unified component system, one token set</td></tr>
-      <tr><td>7-step booking flow with compliance gates</td><td class="arrow">→</td><td>3-step booking, compliance async</td></tr>
-      <tr><td>Raw ML output, unexplained scores</td><td class="arrow">→</td><td>AI summaries with reasoning + confidence</td></tr>
-      <tr><td>No mobile or tablet support</td><td class="arrow">→</td><td>Full responsive system, 3 breakpoints</td></tr>
+      <tr><td>Twelve button styles, no token set</td><td class="arrow">→</td><td>One component system, one token set</td></tr>
+      <tr><td>Seven step request flow with compliance gates</td><td class="arrow">→</td><td>Three step request, compliance handled async</td></tr>
+      <tr><td>Raw model output, scores without explanation</td><td class="arrow">→</td><td>AI Summaries with reasoning and source quotes</td></tr>
+      <tr><td>Dozens of repeat calls to ask the same questions</td><td class="arrow">→</td><td>Canopy and Channels, async by default</td></tr>
+      <tr><td>Third-party video stitched in for expert calls</td><td class="arrow">→</td><td>Connect, native calls with transcript and compliance</td></tr>
       <tr><td>Compliance buried in documentation</td><td class="arrow">→</td><td>Trust signals woven into the flow</td></tr>
-      <tr><td>Survey tool: engineer-designed, low quality responses</td><td class="arrow">→</td><td>Contextual instrument, higher response quality</td></tr>
-      <tr><td>No design system</td><td class="arrow">→</td><td>8 tokens · 20+ components · 12-col grid</td></tr>
-      <tr><td>No structured design process</td><td class="arrow">→</td><td>Discovery → test → ship → measure</td></tr>
+      <tr><td>No design system, no shared grid</td><td class="arrow">→</td><td>Eight tokens, twenty plus components, twelve column grid</td></tr>
+      <tr><td>No structured design process</td><td class="arrow">→</td><td>Discovery, test, ship, measure</td></tr>
     </tbody>
   </table>
 
-  <div style="margin-top:64px; padding:64px 32px; background:var(--blue); text-align:center; border:1px solid var(--blue);">
-    <div style="font-family:'Inter Tight',sans-serif; font-weight:700; font-size:clamp(80px,12vw,160px); letter-spacing:-0.05em; line-height:0.9; color:#fff;">5×</div>
-    <div style="margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.6); text-transform:uppercase;">The number that started with 30+ screens, 12 interviews, and one design system.</div>
-  </div>
-</section>
+</div>
 
 <!-- ─── 15 REFLECTION ─────────────────────────────────────────────────── -->
 <section class="cs-section" id="reflection">
-  <div class="cs-label">(10) — Reflection</div>
-  <h2 class="display cs-h2">What I'd do<br>differently<span class="text-blue">.</span></h2>
+  <div class="cs-label">(10) Reflection</div>
+  <h2 class="display cs-h2">What I learned<span class="text-blue">.</span></h2>
 
   <div class="cs-reflect-grid">
     <div class="cs-reflect-col">
       <div class="cs-reflect-col__header">What worked</div>
       <div class="cs-reflect-item">
         <div class="cs-reflect-item__title">Starting with the system, not the screens</div>
-        <p class="cs-reflect-item__body">Without the grid rebuild and token foundation, everything downstream would've been slower and messier. The compounding value of system work is consistently underrated.</p>
+        <p class="cs-reflect-item__body">Without the grid rebuild and the first round of tokens, every screen after would have been slower and messier. The compounding value of this kind of work is consistently underrated.</p>
       </div>
       <div class="cs-reflect-item">
         <div class="cs-reflect-item__title">Treating sales as a research channel</div>
-        <p class="cs-reflect-item__body">Client-facing teams carry qualitative signal that formal research doesn't always reach. That monthly loop became one of the most efficient feedback mechanisms I built.</p>
+        <p class="cs-reflect-item__body">Customer-facing teams hear things formal research often misses. A monthly loop with sales became one of the cheapest and most reliable feedback mechanisms I had.</p>
       </div>
       <div class="cs-reflect-item">
-        <div class="cs-reflect-item__title">Making design decisions legible</div>
-        <p class="cs-reflect-item__body">Framing decisions as product bets with hypotheses changed the quality of stakeholder conversations — and eventually changed my seat at the table.</p>
+        <div class="cs-reflect-item__title">Making decisions legible</div>
+        <p class="cs-reflect-item__body">Framing each design call as a hypothesis with a measurable outcome changed the quality of every stakeholder conversation, and eventually changed my seat in the room.</p>
       </div>
     </div>
     <div class="cs-reflect-col">
-      <div class="cs-reflect-col__header">What I'd do differently</div>
+      <div class="cs-reflect-col__header">What I would do differently</div>
       <div class="cs-reflect-item">
-        <div class="cs-reflect-item__title">Instrument before launching, not after</div>
-        <p class="cs-reflect-item__body">Several impact claims are directional because analytics weren't in place at baseline. I'd push harder for instrumentation as a pre-launch prerequisite, not a post-ship task.</p>
+        <div class="cs-reflect-item__title">Instrument before launch, not after</div>
+        <p class="cs-reflect-item__body">Some impact claims are directional because analytics were not in place at baseline. I would push harder for instrumentation as a pre-launch requirement, not a post-launch task.</p>
       </div>
       <div class="cs-reflect-item">
-        <div class="cs-reflect-item__title">Earlier compliance involvement</div>
-        <p class="cs-reflect-item__body">I treated legal review as a gate rather than a collaborator. Earlier loops would've prevented late-stage design changes — and probably unlocked better patterns.</p>
+        <div class="cs-reflect-item__title">Bring legal in earlier</div>
+        <p class="cs-reflect-item__body">I treated compliance review as a gate rather than a collaborator. Earlier loops would have prevented a few late-stage redesigns and probably unlocked a couple of better patterns.</p>
       </div>
       <div class="cs-reflect-item">
         <div class="cs-reflect-item__title">More structured A/B testing</div>
-        <p class="cs-reflect-item__body">The conversion result is directional. With more structured testing infrastructure, I'd have harder numbers — and a stronger case for the next initiative.</p>
+        <p class="cs-reflect-item__body">The conversion lift is directional. With proper testing infrastructure I could have shown harder numbers, and built a stronger case for the next initiative.</p>
       </div>
     </div>
   </div>
@@ -566,20 +945,18 @@
 
 <!-- ─── CLOSING ───────────────────────────────────────────────────────── -->
 <div class="cs-closing-quote">
-  <p class="cs-closing-quote__text display">
-    "Good design is invisible.<br>Good design thinking is visible<br>in the <span class="text-blue">results.</span>"
-  </p>
-  <div class="cs-closing-quote__attr">Artur Lopez Zarytskyi · Arbolus · 2023–2024</div>
-  <div style="margin-top:32px; display:flex; justify-content:center; gap:16px;">
-    <a href="index.html" class="btn btn--primary" style="max-width:200px;"><span>← Back to portfolio</span></a>
-    <a href="mailto:artur@lopezzarytskyi.com" class="btn btn--outline" style="max-width:200px;"><span>Get in touch</span><span>↗</span></a>
+  <div class="cs-closing-quote__text display">A year of work and a product that finally reads as one thing.</div>
+  <div class="cs-closing-quote__attr">Artur Lopez Zarytskyi · Arbolus · 2023 / 2024</div>
+  <div style="margin-top:32px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+    <a href="finario.html" class="btn btn--primary" style="max-width:220px;"><span>Next case, Finario</span><span>→</span></a>
+    <a href="index.html" class="btn btn--outline" style="max-width:220px;"><span>All work</span><span>←</span></a>
   </div>
 </div>
 
 <!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
 <footer class="footer">
   <span class="mono">© 2026 ARTUR LOPEZ ZARYTSKYI</span>
-  <span class="mono">ARBOLUS CASE STUDY · 2023–2024</span>
+  <span class="mono">ARBOLUS CASE STUDY · 2023 / 2024</span>
   <a href="#top" class="mono footer__back-to-top">↑ BACK TO TOP</a>
 </footer>
 

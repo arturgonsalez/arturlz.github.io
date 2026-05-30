@@ -1,0 +1,381 @@
+/* ════════════════════════════════════════════════════════════════════
+   TELEMETRY.RUN — in-page hi-fi product mockups
+   A self-contained dark observability-console design system.
+   All rules scoped to body[data-case="telemetry"].
+   ════════════════════════════════════════════════════════════════════ */
+
+body[data-case="telemetry"] {
+  /* console design tokens */
+  --t-bg:        #0c0e13;
+  --t-panel:     #14171f;
+  --t-panel-2:   #1a1e28;
+  --t-line:      #262c39;
+  --t-line-soft: #1e232e;
+  --t-ink:       #e8ebf2;
+  --t-ink-2:     #aab2c4;
+  --t-muted:     #6b7488;
+  --t-blue:      #5b8cff;
+  --t-red:       #ff5d5d;
+  --t-amber:     #ffb020;
+  --t-green:     #3ad29f;
+  --t-purple:    #b08cff;
+  --t-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --t-sans: "Inter Tight", -apple-system, system-ui, sans-serif;
+}
+
+/* ─── SHOT FRAME (dark variant, matches Arbolus convention) ───────────── */
+body[data-case="telemetry"] .cs-shot {
+  position: relative;
+  background: var(--t-bg);
+  border: 1px solid var(--t-line);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -40px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.3);
+}
+body[data-case="telemetry"] .cs-shot__chrome {
+  display: flex; align-items: center; gap: 8px;
+  padding: 11px 14px;
+  background: #10131a;
+  border-bottom: 1px solid var(--t-line);
+  font-family: var(--t-mono);
+  font-size: 10px; letter-spacing: 0.06em; text-transform: lowercase;
+  color: var(--t-muted);
+}
+body[data-case="telemetry"] .cs-shot__dots { display: inline-flex; gap: 6px; margin-right: 6px; }
+body[data-case="telemetry"] .cs-shot__dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #2a3140; border: 1px solid rgba(255,255,255,0.05);
+}
+body[data-case="telemetry"] .cs-shot__url {
+  flex: 1; opacity: 0.85;
+  display: inline-flex; align-items: center; gap: 7px;
+  letter-spacing: 0.02em;
+}
+body[data-case="telemetry"] .cs-shot__url::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--t-green); box-shadow: 0 0 0 3px rgba(58,210,159,0.16);
+}
+body[data-case="telemetry"] .cs-shot__tag { color: var(--t-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+body[data-case="telemetry"] .cs-shot__caption {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 16px; margin-top: 14px;
+  font-family: var(--t-mono);
+  font-size: 11px; color: var(--muted);
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+body[data-case="telemetry"] .cs-shot__caption strong { color: var(--ink); font-weight: 500; }
+
+/* the rendered UI body inside a frame */
+body[data-case="telemetry"] .tlm {
+  background: var(--t-bg);
+  color: var(--t-ink);
+  font-family: var(--t-sans);
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+body[data-case="telemetry"] .tlm * { box-sizing: border-box; }
+
+/* ─── GALLERY GRID ────────────────────────────────────────────────────── */
+body[data-case="telemetry"] .cs-gallery {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 32px 24px; margin-top: 32px;
+}
+body[data-case="telemetry"] .cs-gallery--full > * { grid-column: 1 / -1; }
+@media (max-width: 900px) {
+  body[data-case="telemetry"] .cs-gallery { grid-template-columns: 1fr; }
+}
+body[data-case="telemetry"] .cs-gallery-h {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 24px; margin-top: 56px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+}
+body[data-case="telemetry"] .cs-gallery-h h3 {
+  font-family: var(--t-sans); font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
+}
+body[data-case="telemetry"] .cs-gallery-h .mono {
+  font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+/* drop dashed bg from before/after panel when it holds a real mockup */
+body[data-case="telemetry"] .cs-ba-screen--real {
+  aspect-ratio: auto; background: none; border: none; padding: 0; display: block;
+}
+
+/* ════════════ SHARED CONSOLE PRIMITIVES ════════════ */
+body[data-case="telemetry"] .tlm-topbar {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 18px; border-bottom: 1px solid var(--t-line);
+  background: linear-gradient(180deg, #11141b, #0e1118);
+}
+body[data-case="telemetry"] .tlm-logo {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--t-mono); font-size: 12px; font-weight: 600; color: var(--t-ink);
+  letter-spacing: -0.01em;
+}
+body[data-case="telemetry"] .tlm-logo b { color: var(--t-blue); }
+body[data-case="telemetry"] .tlm-logo i {
+  width: 16px; height: 16px; border-radius: 4px; font-style: normal;
+  background: linear-gradient(135deg, var(--t-blue), var(--t-purple));
+  display: inline-block;
+}
+body[data-case="telemetry"] .tlm-crumb {
+  font-family: var(--t-mono); font-size: 11px; color: var(--t-muted);
+  display: inline-flex; gap: 7px; align-items: center;
+}
+body[data-case="telemetry"] .tlm-crumb b { color: var(--t-ink-2); font-weight: 500; }
+body[data-case="telemetry"] .tlm-topbar__sp { flex: 1; }
+body[data-case="telemetry"] .tlm-env {
+  font-family: var(--t-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--t-amber); border: 1px solid rgba(255,176,32,0.3);
+  background: rgba(255,176,32,0.08); padding: 4px 9px; border-radius: 5px;
+}
+body[data-case="telemetry"] .tlm-avatar {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: linear-gradient(135deg, #3a4258, #232a3a);
+  border: 1px solid var(--t-line); font-size: 10px; font-family: var(--t-mono);
+  color: var(--t-ink-2); display: grid; place-items: center;
+}
+body[data-case="telemetry"] .tlm-search {
+  font-family: var(--t-mono); font-size: 11px; color: var(--t-muted);
+  background: #0c0f16; border: 1px solid var(--t-line); border-radius: 6px;
+  padding: 6px 10px; min-width: 200px; display: inline-flex; gap: 8px; align-items: center;
+}
+body[data-case="telemetry"] .tlm-kbd {
+  margin-left: auto; font-size: 9px; padding: 1px 5px; border-radius: 3px;
+  border: 1px solid var(--t-line); color: var(--t-muted);
+}
+
+/* status dot */
+body[data-case="telemetry"] .tlm-dot {
+  width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0;
+}
+body[data-case="telemetry"] .tlm-dot--red   { background: var(--t-red);   box-shadow: 0 0 0 3px rgba(255,93,93,0.16); }
+body[data-case="telemetry"] .tlm-dot--amber { background: var(--t-amber); box-shadow: 0 0 0 3px rgba(255,176,32,0.16); }
+body[data-case="telemetry"] .tlm-dot--green { background: var(--t-green); box-shadow: 0 0 0 3px rgba(58,210,159,0.16); }
+
+/* severity badge */
+body[data-case="telemetry"] .tlm-sev {
+  font-family: var(--t-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+  padding: 5px 10px; border-radius: 6px; display: inline-flex; align-items: center; gap: 7px;
+}
+body[data-case="telemetry"] .tlm-sev--2 { color: var(--t-red);   background: rgba(255,93,93,0.12);  border: 1px solid rgba(255,93,93,0.3); }
+body[data-case="telemetry"] .tlm-sev--3 { color: var(--t-amber); background: rgba(255,176,32,0.1);  border: 1px solid rgba(255,176,32,0.28); }
+
+/* pill / chip */
+body[data-case="telemetry"] .tlm-chip {
+  font-family: var(--t-mono); font-size: 10px; color: var(--t-ink-2);
+  border: 1px solid var(--t-line); border-radius: 999px; padding: 3px 9px;
+  display: inline-flex; align-items: center; gap: 6px; background: var(--t-panel);
+}
+body[data-case="telemetry"] .tlm-chip--accent { color: var(--t-blue); border-color: rgba(91,140,255,0.35); background: rgba(91,140,255,0.08); }
+
+/* buttons */
+body[data-case="telemetry"] .tlm-btn {
+  font-family: var(--t-sans); font-size: 12px; font-weight: 600;
+  padding: 8px 14px; border-radius: 7px; border: 1px solid var(--t-line);
+  color: var(--t-ink-2); background: var(--t-panel-2); cursor: default;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+body[data-case="telemetry"] .tlm-btn--primary {
+  color: #fff; background: var(--t-blue); border-color: var(--t-blue);
+  box-shadow: 0 6px 18px -6px rgba(91,140,255,0.6);
+}
+
+/* panel */
+body[data-case="telemetry"] .tlm-panel {
+  background: var(--t-panel); border: 1px solid var(--t-line); border-radius: 10px;
+  overflow: hidden;
+}
+body[data-case="telemetry"] .tlm-panel__head {
+  display: flex; align-items: center; gap: 10px; padding: 11px 14px;
+  border-bottom: 1px solid var(--t-line-soft);
+  font-family: var(--t-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--t-muted);
+}
+body[data-case="telemetry"] .tlm-panel__head .sp { flex: 1; }
+
+/* ════════════ HERO: TRIAGE LANDING ════════════ */
+body[data-case="telemetry"] .tlm-incident {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 18px 20px; border-bottom: 1px solid var(--t-line);
+  background: radial-gradient(120% 140% at 0% 0%, rgba(255,93,93,0.06), transparent 60%);
+}
+body[data-case="telemetry"] .tlm-incident__main { flex: 1; min-width: 0; }
+body[data-case="telemetry"] .tlm-incident__meta {
+  display: flex; gap: 10px; align-items: center; margin-bottom: 9px; flex-wrap: wrap;
+}
+body[data-case="telemetry"] .tlm-incident__title {
+  font-family: var(--t-sans); font-size: 21px; font-weight: 700; letter-spacing: -0.02em;
+  color: var(--t-ink); line-height: 1.1;
+}
+body[data-case="telemetry"] .tlm-incident__sub {
+  font-family: var(--t-mono); font-size: 11px; color: var(--t-muted); margin-top: 7px;
+  display: flex; gap: 14px; flex-wrap: wrap;
+}
+body[data-case="telemetry"] .tlm-incident__sub b { color: var(--t-ink-2); font-weight: 500; }
+body[data-case="telemetry"] .tlm-incident__cta { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+
+body[data-case="telemetry"] .tlm-body { display: grid; grid-template-columns: 1.55fr 1fr; gap: 16px; padding: 18px 20px; }
+
+/* error-rate panel with bar sparkline */
+body[data-case="telemetry"] .tlm-spark {
+  display: flex; align-items: flex-end; gap: 3px; height: 86px; padding: 14px 14px 12px;
+}
+body[data-case="telemetry"] .tlm-spark i {
+  flex: 1; background: linear-gradient(180deg, #2b3344, #222a39); border-radius: 2px 2px 0 0;
+  display: block; min-width: 0;
+}
+body[data-case="telemetry"] .tlm-spark i.hot { background: linear-gradient(180deg, var(--t-red), rgba(255,93,93,0.4)); }
+body[data-case="telemetry"] .tlm-spark i.warm { background: linear-gradient(180deg, var(--t-amber), rgba(255,176,32,0.4)); }
+body[data-case="telemetry"] .tlm-spark-foot {
+  display: flex; justify-content: space-between; padding: 0 14px 12px;
+  font-family: var(--t-mono); font-size: 9px; color: var(--t-muted); letter-spacing: 0.04em;
+}
+body[data-case="telemetry"] .tlm-metric-row {
+  display: flex; gap: 0; border-top: 1px solid var(--t-line-soft);
+}
+body[data-case="telemetry"] .tlm-metric-row > div {
+  flex: 1; padding: 11px 14px; border-right: 1px solid var(--t-line-soft);
+}
+body[data-case="telemetry"] .tlm-metric-row > div:last-child { border-right: none; }
+body[data-case="telemetry"] .tlm-metric-row .k { font-family: var(--t-mono); font-size: 9px; color: var(--t-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+body[data-case="telemetry"] .tlm-metric-row .v { font-family: var(--t-mono); font-size: 17px; font-weight: 600; margin-top: 4px; color: var(--t-ink); }
+body[data-case="telemetry"] .tlm-metric-row .v.red { color: var(--t-red); }
+body[data-case="telemetry"] .tlm-metric-row .v.amber { color: var(--t-amber); }
+
+/* suggested next moves */
+body[data-case="telemetry"] .tlm-moves-h {
+  font-family: var(--t-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--t-muted); margin: 4px 0 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+body[data-case="telemetry"] .tlm-moves-h::after { content: ""; flex: 1; height: 1px; background: var(--t-line-soft); }
+body[data-case="telemetry"] .tlm-move {
+  display: flex; gap: 12px; align-items: center; padding: 13px 14px;
+  border: 1px solid var(--t-line); border-radius: 9px; background: var(--t-panel);
+  margin-bottom: 9px; position: relative;
+}
+body[data-case="telemetry"] .tlm-move--lead { border-color: rgba(91,140,255,0.5); background: rgba(91,140,255,0.06); }
+body[data-case="telemetry"] .tlm-move__ic {
+  width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
+  display: grid; place-items: center; font-family: var(--t-mono); font-size: 13px;
+  background: var(--t-panel-2); border: 1px solid var(--t-line); color: var(--t-ink-2);
+}
+body[data-case="telemetry"] .tlm-move--lead .tlm-move__ic { background: rgba(91,140,255,0.16); color: var(--t-blue); border-color: rgba(91,140,255,0.4); }
+body[data-case="telemetry"] .tlm-move__txt { flex: 1; min-width: 0; }
+body[data-case="telemetry"] .tlm-move__t { font-size: 13px; font-weight: 600; color: var(--t-ink); }
+body[data-case="telemetry"] .tlm-move__d { font-family: var(--t-mono); font-size: 10px; color: var(--t-muted); margin-top: 3px; }
+body[data-case="telemetry"] .tlm-move__go {
+  font-family: var(--t-mono); font-size: 10px; color: var(--t-blue);
+  border: 1px solid rgba(91,140,255,0.35); border-radius: 6px; padding: 4px 9px; flex-shrink: 0;
+}
+
+/* side panel rows */
+body[data-case="telemetry"] .tlm-signal {
+  display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+  border-bottom: 1px solid var(--t-line-soft); font-size: 12px;
+}
+body[data-case="telemetry"] .tlm-signal:last-child { border-bottom: none; }
+body[data-case="telemetry"] .tlm-signal__name { flex: 1; color: var(--t-ink-2); }
+body[data-case="telemetry"] .tlm-signal__val { font-family: var(--t-mono); font-size: 11px; color: var(--t-ink); }
+
+body[data-case="telemetry"] .tlm-tl { padding: 6px 14px 12px; }
+body[data-case="telemetry"] .tlm-tl__row {
+  display: grid; grid-template-columns: 46px 1fr; gap: 10px; padding: 7px 0;
+  font-family: var(--t-mono); font-size: 10px; position: relative;
+}
+body[data-case="telemetry"] .tlm-tl__t { color: var(--t-muted); }
+body[data-case="telemetry"] .tlm-tl__e { color: var(--t-ink-2); display: flex; gap: 7px; align-items: baseline; }
+body[data-case="telemetry"] .tlm-tl__e b { color: var(--t-ink); font-weight: 500; }
+
+/* ════════════ BEFORE: OLD DASHBOARD (clutter) ════════════ */
+body[data-case="telemetry"] .tlm-dash { padding: 16px 18px; }
+body[data-case="telemetry"] .tlm-dash__bar {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  font-family: var(--t-mono); font-size: 11px; color: var(--t-muted);
+}
+body[data-case="telemetry"] .tlm-dash__bar .sp { flex: 1; }
+body[data-case="telemetry"] .tlm-widgets {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+}
+body[data-case="telemetry"] .tlm-w {
+  background: var(--t-panel); border: 1px solid var(--t-line); border-radius: 8px;
+  padding: 12px; min-height: 104px; display: flex; flex-direction: column; gap: 8px;
+}
+body[data-case="telemetry"] .tlm-w__h {
+  font-family: var(--t-mono); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--t-muted); display: flex; justify-content: space-between;
+}
+body[data-case="telemetry"] .tlm-w__big { font-family: var(--t-mono); font-size: 20px; font-weight: 600; color: var(--t-ink-2); }
+/* mini line chart via svg path placeholder using gradient bars */
+body[data-case="telemetry"] .tlm-mini {
+  flex: 1; display: flex; align-items: flex-end; gap: 2px; opacity: 0.55;
+}
+body[data-case="telemetry"] .tlm-mini i { flex: 1; background: #39435a; border-radius: 1px; }
+body[data-case="telemetry"] .tlm-w--flat { align-items: center; justify-content: center; }
+body[data-case="telemetry"] .tlm-donut {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: conic-gradient(#39435a 0 72%, #232a39 0 100%);
+  display: grid; place-items: center; position: relative;
+}
+body[data-case="telemetry"] .tlm-donut::after {
+  content: ""; width: 30px; height: 30px; border-radius: 50%; background: var(--t-panel);
+}
+
+/* ════════════ MOBILE TRIAGE ════════════ */
+body[data-case="telemetry"] .tlm-phonewrap {
+  display: flex; justify-content: center; padding: 28px;
+  background: radial-gradient(120% 80% at 50% 0%, #16191f, #0c0e13);
+}
+body[data-case="telemetry"] .tlm-phone {
+  width: 248px; border: 8px solid #1d2230; border-radius: 30px; background: var(--t-bg);
+  overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.7);
+}
+body[data-case="telemetry"] .tlm-phone__status {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 16px 6px; font-family: var(--t-mono); font-size: 10px; color: var(--t-ink-2);
+}
+body[data-case="telemetry"] .tlm-phone__body { padding: 4px 14px 18px; }
+
+/* ════════════ TRACE WATERFALL ════════════ */
+body[data-case="telemetry"] .tlm-trace { padding: 14px 16px; }
+body[data-case="telemetry"] .tlm-span {
+  display: grid; grid-template-columns: 132px 1fr 56px; gap: 10px; align-items: center;
+  padding: 5px 0; font-family: var(--t-mono); font-size: 10px;
+}
+body[data-case="telemetry"] .tlm-span__name { color: var(--t-ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body[data-case="telemetry"] .tlm-span__name span { color: var(--t-muted); }
+body[data-case="telemetry"] .tlm-span__track { height: 12px; background: var(--t-line-soft); border-radius: 3px; position: relative; }
+body[data-case="telemetry"] .tlm-span__track i {
+  position: absolute; top: 0; height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--t-blue), #4a6fd6);
+}
+body[data-case="telemetry"] .tlm-span__track i.slow { background: linear-gradient(90deg, var(--t-red), #d64a4a); }
+body[data-case="telemetry"] .tlm-span__d { color: var(--t-muted); text-align: right; }
+
+/* ════════════ CONTEXT HANDOFF ════════════ */
+body[data-case="telemetry"] .tlm-handoff {
+  display: grid; grid-template-columns: 1fr 30px 1fr; gap: 0; align-items: center;
+  padding: 20px 18px; min-height: 220px;
+}
+body[data-case="telemetry"] .tlm-card-mini {
+  border: 1px solid var(--t-line); border-radius: 9px; background: var(--t-panel); overflow: hidden;
+}
+body[data-case="telemetry"] .tlm-card-mini__h {
+  padding: 9px 12px; border-bottom: 1px solid var(--t-line-soft);
+  font-family: var(--t-mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--t-muted); display: flex; align-items: center; gap: 7px;
+}
+body[data-case="telemetry"] .tlm-card-mini__b { padding: 12px; font-size: 11px; color: var(--t-ink-2); line-height: 1.55; }
+body[data-case="telemetry"] .tlm-card-mini__b code {
+  font-family: var(--t-mono); font-size: 10px; color: var(--t-green);
+  background: rgba(58,210,159,0.08); padding: 1px 5px; border-radius: 4px;
+}
+body[data-case="telemetry"] .tlm-arrow {
+  text-align: center; font-family: var(--t-mono); color: var(--t-blue); font-size: 16px;
+}
+body[data-case="telemetry"] .tlm-arrow span {
+  display:block; font-size: 8px; color: var(--t-muted); letter-spacing: 0.06em; margin-top: 3px;
+}

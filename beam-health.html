@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beam Health — Case Study · Artur Lopez Zarytskyi</title>
-  <meta name="description" content="Beam Health: Healthcare · Clinical SaaS. Senior Product Designer, 10 months.">
+  <title>Beam Health, case study · Artur Lopez Zarytskyi</title>
+  <meta name="description" content="Beam Health, healthcare clinical SaaS. Senior product designer, ten months.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="case-study.css">
+  <link rel="stylesheet" href="beam-mockups.css">
 </head>
-<body>
+<body data-case="beam">
 
 <!-- ─── NAV ─────────────────────────────────────────────────────────── -->
 <nav class="cs-nav" id="cs-nav">
@@ -36,11 +37,10 @@
       <span class="pill">Healthcare</span>
       <span class="pill">Clinical SaaS</span>
       <span class="pill pill--accent">✦ −42% Time</span>
-      <span class="pill">Senior Designer</span>
       <span class="pill">10 months</span>
     </div>
     <div class="mono cs-hero__meta">
-      (01) — CASE STUDY<br>
+      (01) CASE STUDY<br>
       ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<br>
       BEAM HEALTH · 2023<br>
       PRODUCT / UX DESIGN
@@ -48,54 +48,141 @@
   </div>
 
   <h1 class="display cs-hero__h1">
-    Designing for<br>
+    Designing for the<br>
     twelve seconds<br>
-    between patients<br>
-    <span class="text-blue" aria-hidden="true">.</span>
+    between patients<span class="text-blue" aria-hidden="true">.</span>
   </h1>
 
   <div class="cs-hero__bottom">
-    <p class="cs-hero__lead">Beam Health makes EHR-adjacent tooling for outpatient clinics. I led the redesign of the charting flow — the screen clinicians live in — cutting <em class="text-blue text-semibold">42% off the average chart-completion time</em> while passing every <em class="underline-em">HIPAA</em> and <em class="underline-em">audit</em> review.</p>
+    <p class="cs-hero__lead">Beam Health makes EHR-adjacent tooling for outpatient clinics. I led the redesign of the charting flow, the screen clinicians live in, and cut <em class="text-blue text-semibold">42% off the average chart-completion time</em> while passing every <em class="underline-em">HIPAA</em> and <em class="underline-em">audit</em> review.</p>
     <div class="cs-hero__stats">
       <div class="cs-hero__stat-num">−42%</div>
-      <div class="cs-hero__stat-label">Reduction in clinician time<br>per chart, post-redesign</div>
+      <div class="cs-hero__stat-label">Less clinician time per chart<br>after the redesign</div>
     </div>
     <div class="mono cs-hero__attrs">
-      ROLE — Senior Product Designer<br>
-      SCOPE — End-to-end<br>
-      INDUSTRY — Healthcare · Clinical SaaS<br>
-      YEAR — 2023<br>
-      TEAM — 2 designers · 22 engineers
+      ROLE Senior product designer<br>
+      SCOPE End to end<br>
+      INDUSTRY Healthcare, clinical SaaS<br>
+      YEAR 2023<br>
+      TEAM Two designers, 22 engineers
     </div>
   </div>
 
-  <!-- HERO IMAGE — Replace with real artwork: images/beam-health/hero.jpg -->
-  <figure class="cs-hero-image">
-    <div class="cs-image-placeholder" aria-label="Beam Health hero image">
-      <span class="mono">images/beam-health/hero.jpg</span>
+  <!-- HERO — Redesigned SOAP charting flow (rendered hi-fi mockup) -->
+  <figure class="cs-shot cs-hero-image">
+    <figcaption class="cs-shot__chrome">
+      <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+      <span class="cs-shot__url">app.beamhealth.io/chart/encounter/e-9043</span>
+      <span class="cs-shot__tag">after</span>
+    </figcaption>
+    <div class="bm">
+      <div class="bm-topbar">
+        <span class="bm-logo"><i>B</i>Beam</span>
+        <span class="bm-navlink">Schedule</span>
+        <span class="bm-navlink on">Charting</span>
+        <span class="bm-navlink">Orders</span>
+        <span class="bm-topbar__sp"></span>
+        <span class="bm-search">Search patient or MRN…</span>
+        <span class="bm-avatar">DR</span>
+      </div>
+
+      <div class="bm-phead">
+        <span class="bm-pavatar">MR</span>
+        <div>
+          <div class="bm-pname">Maria Reyes</div>
+          <div class="bm-pmeta"><span>MRN <b>40‑9921</b></span><span><b>54</b> F</span><span>VISIT <b>Follow-up · HTN</b></span><span>ENCOUNTER <b>Today 2:14 PM</b></span></div>
+        </div>
+        <span class="bm-phead__sp"></span>
+        <div class="bm-progress">
+          <span class="bm-progress__label">Chart · 3 of 4 sections</span>
+          <span class="bm-progress__bar"><i style="width:75%"></i></span>
+        </div>
+      </div>
+
+      <div class="bm-chart">
+        <!-- SOAP rail -->
+        <div class="bm-rail">
+          <div class="bm-rail__h">Encounter · SOAP</div>
+          <div class="bm-step done"><span class="bm-step__n">✓</span><span class="bm-step__t">Subjective<span>history, symptoms</span></span></div>
+          <div class="bm-step done"><span class="bm-step__n">✓</span><span class="bm-step__t">Objective<span>vitals, exam</span></span></div>
+          <div class="bm-step on"><span class="bm-step__n">3</span><span class="bm-step__t">Assessment<span>diagnosis</span></span></div>
+          <div class="bm-step"><span class="bm-step__n">4</span><span class="bm-step__t">Plan<span>orders, follow-up</span></span></div>
+        </div>
+
+        <!-- active section -->
+        <div class="bm-form">
+          <div class="bm-form__title">Assessment</div>
+          <div class="bm-form__sub">In the order you think — not the order the auditor reads</div>
+
+          <div class="bm-field">
+            <div class="bm-field__label">Primary diagnosis <span class="req">*</span></div>
+            <div class="bm-input filled">Essential hypertension &nbsp;<span style="font-family:var(--b-mono);font-size:11px;color:var(--b-muted)">· I10</span></div>
+            <div class="bm-suggest">
+              <span class="bm-suggest__ic">✦</span>
+              <span class="bm-suggest__txt">From last visit &amp; today’s BP: continue <b>lisinopril 10mg</b>, recheck in 2 weeks.</span>
+              <span class="bm-suggest__accept">Accept</span>
+              <span class="bm-suggest__dismiss">Edit</span>
+            </div>
+          </div>
+
+          <div class="bm-field">
+            <div class="bm-field__label">Clinical impression</div>
+            <div class="bm-input area filled">BP improved from 152/94 to 138/86 on current therapy. Patient adherent, tolerating well. No new symptoms.</div>
+          </div>
+
+          <div class="bm-field">
+            <div class="bm-field__label">Secondary diagnoses</div>
+            <div class="bm-input"><span class="ph">Add a diagnosis…</span></div>
+            <div class="bm-hint">Optional — you can submit without this. Nothing will block you mid-chart.</div>
+          </div>
+        </div>
+
+        <!-- patient summary -->
+        <div class="bm-side">
+          <div class="bm-side__h">Today’s vitals</div>
+          <div class="bm-vitals">
+            <div class="bm-vital"><div class="k">BP</div><div class="v">138/86</div></div>
+            <div class="bm-vital"><div class="k">HR</div><div class="v">72</div></div>
+            <div class="bm-vital"><div class="k">Temp</div><div class="v">98.4°</div></div>
+            <div class="bm-vital"><div class="k">SpO₂</div><div class="v">98%</div></div>
+          </div>
+          <div class="bm-side__h" style="margin-top:18px;">Context</div>
+          <div class="bm-summary-row"><span class="k">Last visit</span><span class="v">6 wks ago</span></div>
+          <div class="bm-summary-row"><span class="k">Active meds</span><span class="v">Lisinopril 10mg</span></div>
+          <div class="bm-summary-row"><span class="k">Allergies</span><span class="v">Penicillin</span></div>
+          <div class="bm-summary-row"><span class="k">Care gaps</span><span class="v"><span class="bm-pill bm-pill--amber">A1c due</span></span></div>
+        </div>
+      </div>
+
+      <div class="bm-actionbar">
+        <span class="bm-autosave">● Saved · 2s ago</span>
+        <span class="sp"></span>
+        <span class="bm-btn">Save &amp; close</span>
+        <span class="bm-btn bm-btn--primary">Continue to Plan →</span>
+      </div>
     </div>
   </figure>
 </section>
 
 <!-- ─── 02 CONTEXT ───────────────────────────────────────────────────── -->
 <section class="cs-section" id="overview">
-  <div class="cs-label">(02) — Context</div>
-  <h2 class="display cs-h2">The screen between<br>a doctor and<br>their next patient<br><span class="text-blue">.</span></h2>
+  <div class="cs-label">(02) Context</div>
+  <h2 class="display cs-h2">The screen between<br>a doctor and their<br>next patient<span class="text-blue">.</span></h2>
   <div class="cs-2col cs-2col--60-40">
     <div>
-      <p class="cs-body">Charting is the most-used screen in any EHR-adjacent product. A clinician sees 20–30 patients a day; each visit ends with charting. Save thirty seconds per chart and you give a clinician back an hour.</p>
-      <p class="cs-body">Beam's existing charting flow had grown by accretion — a dropdown here, a modal there — until it was a 14-field form a clinician had to navigate while talking to a patient or in the 12-second handoff between rooms.</p>
+      <p class="cs-body">Charting is the most-used screen in any EHR-adjacent product. A clinician sees twenty to thirty patients a day. Each visit ends with charting. Save thirty seconds per chart and you give a clinician back an hour.</p>
+      <p class="cs-body">Beam's charting flow had grown by accretion. A dropdown here, a modal there. By the time I joined it was a fourteen-field form clinicians had to navigate while talking to a patient, or in the twelve-second handoff between rooms.</p>
     </div>
     <div>
       <div class="cs-3col" style="grid-template-columns:1fr; border: 1px solid var(--ink);">
         <div class="cs-3col__item" style="border-right:none;">
           <div class="cs-label">Company snapshot</div>
           <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
-            STAGE — Series B Healthtech<br>
-            USERS — 8,000 clinicians<br>
-            COMPLIANCE — HIPAA · HITRUST · SOC2<br>
-            INTEGRATIONS — 4 major EHRs<br>
-            CHART VOLUME — ~120k/day
+            STAGE Series B healthtech<br>
+            USERS 8,000 clinicians<br>
+            COMPLIANCE HIPAA, HITRUST, SOC2<br>
+            INTEGRATIONS 4 major EHRs<br>
+            CHART VOLUME ~120k per day
           </div>
         </div>
       </div>
@@ -106,34 +193,34 @@
     <div class="cs-3col__item">
       <div class="cs-label">(01)</div>
       <div class="cs-3col__title">High-stakes UX</div>
-      <p class="cs-3col__body">A bad chart isn't a bad form fill — it's a missing diagnosis or a billing error. Errors carry clinical and financial weight.</p>
+      <p class="cs-3col__body">A bad chart is not a bad form fill. It is a missing diagnosis or a billing error. Mistakes here carry clinical and financial weight.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">(02)</div>
       <div class="cs-3col__title">Compliance is the floor</div>
-      <p class="cs-3col__body">HIPAA, audit logging, and clinical-content rules constrain every interaction. Design without legal in the room is design that gets rolled back.</p>
+      <p class="cs-3col__body">HIPAA, audit logging and clinical-content rules constrain every interaction. Design without legal in the room is design that gets rolled back.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">(03)</div>
       <div class="cs-3col__title">Twelve-second windows</div>
-      <p class="cs-3col__body">Clinicians don't have minutes to chart. They have seconds, often standing, often interrupted. The interaction model has to assume hostile conditions.</p>
+      <p class="cs-3col__body">Clinicians do not have minutes to chart. They have seconds, often standing, often interrupted. The interaction model has to assume hostile conditions.</p>
     </div>
   </div>
 </section>
 
 <!-- ─── 03 PROBLEM ───────────────────────────────────────────────────── -->
 <section class="cs-section" id="problem">
-  <div class="cs-label">(03) — The Problem</div>
-  <h2 class="display cs-h2">A 14-field form,<br>in 12 seconds,<br>while standing<br><span class="text-blue">.</span></h2>
+  <div class="cs-label">(03) The problem</div>
+  <h2 class="display cs-h2">A fourteen-field form,<br>in twelve seconds,<br>while standing<span class="text-blue">.</span></h2>
 
   <div class="cs-2col cs-2col--60-40">
     <div>
-      <p class="cs-body">Chart-completion time was the company's most-watched non-clinical metric, and it had been creeping up for three releases. Diagnosis was hard: clinicians completed charts late at night, in batches, off the floor. The screen was failing them — but quietly, and asynchronously.</p>
-      <p class="cs-body">Shadowing 14 clinicians across 4 specialties surfaced a sharper picture: the charting screen demanded full attention at the moment clinicians had the least to give.</p>
+      <p class="cs-body">Chart-completion time was the company's most-watched non-clinical metric, and it had been creeping up for three releases. Diagnosis was hard. Clinicians completed charts late at night, in batches, off the floor. The screen was failing them, quietly, and asynchronously.</p>
+      <p class="cs-body">Shadowing fourteen clinicians across four specialties gave a sharper picture. The charting screen was demanding full attention at the moment clinicians had the least to give.</p>
     </div>
     <div class="cs-stat">
       <div class="cs-stat__num">8.2 min</div>
-      <div class="cs-stat__label">Average chart-completion time<br>(category baseline: 4.5 min)</div>
+      <div class="cs-stat__label">Average chart-completion time.<br>Category baseline was around 4.5 min</div>
     </div>
   </div>
 
@@ -141,50 +228,77 @@
     <div class="cs-3col__item">
       <div class="cs-label">Failure mode 01</div>
       <div class="cs-3col__title">Modal interruptions</div>
-      <p class="cs-3col__body">Required-field errors fired as modals mid-charting, breaking train of thought. Clinicians described "starting over" mentally after each one.</p>
+      <p class="cs-3col__body">Required-field errors fired as modals mid-charting and broke train of thought. Clinicians described mentally starting over after each one.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">Failure mode 02</div>
       <div class="cs-3col__title">Hidden defaults</div>
-      <p class="cs-3col__body">Smart defaults existed but were buried two levels deep. Most clinicians didn't know they existed; they typed everything from scratch.</p>
+      <p class="cs-3col__body">Smart defaults existed but were buried two levels deep. Most clinicians did not know they existed. They typed everything from scratch.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">Failure mode 03</div>
       <div class="cs-3col__title">Audit-shaped UI</div>
-      <p class="cs-3col__body">The form was structured for the auditor, not the clinician. Order of fields matched the chart's legal structure, not the encounter's natural flow.</p>
+      <p class="cs-3col__body">The form was structured for the auditor, not the clinician. Field order matched the chart's legal structure, not the encounter's natural flow.</p>
     </div>
   </div>
 
   <div class="cs-quote">
     <p class="cs-quote__text">"I chart at 9pm at home. The screen is the last thing I see before I close the laptop and the first thing I dread in the morning."</p>
-    <div class="cs-quote__attr">— Internist, shadowing study</div>
+    <div class="cs-quote__attr">Internist, shadowing study</div>
   </div>
 
-  <!-- PROBLEM IMAGE — Replace: images/beam-health/problem.jpg -->
+  <!-- PROBLEM — The original surface: audit-ordered 14-field form + blocking modal -->
   <figure class="cs-image-figure">
-    <div class="cs-image-placeholder" aria-label="Beam Health problem visualization">
-      <span class="mono">images/beam-health/problem.jpg</span>
+    <div class="cs-shot">
+      <figcaption class="cs-shot__chrome">
+        <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+        <span class="cs-shot__url">app.beamhealth.io/chart/legacy/e-9043</span>
+        <span class="cs-shot__tag">before</span>
+      </figcaption>
+      <div class="bm">
+        <div class="bm-old">
+          <div class="bm-old__bar"><span>Encounter chart · Maria Reyes</span><span class="sp"></span><span>14 required fields · page 1 of 2</span></div>
+          <div class="bm-oldgrid">
+            <div class="bm-oldfield"><span class="l">Diagnosis code (ICD-10) <span class="req">*</span></span><div class="bm-oldinput err"><span class="ph">Required — enter code first</span></div></div>
+            <div class="bm-oldfield"><span class="l">Billing modifier <span class="req">*</span></span><div class="bm-oldinput"><span class="ph">Select…</span></div></div>
+            <div class="bm-oldfield"><span class="l">Place of service <span class="req">*</span></span><div class="bm-oldinput">11 · Office</div></div>
+            <div class="bm-oldfield"><span class="l">Encounter type <span class="req">*</span></span><div class="bm-oldinput">Established patient</div></div>
+            <div class="bm-oldfield"><span class="l">CPT level <span class="req">*</span></span><div class="bm-oldinput"><span class="ph">Select…</span></div></div>
+            <div class="bm-oldfield"><span class="l">Referring provider</span><div class="bm-oldinput"><span class="ph">—</span></div></div>
+            <div class="bm-oldfield"><span class="l">Chief complaint <span class="req">*</span></span><div class="bm-oldinput">HTN follow-up</div></div>
+            <div class="bm-oldfield"><span class="l">History of present illness</span><div class="bm-oldinput"><span class="ph">Scroll down to section 9…</span></div></div>
+          </div>
+          <!-- blocking modal -->
+          <div class="bm-old__scrim"></div>
+          <div class="bm-modal">
+            <div class="bm-modal__ic">!</div>
+            <div class="bm-modal__t">Required field missing</div>
+            <div class="bm-modal__b">You must enter a valid ICD-10 diagnosis code before continuing. Unsaved entries in this section may be lost.</div>
+            <div class="bm-modal__row"><span class="bm-btn bm-btn--primary" style="flex:1; justify-content:center;">Go back</span></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <figcaption class="mono">FIG. 01 — The original surface</figcaption>
+    <figcaption class="mono">FIG. 01 — The original chart: audit-ordered (codes first, history last) with modal errors that interrupt mid-thought.</figcaption>
   </figure>
 </section>
 
 <!-- ─── 04 ROLE ───────────────────────────────────────────────────────── -->
 <section class="cs-section">
-  <div class="cs-label">(04) — Role</div>
-  <h2 class="display cs-h2">Senior Product Designer.<br>10 months<span class="text-blue">.</span></h2>
+  <div class="cs-label">(04) Role</div>
+  <h2 class="display cs-h2">Senior product designer.<br>Ten months<span class="text-blue">.</span></h2>
   <div class="cs-2col cs-2col--60-40">
     <div>
-      <p class="cs-body">I led the charting redesign as senior designer paired with one junior designer, working closely with a clinical informaticist embedded in the team. The compliance officer reviewed every flow.</p>
-      <p class="cs-body">My remit covered discovery (shadowing, diary studies), interaction design, accessibility, and the validation plan that satisfied both clinical and audit stakeholders.</p>
+      <p class="cs-body">I led the charting redesign as the senior designer, paired with one junior designer and a clinical informaticist who was embedded in the team. The compliance officer reviewed every flow.</p>
+      <p class="cs-body">My remit covered discovery, shadowing and diary studies, interaction design, accessibility, and the validation plan that satisfied both clinical and audit stakeholders.</p>
     </div>
     <div>
       <div style="font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2.2; color:var(--ink-soft);">
         <div style="color:var(--muted); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Responsibilities</div>
-        DISCOVERY — Shadowing · Diary · Audit log analysis<br>
-        DESIGN — Flows · Forms · Compliance UX<br>
-        VALIDATION — Usability · A/B · Field trials<br>
-        HANDOFF — Specs · Audit logs · Rollout plan
+        DISCOVERY Shadowing, diary, audit log analysis<br>
+        DESIGN Flows, forms, compliance UX<br>
+        VALIDATION Usability, A/B, field trials<br>
+        HANDOFF Specs, audit logs, rollout plan
       </div>
     </div>
   </div>
@@ -214,7 +328,7 @@
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
         <div class="cs-timeline__period">Q3</div>
-        <div class="cs-timeline__label">Field trial (3 clinics)</div>
+        <div class="cs-timeline__label">Field trial in three clinics</div>
       </div>
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
@@ -227,9 +341,9 @@
 
 <!-- ─── 05 INITIATIVES ───────────────────────────────────────────────── -->
 <section class="cs-section" id="initiatives">
-  <div class="cs-label">(05) — Initiatives</div>
+  <div class="cs-label">(05) Initiatives</div>
   <h2 class="display cs-h2">Three bets.<br>One direction<span class="text-blue">.</span></h2>
-  <p class="cs-body" style="max-width:560px;">Three structural changes drove the result — each took a piece of the form's cognitive load off the clinician.</p>
+  <p class="cs-body" style="max-width:560px;">Three structural changes drove the result. Each one took a piece of the form's cognitive load off the clinician.</p>
   <div class="cs-init-grid" style="grid-template-columns:repeat(3, 1fr);">
     <div class="cs-init-card cs-init-card--accent" style="cursor:default;">
       <div class="cs-init-card__num">(01)</div>
@@ -240,13 +354,13 @@
     <div class="cs-init-card" style="cursor:default;">
       <div class="cs-init-card__num">(02)</div>
       <div class="cs-init-card__title">Inline assistance</div>
-      <div class="cs-init-card__desc">Smart defaults surfaced where they're needed, not buried in settings.</div>
+      <div class="cs-init-card__desc">Smart defaults surfaced where they were needed, not buried in settings.</div>
       <div class="cs-init-card__impact" style="color:var(--blue);">↳ 3.2× default usage</div>
     </div>
     <div class="cs-init-card" style="cursor:default;">
       <div class="cs-init-card__num">(03)</div>
       <div class="cs-init-card__title">Non-blocking validation</div>
-      <div class="cs-init-card__desc">Form errors became gentle inline cues, not modals. No more "starting over".</div>
+      <div class="cs-init-card__desc">Form errors became gentle inline cues, not modals. No more starting over.</div>
       <div class="cs-init-card__impact" style="color:var(--blue);">↳ Cognitive load ↓</div>
     </div>
   </div>
@@ -255,22 +369,22 @@
 <!-- ─── 06 DEEP DIVE ─────────────────────────────────────────────────── -->
 <section class="cs-section" id="dd-main">
   <div class="cs-dd-header">
-    <span class="cs-dd-tag">Deep Dive</span>
+    <span class="cs-dd-tag">Deep dive</span>
     <div class="cs-label">Encounter-first form</div>
   </div>
-  <h2 class="display cs-h2">Field order is a<br>design decision<br><span class="text-blue">.</span></h2>
+  <h2 class="display cs-h2">Field order is a<br>design decision<span class="text-blue">.</span></h2>
   <div class="cs-2col cs-2col--60-40">
     <div>
-      <p class="cs-body">The single highest-impact change was reordering the form. The original chart was structured for the auditor reading it three months later — diagnosis codes first, history last. Clinicians filled it in a different order: history → observations → assessment → plan, mirroring the encounter itself.</p>
-      <p class="cs-body" style="margin-top:16px;">Every clinician we shadowed scrolled up and down to fill the form, because the form's structure didn't match how they thought. Reordering looked trivial in Figma. It required four months of compliance review.</p>
+      <p class="cs-body">The single highest-impact change was reordering the form. The original chart was structured for the auditor reading it three months later. Diagnosis codes first, history last. Clinicians filled it in a different order. History, then observations, then assessment, then plan. The encounter itself.</p>
+      <p class="cs-body" style="margin-top:16px;">Every clinician we shadowed scrolled up and down to fill the form, because the form's structure did not match how they thought. Reordering looked trivial in Figma. It took four months of compliance review.</p>
     </div>
     <div>
       <div class="cs-label">The research</div>
       <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
-        14 SHADOWING SESSIONS — 4 specialties<br>
-        6-WEEK DIARY STUDY — 22 clinicians<br>
-        AUDIT LOG ANALYSIS — 8 weeks of data<br>
-        3-CLINIC FIELD TRIAL — 60 days
+        14 SHADOWING SESSIONS, 4 specialties<br>
+        6 WEEK DIARY STUDY, 22 clinicians<br>
+        AUDIT LOG ANALYSIS, 8 weeks of data<br>
+        3 CLINIC FIELD TRIAL, 60 days
       </div>
     </div>
   </div>
@@ -280,24 +394,24 @@
       <div class="cs-decision__num">01</div>
       <div>
         <div class="cs-decision__title">SOAP-aligned section order</div>
-        <p class="cs-decision__body">Reordered sections to mirror SOAP (Subjective → Objective → Assessment → Plan). Clinicians stopped scrolling. Time-to-first-field dropped from 22 to 6 seconds.</p>
-        <div class="cs-decision__tradeoff">Trade-off → required updating every audit template downstream. 4 months of compliance work, validated case-by-case.</div>
+        <p class="cs-decision__body">Sections were reordered to mirror SOAP, subjective then objective then assessment then plan. Clinicians stopped scrolling. Time to first field dropped from twenty-two seconds to six.</p>
+        <div class="cs-decision__tradeoff">Trade-off. Required updating every audit template downstream. Four months of compliance work, validated case by case.</div>
       </div>
     </div>
     <div class="cs-decision">
       <div class="cs-decision__num">02</div>
       <div>
         <div class="cs-decision__title">Inline non-blocking validation</div>
-        <p class="cs-decision__body">Replaced modal errors with gentle inline cues. The form never blocks the clinician mid-thought. Errors surface at submit, with a clear path to fix.</p>
-        <div class="cs-decision__tradeoff">Outcome → "feels less like a form" was the most common verbatim from field trial.</div>
+        <p class="cs-decision__body">Modal errors were replaced with gentle inline cues. The form never blocks the clinician mid-thought. Errors surface at submit, with a clear path to fix.</p>
+        <div class="cs-decision__tradeoff">Outcome. "Feels less like a form" was the most common verbatim from the field trial.</div>
       </div>
     </div>
     <div class="cs-decision">
       <div class="cs-decision__num">03</div>
       <div>
         <div class="cs-decision__title">Smart defaults at the field, not in settings</div>
-        <p class="cs-decision__body">When a field had a likely value (based on patient history, specialty, or previous chart), surfaced it as a one-tap accept inline. No settings menu required.</p>
-        <div class="cs-decision__tradeoff">Trade-off → required a per-specialty config, which engineering pushed back on. Won by showing the time savings in the field trial.</div>
+        <p class="cs-decision__body">When a field had a likely value, based on patient history, specialty or previous chart, the value surfaced inline as a one-tap accept. No settings menu required.</p>
+        <div class="cs-decision__tradeoff">Trade-off. This needed a per-specialty config, which engineering pushed back on. The field trial numbers won the argument.</div>
       </div>
     </div>
   </div>
@@ -307,32 +421,168 @@
        images/beam-health/after.jpg  — redesigned surface -->
   <div class="cs-before-after">
     <div class="cs-ba-tabs">
-      <button class="cs-ba-tab cs-ba-tab--active" data-panel="before-1">Before</button>
-      <button class="cs-ba-tab" data-panel="after-1">After</button>
+      <button class="cs-ba-tab cs-ba-tab--active" data-panel="before-1">Before · audit-ordered</button>
+      <button class="cs-ba-tab" data-panel="after-1">After · SOAP encounter</button>
     </div>
     <div class="cs-ba-panel cs-ba-panel--active" id="before-1">
-      <div class="cs-ba-screen"><span>images/beam-health/before.jpg</span></div>
+      <div class="cs-ba-screen cs-ba-screen--real">
+        <div class="cs-shot">
+          <figcaption class="cs-shot__chrome">
+            <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+            <span class="cs-shot__url">app.beamhealth.io/chart/legacy/e-9043</span>
+            <span class="cs-shot__tag">before</span>
+          </figcaption>
+          <div class="bm">
+            <div class="bm-old" style="min-height:0;">
+              <div class="bm-old__bar"><span>Field order matches the legal document</span><span class="sp"></span><span>codes first · history last</span></div>
+              <div class="bm-oldgrid">
+                <div class="bm-oldfield"><span class="l">Diagnosis code (ICD-10) <span class="req">*</span></span><div class="bm-oldinput"><span class="ph">Enter code…</span></div></div>
+                <div class="bm-oldfield"><span class="l">Billing modifier <span class="req">*</span></span><div class="bm-oldinput"><span class="ph">Select…</span></div></div>
+                <div class="bm-oldfield"><span class="l">CPT level <span class="req">*</span></span><div class="bm-oldinput"><span class="ph">Select…</span></div></div>
+                <div class="bm-oldfield"><span class="l">Place of service <span class="req">*</span></span><div class="bm-oldinput">11 · Office</div></div>
+                <div class="bm-oldfield"><span class="l">Chief complaint <span class="req">*</span></span><div class="bm-oldinput">HTN follow-up</div></div>
+                <div class="bm-oldfield"><span class="l">History <span style="color:var(--b-muted)">(field 9)</span></span><div class="bm-oldinput"><span class="ph">Scroll down…</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-shot__caption"><span><strong>Before</strong> · the clinician scrolls up and down to think</span><span>8.2 min / chart</span></div>
+      </div>
     </div>
     <div class="cs-ba-panel" id="after-1">
-      <div class="cs-ba-screen"><span>images/beam-health/after.jpg</span></div>
+      <div class="cs-ba-screen cs-ba-screen--real">
+        <div class="cs-shot">
+          <figcaption class="cs-shot__chrome">
+            <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+            <span class="cs-shot__url">app.beamhealth.io/chart/encounter/e-9043</span>
+            <span class="cs-shot__tag">after</span>
+          </figcaption>
+          <div class="bm">
+            <div class="bm-chart" style="grid-template-columns:180px 1fr; min-height:0;">
+              <div class="bm-rail">
+                <div class="bm-rail__h">Encounter · SOAP</div>
+                <div class="bm-step done"><span class="bm-step__n">✓</span><span class="bm-step__t">Subjective</span></div>
+                <div class="bm-step done"><span class="bm-step__n">✓</span><span class="bm-step__t">Objective</span></div>
+                <div class="bm-step on"><span class="bm-step__n">3</span><span class="bm-step__t">Assessment</span></div>
+                <div class="bm-step"><span class="bm-step__n">4</span><span class="bm-step__t">Plan</span></div>
+              </div>
+              <div class="bm-form">
+                <div class="bm-form__title">Assessment</div>
+                <div class="bm-form__sub">Subjective → objective → assessment → plan. The encounter’s order.</div>
+                <div class="bm-field">
+                  <div class="bm-field__label">Primary diagnosis <span class="req">*</span></div>
+                  <div class="bm-input filled">Essential hypertension &nbsp;<span style="font-family:var(--b-mono);font-size:11px;color:var(--b-muted)">· I10</span></div>
+                  <div class="bm-suggest"><span class="bm-suggest__ic">✦</span><span class="bm-suggest__txt">Continue <b>lisinopril 10mg</b>, recheck 2 weeks.</span><span class="bm-suggest__accept">Accept</span></div>
+                </div>
+                <div class="bm-field">
+                  <div class="bm-field__label">Clinical impression</div>
+                  <div class="bm-input area filled">BP improved to 138/86 on current therapy. Adherent, tolerating well.</div>
+                  <div class="bm-hint">Codes &amp; billing fill in automatically from your assessment.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-shot__caption"><span><strong>After</strong> · the form matches how clinicians think</span><span>4.7 min / chart</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 06b GALLERY ──────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-gallery-h">
+    <h3>The flow, screen by screen</h3>
+    <span class="mono">04 surfaces · calm, accessible, dense</span>
+  </div>
+  <div class="cs-gallery">
+    <!-- Encounter queue -->
+    <div>
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">app.beamhealth.io/schedule/today</span>
+          <span class="cs-shot__tag">queue</span>
+        </figcaption>
+        <div class="bm">
+          <div class="bm-old__bar" style="padding:12px 20px 0;"><span>Today · Dr. Okafor</span><span class="sp"></span><span>3 charts open</span></div>
+          <div class="bm-queue">
+            <div class="bm-qrow on"><span class="bm-qav">MR</span><div><div class="bm-qname">Maria Reyes</div><div class="bm-qsub">HTN follow-up · MRN 40‑9921</div></div><span class="bm-pill bm-pill--blue">charting</span><span class="bm-qtime">2:14</span></div>
+            <div class="bm-qrow"><span class="bm-qav">JT</span><div><div class="bm-qname">James Tran</div><div class="bm-qsub">Annual physical · MRN 38‑4410</div></div><span class="bm-pill bm-pill--green">signed</span><span class="bm-qtime">1:40</span></div>
+            <div class="bm-qrow"><span class="bm-qav">AB</span><div><div class="bm-qname">Aisha Bello</div><div class="bm-qsub">Diabetes check · MRN 41‑0238</div></div><span class="bm-pill bm-pill--amber">draft</span><span class="bm-qtime">2:45</span></div>
+            <div class="bm-qrow"><span class="bm-qav">LP</span><div><div class="bm-qname">Liam Park</div><div class="bm-qsub">Med refill · MRN 39‑9087</div></div><span class="bm-pill bm-pill--blue">upcoming</span><span class="bm-qtime">3:00</span></div>
+          </div>
+        </div>
+      </figure>
+      <div class="cs-shot__caption"><span><strong>Encounter queue</strong> · the day at a glance</span></div>
+    </div>
+
+    <!-- Mobile quick-chart -->
+    <div>
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">beam · between rooms</span>
+          <span class="cs-shot__tag">mobile</span>
+        </figcaption>
+        <div class="bm bm-phonewrap">
+          <div class="bm-phone">
+            <div class="bm-phone__status"><span>2:16</span><span>●●● 5G</span></div>
+            <div class="bm-phone__body">
+              <div class="bm-pname" style="font-size:15px;">Maria Reyes</div>
+              <div class="bm-pmeta" style="margin:3px 0 14px;"><span>HTN follow-up</span></div>
+              <div class="bm-field" style="margin-top:0;">
+                <div class="bm-field__label">Assessment</div>
+                <div class="bm-input filled" style="padding:9px 11px;">Essential hypertension · I10</div>
+                <div class="bm-suggest" style="margin-top:7px;"><span class="bm-suggest__ic">✦</span><span class="bm-suggest__txt" style="font-size:11px;">Continue plan?</span><span class="bm-suggest__accept">Accept</span></div>
+              </div>
+              <div class="bm-btn bm-btn--primary" style="width:100%; justify-content:center; margin-top:14px;">Sign chart</div>
+            </div>
+          </div>
+        </div>
+      </figure>
+      <div class="cs-shot__caption"><span><strong>Standing quick-chart</strong> · the twelve-second window</span></div>
+    </div>
+
+    <!-- Validation summary (full width) -->
+    <div style="grid-column:1 / -1;">
+      <figure class="cs-shot">
+        <figcaption class="cs-shot__chrome">
+          <span class="cs-shot__dots"><span></span><span></span><span></span></span>
+          <span class="cs-shot__url">app.beamhealth.io/chart/encounter/e-9043/review</span>
+          <span class="cs-shot__tag">at submit</span>
+        </figcaption>
+        <div class="bm">
+          <div class="bm-validate">
+            <div class="bm-vsummary">
+              <div class="bm-vsummary__h"><span class="bm-pill bm-pill--green">ready to sign</span> Review before you sign — nothing here interrupted you while charting</div>
+              <div class="bm-vrow"><span class="bm-vrow__ic ok">✓</span><span class="bm-vrow__t"><b>Diagnosis &amp; codes</b> · I10 complete, billing auto-derived</span></div>
+              <div class="bm-vrow"><span class="bm-vrow__ic ok">✓</span><span class="bm-vrow__t"><b>Vitals &amp; exam</b> · all required fields captured</span></div>
+              <div class="bm-vrow"><span class="bm-vrow__ic warn">!</span><span class="bm-vrow__t"><b>Care gap</b> · A1c is due — add an order, or sign and defer</span><span class="bm-vrow__go">Add order</span></div>
+              <div class="bm-vrow"><span class="bm-vrow__ic ok">✓</span><span class="bm-vrow__t"><b>Follow-up</b> · recheck scheduled in 2 weeks</span></div>
+            </div>
+          </div>
+        </div>
+      </figure>
+      <div class="cs-shot__caption"><span><strong>Validation at submit</strong> · errors gathered at the end, never mid-thought — a clear path to fix, never a wall</span><span>0 modal interruptions</span></div>
     </div>
   </div>
 </section>
 
 <!-- ─── 07 IMPACT ────────────────────────────────────────────────────── -->
 <section class="cs-section" id="impact">
-  <div class="cs-label">(07) — Impact</div>
+  <div class="cs-label">(07) Impact</div>
   <h2 class="display cs-h2">The work,<br>measured<span class="text-blue">.</span></h2>
   <div class="cs-metric-grid">
     <div class="cs-metric cs-metric--hero">
       <div class="cs-metric__num">−42%</div>
-      <div class="cs-metric__label">Chart time per encounter<br>8.2 min → 4.7 min</div>
-      <div class="cs-metric__context">60-DAY FIELD TRIAL<br>3 CLINICS, 22 CLINICIANS</div>
+      <div class="cs-metric__label">Chart time per encounter<br>From 8.2 min to 4.7 min</div>
+      <div class="cs-metric__context">60 DAY FIELD TRIAL<br>3 CLINICS, 22 CLINICIANS</div>
     </div>
     <div class="cs-metric">
       <div class="cs-metric__num" style="color:var(--ink);">3.2×</div>
       <div class="cs-metric__label">Smart-default usage</div>
-      <div class="cs-metric__context">INLINE > BURIED<br>IN SETTINGS</div>
+      <div class="cs-metric__context">INLINE BEAT BURIED<br>IN SETTINGS</div>
     </div>
     <div class="cs-metric">
       <div class="cs-metric__num" style="color:var(--ink);">0</div>
@@ -342,7 +592,7 @@
     <div class="cs-metric">
       <div class="cs-metric__num" style="color:var(--ink);">+18 NPS</div>
       <div class="cs-metric__label">Clinician NPS<br>Post-rollout</div>
-      <div class="cs-metric__context">60-DAY POST<br>FULL ROLLOUT</div>
+      <div class="cs-metric__context">60 DAYS POST<br>FULL ROLLOUT</div>
     </div>
     <div class="cs-metric">
       <div class="cs-metric__num" style="color:var(--ink);">8,000</div>
@@ -351,67 +601,67 @@
     </div>
   </div>
   <div style="margin-top:24px; padding:16px 20px; border:1px solid var(--hairline); border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); line-height:1.6;">
-    NOTE — Some metrics are directional based on data available at the time. Where possible, figures reflect controlled comparisons; otherwise stakeholder-validated estimates.
+    NOTE. Some metrics are directional, based on data available at the time. Where possible, figures reflect controlled comparisons. Otherwise they are stakeholder-validated estimates.
   </div>
 </section>
 
 <!-- ─── 08 OUTCOMES ──────────────────────────────────────────────────── -->
 <section class="cs-section">
-  <div class="cs-label">(08) — Outcomes</div>
+  <div class="cs-label">(08) Outcomes</div>
   <h2 class="display cs-h2">What changed.<br>What it earned<span class="text-blue">.</span></h2>
   <table class="cs-ba-table">
     <thead>
       <tr><th>Before</th><th class="arrow">→</th><th>After</th></tr>
     </thead>
     <tbody>
-      <tr><td>Audit-ordered form (codes first)</td><td class="arrow">→</td><td>Encounter-ordered (SOAP)</td></tr>
+      <tr><td>Audit-ordered form, codes first</td><td class="arrow">→</td><td>Encounter-ordered, SOAP</td></tr>
       <tr><td>Modal validation interrupts thought</td><td class="arrow">→</td><td>Non-blocking inline cues</td></tr>
       <tr><td>Smart defaults buried in settings</td><td class="arrow">→</td><td>Inline, one-tap accept</td></tr>
       <tr><td>8.2 min average chart time</td><td class="arrow">→</td><td>4.7 min average chart time</td></tr>
-      <tr><td>No clinical-flow research</td><td class="arrow">→</td><td>Shadowing → diary → field trial</td></tr>
+      <tr><td>No clinical-flow research</td><td class="arrow">→</td><td>Shadowing, diary, field trial</td></tr>
       <tr><td>Single rollout, fingers crossed</td><td class="arrow">→</td><td>Phased rollout with rollback gates</td></tr>
     </tbody>
   </table>
 
   <div style="margin-top:64px; padding:64px 32px; background:var(--blue); text-align:center; border:1px solid var(--blue);">
     <div style="font-family:'Inter Tight',sans-serif; font-weight:700; font-size:clamp(80px,12vw,160px); letter-spacing:-0.05em; line-height:0.9; color:#fff;">−42%</div>
-    <div style="margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.6); text-transform:uppercase;">Reduction in clinician time · per chart, post-redesign</div>
+    <div style="margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.6); text-transform:uppercase;">Less clinician time per chart, after the redesign</div>
   </div>
 </section>
 
 <!-- ─── 09 REFLECTION ────────────────────────────────────────────────── -->
 <section class="cs-section" id="reflection">
-  <div class="cs-label">(09) — Reflection</div>
-  <h2 class="display cs-h2">What I'd do<br>differently<span class="text-blue">.</span></h2>
+  <div class="cs-label">(09) Reflection</div>
+  <h2 class="display cs-h2">What I would<br>do differently<span class="text-blue">.</span></h2>
   <div class="cs-reflect-grid">
     <div class="cs-reflect-col">
       <div class="cs-reflect-col__header">What worked</div>
       <div class="cs-reflect-item">
-        <div class="cs-reflect-item__title">Shadowing > surveys</div>
-        <p class="cs-reflect-item__body">The audit-vs-encounter ordering insight was visible in 5 minutes of shadowing and invisible in 6 weeks of survey data. Be in the room.</p>
+        <div class="cs-reflect-item__title">Shadowing beats surveys</div>
+        <p class="cs-reflect-item__body">The audit-versus-encounter ordering insight was visible in five minutes of shadowing and invisible in six weeks of survey data. Be in the room.</p>
       </div>
       <div class="cs-reflect-item">
         <div class="cs-reflect-item__title">Compliance as a co-author</div>
-        <p class="cs-reflect-item__body">Bringing the compliance officer into design reviews — not just sign-off — surfaced constraints early and produced better designs faster.</p>
+        <p class="cs-reflect-item__body">Bringing the compliance officer into design reviews, not just sign-off, surfaced constraints early and produced better designs faster.</p>
       </div>
       <div class="cs-reflect-item">
         <div class="cs-reflect-item__title">Field trial before rollout</div>
-        <p class="cs-reflect-item__body">The 3-clinic trial caught two regressions and validated the metric movement. Worth every week.</p>
+        <p class="cs-reflect-item__body">The three-clinic trial caught two regressions and validated the metric movement. Worth every week.</p>
       </div>
     </div>
     <div class="cs-reflect-col">
-      <div class="cs-reflect-col__header">What I'd do differently</div>
+      <div class="cs-reflect-col__header">What I would do differently</div>
       <div class="cs-reflect-item">
         <div class="cs-reflect-item__title">Earlier engagement with EHR vendors</div>
         <p class="cs-reflect-item__body">Some integration constraints surfaced late. Earlier vendor conversations could have widened the design space.</p>
       </div>
       <div class="cs-reflect-item">
         <div class="cs-reflect-item__title">Better baseline instrumentation</div>
-        <p class="cs-reflect-item__body">The 8.2 min baseline came from log analysis, not a clean experiment. Cleaner instrumentation would have made the result harder to dispute.</p>
+        <p class="cs-reflect-item__body">The 8.2 minute baseline came from log analysis, not a clean experiment. Cleaner instrumentation would have made the result harder to dispute.</p>
       </div>
       <div class="cs-reflect-item">
-        <div class="cs-reflect-item__title">Plan for the off-floor charting</div>
-        <p class="cs-reflect-item__body">A non-trivial fraction of charting happens at home, late at night. I designed for the floor and treated home-charting as out of scope. It shouldn't have been.</p>
+        <div class="cs-reflect-item__title">Plan for off-floor charting</div>
+        <p class="cs-reflect-item__body">A non-trivial fraction of charting happens at home, late at night. I designed for the floor and treated home charting as out of scope. It should not have been.</p>
       </div>
     </div>
   </div>
@@ -420,7 +670,7 @@
 <!-- ─── CLOSING ──────────────────────────────────────────────────────── -->
 <div class="cs-closing-quote">
   <p class="cs-closing-quote__text display">
-    "The clinician finishes their day at 6, not 9. That's the metric. Everything else is downstream."
+    The clinician finishes their day at six, not nine. That is the metric. Everything else is downstream.
   </p>
   <div class="cs-closing-quote__attr">Artur Lopez Zarytskyi · Beam Health · 2023</div>
   <div style="margin-top:32px; display:flex; justify-content:center; gap:16px;">

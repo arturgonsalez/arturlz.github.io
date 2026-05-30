@@ -28,7 +28,7 @@
     .cs-nav__back-dot {
       width: 26px; height: 26px;
       border-radius: 999px;
-      background: var(--blue);
+      background: var(--blue) url("portrait.png") center / cover no-repeat;
       flex-shrink: 0;
     }
     .cs-nav__sections {
@@ -37,23 +37,18 @@
     }
     .cs-nav__sec {
       padding: 8px 14px;
-      font-size: 12px;
+      font-size: 13px;
       background: transparent;
       border: 1px solid transparent;
       border-radius: 999px;
-      color: rgba(244,242,236,0.6);
+      color: var(--bg);
       cursor: pointer;
-      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      transition: border-color 0.15s ease;
       font-family: "JetBrains Mono", monospace;
     }
-    .cs-nav__sec:hover {
-      border-color: rgba(244,242,236,0.3);
-      color: var(--bg);
-    }
+    .cs-nav__sec:hover,
     .cs-nav__sec--active {
       border-color: rgba(244,242,236,0.3);
-      color: var(--ink);
-      background: var(--bg);
     }
     .cs-nav__progress {
       font-family: "JetBrains Mono", monospace;

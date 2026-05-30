@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magma Management System, case study · Artur Lopez Zarytskyi</title>
+  <meta name="description" content="Magma Management System, logistics SaaS for a UK delivery operator. Design system and operations cockpit, contract engagement.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-study.css">
+  <style>
+    /* ─── MAGMA MOCKUP STYLES ─────────────────────────────────────────── */
+    :root {
+      --magma-bg: #1D1D1F;
+      --magma-surface: #2F2F31;
+      --magma-line: rgba(255,255,255,0.08);
+      --magma-text: rgba(255,255,255,0.96);
+      --magma-mute: rgba(255,255,255,0.4);
+      --magma-coral: #EF725C;
+      --magma-coral-soft: rgba(239,114,92,0.16);
+      --magma-green: #6dd49a;
+      --magma-gold: #d4a857;
+    }
+    .magma-mock {
+      background: var(--magma-bg);
+      color: var(--magma-text);
+      border: 1px solid var(--magma-line);
+      font-family: "Inter Tight", sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+    .magma-mock--hero { aspect-ratio: 16/9; }
+    .magma-mock__chrome {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--magma-line);
+      background: #0a0b0f;
+    }
+    .magma-mock__chrome span {
+      width: 9px; height: 9px; border-radius: 999px;
+      background: #2a2d35;
+    }
+    .magma-mock__chrome em {
+      margin-left: auto;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      color: var(--magma-mute);
+      font-style: normal;
+      letter-spacing: 0.08em;
+    }
+    .magma-mock__body { padding: 24px 28px; }
+    .magma-headline {
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 700;
+      font-size: clamp(32px, 4.4vw, 56px);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin: 0 0 18px;
+    }
+    .magma-headline .coral { color: var(--magma-coral); }
+    .magma-headline .grey { color: #6b7080; font-weight: 500; }
+    .magma-lede {
+      max-width: 460px;
+      color: #b6b9c2;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .magma-globe {
+      position: absolute;
+      right: -80px; top: 40px;
+      width: 380px; height: 380px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,107,92,0.08), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(109,212,154,0.05), transparent 50%),
+        #1a1c22;
+      box-shadow:
+        inset -30px -40px 60px rgba(0,0,0,0.6),
+        inset 20px 30px 60px rgba(255,255,255,0.02);
+      overflow: hidden;
+    }
+    .magma-globe::before, .magma-globe::after {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: 999px;
+      background-image:
+        radial-gradient(circle 1px at 20% 30%, rgba(255,255,255,0.35), transparent 60%),
+        radial-gradient(circle 1px at 35% 25%, rgba(255,255,255,0.25), transparent 60%),
+        radial-gradient(circle 1px at 28% 45%, rgba(255,255,255,0.3), transparent 60%),
+        radial-gradient(circle 1px at 50% 35%, rgba(255,255,255,0.4), transparent 60%),
+        radial-gradient(circle 1px at 60% 50%, rgba(255,255,255,0.3), transparent 60%),
+        radial-gradient(circle 1px at 45% 60%, rgba(255,255,255,0.35), transparent 60%),
+        radial-gradient(circle 1px at 70% 40%, rgba(255,255,255,0.25), transparent 60%),
+        radial-gradient(circle 1px at 38% 75%, rgba(255,255,255,0.3), transparent 60%),
+        radial-gradient(circle 1px at 55% 70%, rgba(255,255,255,0.3), transparent 60%),
+        radial-gradient(circle 1px at 22% 55%, rgba(255,255,255,0.3), transparent 60%);
+      background-size: 100% 100%;
+    }
+    .magma-kpi {
+      position: absolute;
+      top: 20px; right: 24px;
+      background: #1a1c22;
+      border: 1px solid var(--magma-line);
+      padding: 14px 18px;
+      width: 180px;
+      border-radius: 6px;
+    }
+    .magma-kpi__label { font-size: 11px; color: var(--magma-mute); margin-bottom: 6px; }
+    .magma-kpi__num { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+    .magma-kpi__delta { font-size: 11px; color: var(--magma-green); margin-top: 4px; }
+    .magma-kpi__spark {
+      position: absolute;
+      right: 14px; bottom: 12px;
+      width: 70px; height: 28px;
+    }
+    .magma-row {
+      position: absolute;
+      left: 40px; right: 40px;
+      bottom: 80px;
+      background: #1a1c22;
+      border: 1px solid var(--magma-line);
+      border-radius: 6px;
+      display: grid;
+      grid-template-columns: 30px 1.4fr 1fr 50px 1fr 1fr 1fr 1fr;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 16px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+    }
+    .magma-row .chk { width: 12px; height: 12px; border: 1px solid var(--magma-mute); border-radius: 2px; }
+    .magma-row .flag {
+      width: 18px; height: 12px; background: #1a3c8a;
+      border-radius: 2px;
+      background:
+        linear-gradient(45deg, #fff 35%, transparent 35%, transparent 65%, #fff 65%),
+        #1a3c8a;
+      background-size: 100% 100%;
+    }
+    .magma-row .status { color: var(--magma-coral); }
+    .magma-row .icons { display: flex; gap: 6px; color: var(--magma-mute); justify-self: end; }
+
+    .magma-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .magma-card {
+      background: var(--magma-surface);
+      border: 1px solid var(--magma-line);
+      border-radius: 6px;
+      padding: 18px 18px 20px;
+    }
+    .magma-card__label { font-size: 11px; color: var(--magma-mute); }
+    .magma-card__num {
+      font-size: 28px; font-weight: 600;
+      letter-spacing: -0.02em; margin-top: 6px;
+    }
+    .magma-card__delta { font-size: 11px; margin-top: 4px; color: var(--magma-green); }
+    .magma-card__delta--neg { color: var(--magma-coral); }
+
+    .magma-tabs {
+      display: flex; gap: 6px; margin-top: 22px;
+      border-bottom: 1px solid var(--magma-line);
+      padding-bottom: 14px;
+    }
+    .magma-tab {
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: var(--magma-mute);
+      background: transparent;
+    }
+    .magma-tab.is-active { background: var(--magma-coral); color: #fff; }
+
+    .magma-chart {
+      margin-top: 18px;
+      height: 160px;
+      position: relative;
+      border-bottom: 1px dashed var(--magma-line);
+    }
+    .magma-chart svg { width: 100%; height: 100%; }
+    .magma-chart__axis {
+      position: absolute;
+      left: -28px; top: 0; bottom: 0;
+      display: flex; flex-direction: column; justify-content: space-between;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 9px; color: var(--magma-mute);
+    }
+    .magma-chart__range {
+      position: absolute; right: 0; top: -28px;
+      display: flex; gap: 14px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; color: var(--magma-mute);
+    }
+    .magma-chart__range .is-active { color: var(--magma-text); }
+
+    /* Tokens display */
+    .magma-tokens {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      border: 1px solid var(--magma-line);
+      background: var(--magma-bg);
+      margin-top: 32px;
+    }
+    .magma-token {
+      padding: 24px 18px;
+      border-right: 1px solid var(--magma-line);
+      border-bottom: 1px solid var(--magma-line);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .magma-token__swatch {
+      height: 56px; border-radius: 4px;
+    }
+    .magma-token__name {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px; color: var(--magma-text);
+    }
+    .magma-token__hex {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px; color: var(--magma-mute);
+    }
+
+    /* Sender list (after view) */
+    .magma-list {
+      margin-top: 20px;
+      border: 1px solid var(--magma-line);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .magma-list__head {
+      display: grid;
+      grid-template-columns: 28px 1.4fr 0.8fr 50px 0.7fr 1fr 0.8fr 0.7fr;
+      gap: 12px;
+      padding: 10px 16px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      color: var(--magma-mute);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: #0a0b0f;
+    }
+    .magma-list__row {
+      display: grid;
+      grid-template-columns: 28px 1.4fr 0.8fr 50px 0.7fr 1fr 0.8fr 0.7fr;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 16px;
+      border-top: 1px solid var(--magma-line);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+    }
+    .magma-list__row .chk {
+      width: 12px; height: 12px; border: 1px solid var(--magma-mute); border-radius: 2px;
+    }
+    .magma-pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 9px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .magma-pill--coral { background: var(--magma-coral-soft); color: var(--magma-coral); }
+    .magma-pill--green { background: rgba(109,212,154,0.12); color: var(--magma-green); }
+    .magma-pill--mute { background: #1a1c22; color: var(--magma-mute); }
+
+    /* Component grid for design system section */
+    .magma-comp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--magma-line);
+      background: var(--magma-bg);
+      margin-top: 32px;
+    }
+    .magma-comp {
+      padding: 32px 24px;
+      border-right: 1px solid var(--magma-line);
+      border-bottom: 1px solid var(--magma-line);
+      display: flex; flex-direction: column; gap: 14px;
+      min-height: 200px;
+    }
+    .magma-comp__label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      color: var(--magma-mute);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .magma-comp__demo {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .magma-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 500;
+    }
+    .magma-btn--primary { background: var(--magma-coral); color: #fff; }
+    .magma-btn--ghost { background: transparent; color: var(--magma-text); border: 1px solid var(--magma-line); }
+    .magma-input {
+      width: 100%; max-width: 200px;
+      padding: 8px 12px;
+      background: var(--magma-bg);
+      border: 1px solid var(--magma-line);
+      color: var(--magma-text);
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: "Inter Tight", sans-serif;
+    }
+    .magma-toggle {
+      width: 32px; height: 18px;
+      background: var(--magma-coral);
+      border-radius: 999px;
+      position: relative;
+    }
+    .magma-toggle::after {
+      content: ""; position: absolute;
+      right: 2px; top: 2px;
+      width: 14px; height: 14px; background: #fff; border-radius: 999px;
+    }
+
+    @media (max-width: 720px) {
+      .magma-tokens { grid-template-columns: repeat(3, 1fr); }
+      .magma-comp-grid { grid-template-columns: 1fr; }
+      .magma-card-grid { grid-template-columns: 1fr; }
+      .magma-globe { display: none; }
+      .magma-kpi { position: static; width: auto; margin-top: 16px; }
+      .magma-row { position: static; margin-top: 16px; grid-template-columns: 30px 1fr 1fr; gap: 10px; }
+      .magma-row .icons, .magma-row .flag, .magma-row .status { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────────────── -->
+<nav class="cs-nav" id="cs-nav">
+  <a href="index.html" class="cs-nav__back">
+    <span class="cs-nav__back-dot" aria-hidden="true"></span>
+    <span>Artur L.Z.</span>
+  </a>
+  <div class="cs-nav__sections" role="list">
+    <button class="cs-nav__sec cs-nav__sec--active" data-target="overview">Context</button>
+    <button class="cs-nav__sec" data-target="problem">Problem</button>
+    <button class="cs-nav__sec" data-target="initiatives">Work</button>
+    <button class="cs-nav__sec" data-target="impact">Impact</button>
+    <button class="cs-nav__sec" data-target="reflection">Reflection</button>
+  </div>
+  <div class="cs-nav__progress mono" id="scroll-progress">00%</div>
+</nav>
+
+<!-- ─── 01 HERO ──────────────────────────────────────────────────────── -->
+<section class="cs-hero" id="hero">
+  <div class="cs-hero__top">
+    <div class="cs-hero__pills">
+      <span class="pill">SaaS · Logistics</span>
+      <span class="pill pill--accent">✦ UK delivery operator</span>
+      <span class="pill">Contract</span>
+    </div>
+    <div class="mono cs-hero__meta">
+      (01) CASE STUDY<br>
+      ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<br>
+      MAGMA · 2020<br>
+      PRODUCT / SYSTEM DESIGN
+    </div>
+  </div>
+
+  <h1 class="display cs-hero__h1">
+    An ops cockpit<br>
+    for moving parcels<br>
+    across borders<span class="text-blue" aria-hidden="true">.</span>
+  </h1>
+
+  <div class="cs-hero__bottom">
+    <p class="cs-hero__lead">Magma Management System is a logistics platform for <em class="underline-em">Magma Trading</em>, a UK delivery operator coordinating shipments domestically and internationally. I designed the dashboard, intake and analytics surfaces on top of a <em class="text-blue text-semibold">modular design system</em> that lets the team add new features and pages with fewer engineering hours.</p>
+    <div class="cs-hero__stats">
+      <div class="cs-hero__stat-num">120+</div>
+      <div class="cs-hero__stat-label">components, tokens and<br>patterns shipped in the system</div>
+    </div>
+    <div class="mono cs-hero__attrs">
+      ROLE Product designer, contract<br>
+      SCOPE Design system + product<br>
+      INDUSTRY Logistics, B2B SaaS<br>
+      YEAR 2020<br>
+      TEAM One designer, two engineers
+    </div>
+  </div>
+
+  <!-- HERO IMAGE — real dashboard frame -->
+  <figure class="cs-hero-image" style="background:#1D1D1F; position:relative; border:1px solid var(--ink); padding:0; overflow:hidden;">
+    <div class="magma-mock__chrome" style="display:flex; align-items:center; gap:8px; padding:10px 14px; border-bottom:1px solid rgba(255,255,255,0.08); background:#15161a;">
+      <span style="width:9px;height:9px;border-radius:999px;background:#2a2d35;"></span>
+      <span style="width:9px;height:9px;border-radius:999px;background:#2a2d35;"></span>
+      <span style="width:9px;height:9px;border-radius:999px;background:#2a2d35;"></span>
+      <em style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.4);font-style:normal;letter-spacing:0.08em;">magma.trading · /dashboard</em>
+    </div>
+    <img src="assets/magma/dashboard.png" alt="Magma dashboard with carrier KPIs, destination world map and shipment queue" style="display:block; width:100%; height:auto;" />
+  </figure>
+</section>
+
+<!-- ─── 02 CONTEXT ───────────────────────────────────────────────────── -->
+<section class="cs-section" id="overview">
+  <div class="cs-label">(02) Context</div>
+  <h2 class="display cs-h2">A delivery operator<br>outgrowing its<br>spreadsheets<span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">Magma Trading runs a UK delivery operation that hands parcels off to a roster of carriers, Hermes among them, and ships both locally and internationally. The business had outgrown the patchwork of spreadsheets, third-party portals and emailed manifests it had used to scale. Operators were tab-hopping to find a single tracking number.</p>
+      <p class="cs-body">The brief was wide. Build the cockpit that runs the day, the intake screens that create parcels and barcodes, and the analytics that prove a carrier is keeping its SLA. Underneath all of it, build a system the small product team can extend without re-litigating buttons and tables every sprint.</p>
+    </div>
+    <div>
+      <div class="cs-3col" style="grid-template-columns:1fr; border: 1px solid var(--ink);">
+        <div class="cs-3col__item" style="border-right:none;">
+          <div class="cs-label">Project snapshot</div>
+          <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
+            CLIENT Magma Trading, UK<br>
+            DOMAIN Parcel logistics, last-mile<br>
+            USERS Operators, account managers<br>
+            CARRIERS Hermes, DHL Express, Royal Mail<br>
+            DELIVERY Web app, dark UI
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-3col" style="margin-top:48px;">
+    <div class="cs-3col__item">
+      <div class="cs-label">(01)</div>
+      <div class="cs-3col__title">A system, not a screen</div>
+      <p class="cs-3col__body">The dashboard was the visible piece. The investment was the underlying system, so the next ten screens could be assembled from components, not redesigned from scratch.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">(02)</div>
+      <div class="cs-3col__title">Designed for density</div>
+      <p class="cs-3col__body">Operators live in tables. The system optimises for scanning hundreds of rows, with restraint around colour so status reads instantly without lighting up the whole screen.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">(03)</div>
+      <div class="cs-3col__title">Dark by default</div>
+      <p class="cs-3col__body">A warehouse office runs long shifts. Dark UI is not a style choice here, it is the surface the team will actually sit in front of for ten hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 03 PROBLEM ───────────────────────────────────────────────────── -->
+<section class="cs-section" id="problem">
+  <div class="cs-label">(03) The problem</div>
+  <h2 class="display cs-h2">Ten tabs to ship<br>one parcel<span class="text-blue">.</span></h2>
+
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">Before Magma, a single shipment touched a customer CSV, a carrier portal, a barcode printer's desktop tool and an internal tracking sheet. None of them spoke to each other. The team was hiring its way around the workflow rather than fixing it.</p>
+      <p class="cs-body">The product had to do four things at once. Pull intake into one screen. Generate carrier-ready barcodes. Surface where every parcel was in the chain. Tell management which carriers were earning their margin.</p>
+    </div>
+    <div class="cs-stat">
+      <div class="cs-stat__num">4</div>
+      <div class="cs-stat__label">disconnected tools<br>replaced by one cockpit</div>
+    </div>
+  </div>
+
+  <div class="cs-3col" style="margin-top:48px;">
+    <div class="cs-3col__item">
+      <div class="cs-label">Friction 01</div>
+      <div class="cs-3col__title">No source of truth</div>
+      <p class="cs-3col__body">Carrier portals each told a different story about the same parcel. Operators were calling Hermes to confirm what their own system already claimed to know.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">Friction 02</div>
+      <div class="cs-3col__title">Barcode bottleneck</div>
+      <p class="cs-3col__body">Barcode generation lived in a desktop app, manually CSV-fed. A wrong column mapping silently mis-routed a batch and was caught at the loading bay.</p>
+    </div>
+    <div class="cs-3col__item">
+      <div class="cs-label">Friction 03</div>
+      <div class="cs-3col__title">Blind to performance</div>
+      <p class="cs-3col__body">No one could answer the question "which carrier is costing us in delays this month" without an analyst building a sheet from scratch.</p>
+    </div>
+  </div>
+
+  <div class="cs-quote">
+    <p class="cs-quote__text">"I want one screen I can leave open all day, not seven tabs I have to refresh."</p>
+    <div class="cs-quote__attr">Operations lead, kick-off interview</div>
+  </div>
+</section>
+
+<!-- ─── 04 ROLE ───────────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(04) Role</div>
+  <h2 class="display cs-h2">Product designer,<br>system first<span class="text-blue">.</span></h2>
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">Contract engagement, embedded with the founder and a two-person engineering team. I owned the design end to end, with a strong lean toward the system layer so the team could keep shipping after the contract ended.</p>
+      <p class="cs-body">The cadence was weekly: review the operations workflow with the team on Monday, prototype the next screen mid-week, hand off tokens and components to engineering by Friday. The Figma file grew as the product did, library first, screens second.</p>
+    </div>
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2.2; color:var(--ink-soft);">
+        <div style="color:var(--muted); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Responsibilities</div>
+        SYSTEM Tokens, components, docs<br>
+        PRODUCT Cockpit, intake, analytics<br>
+        UX Operations interviews, flows<br>
+        HAND-OFF Spec, motion, edge cases
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-timeline">
+    <div class="cs-timeline__track">
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">W1</div>
+        <div class="cs-timeline__label">Ops interviews</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">W2</div>
+        <div class="cs-timeline__label">Tokens + grid</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">W3</div>
+        <div class="cs-timeline__label">Core components</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">W4-6</div>
+        <div class="cs-timeline__label">Dashboard + intake</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">W7-8</div>
+        <div class="cs-timeline__label">Analytics + carriers</div>
+      </div>
+      <div class="cs-timeline__step">
+        <div class="cs-timeline__dot"></div>
+        <div class="cs-timeline__period">W9</div>
+        <div class="cs-timeline__label">Docs + hand-off</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 05 INITIATIVES ───────────────────────────────────────────────── -->
+<section class="cs-section" id="initiatives">
+  <div class="cs-label">(05) Initiatives</div>
+  <h2 class="display cs-h2">Four bets.<br>One platform<span class="text-blue">.</span></h2>
+  <p class="cs-body" style="max-width:560px;">The work clustered into four threads, each one written against the same goal: get the operations team out of their spreadsheets and into a tool that scales with the business.</p>
+
+  <div class="cs-init-grid">
+    <a class="cs-init-card cs-init-card--accent" href="#dd-system">
+      <div class="cs-init-card__num">(01) Deep dive ↓</div>
+      <div class="cs-init-card__title">The design system</div>
+      <div class="cs-init-card__desc">Tokens, primitives, dense data components and a documentation layer. The reason new pages now ship in days, not sprints.</div>
+      <div class="cs-init-card__impact">↳ 120+ components and patterns</div>
+    </a>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(02)</div>
+      <div class="cs-init-card__title">Operations cockpit</div>
+      <div class="cs-init-card__desc">A live dashboard with KPI cards, shipment queues, carrier breakdowns and a map of where every parcel sits in the chain.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Replaced four legacy tools</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(03)</div>
+      <div class="cs-init-card__title">Parcel intake + barcodes</div>
+      <div class="cs-init-card__desc">Create shipments, validate addresses, generate carrier-ready barcodes and print labels in batch, with audit trail.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Removed the desktop bottleneck</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(04)</div>
+      <div class="cs-init-card__title">Carrier analytics</div>
+      <div class="cs-init-card__desc">Performance over time by carrier, sender and lane. The screens management opens before signing the next contract.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Visibility on SLA spend</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 06 DEEP DIVE ─────────────────────────────────────────────────── -->
+<section class="cs-section" id="dd-system">
+  <div class="cs-dd-header">
+    <span class="cs-dd-tag">Deep dive</span>
+    <div class="cs-label">The design system</div>
+  </div>
+  <h2 class="display cs-h2">The screens are<br>the cheap part<span class="text-blue">.</span></h2>
+
+  <div class="cs-2col cs-2col--60-40">
+    <div>
+      <p class="cs-body">Most of the investment lives below the surface. A small set of tokens, a grid that holds together at high density, and a component library tuned to the one thing the product does most, show rows of shipments.</p>
+      <p class="cs-body" style="margin-top:16px;">The payoff is the rate at which the team now adds new features. A new sender detail page is a recombination of existing components, not a fresh design pass. That is the line on the homepage, made literal: <em class="text-blue text-semibold">new pages with fewer software development resources</em>.</p>
+    </div>
+    <div>
+      <div class="cs-label">System surface</div>
+      <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
+        TOKENS Color, type, space, radii<br>
+        PRIMITIVES Button, input, toggle, pill<br>
+        DATA Table, row, sticky header, filter<br>
+        FEEDBACK Toast, banner, empty state<br>
+        DOCS Anatomy, do/don't, code spec
+      </div>
+    </div>
+  </div>
+
+  <!-- TOKEN STRIP — real Bosons (color) tokens -->
+  <div class="magma-tokens">
+    <div class="magma-token">
+      <div class="magma-token__swatch" style="background:#1D1D1F;"></div>
+      <div class="magma-token__name">b-color-background</div>
+      <div class="magma-token__hex">#1D1D1F</div>
+    </div>
+    <div class="magma-token">
+      <div class="magma-token__swatch" style="background:#2F2F31;"></div>
+      <div class="magma-token__name">color-background-modal</div>
+      <div class="magma-token__hex">#2F2F31</div>
+    </div>
+    <div class="magma-token">
+      <div class="magma-token__swatch" style="background:#414143;"></div>
+      <div class="magma-token__name">color-background-dropdown</div>
+      <div class="magma-token__hex">#414143</div>
+    </div>
+    <div class="magma-token">
+      <div class="magma-token__swatch" style="background:#EF725C;"></div>
+      <div class="magma-token__name">b-color-brand-accessible</div>
+      <div class="magma-token__hex">#EF725C</div>
+    </div>
+    <div class="magma-token">
+      <div class="magma-token__swatch" style="background:#EF5C5C;"></div>
+      <div class="magma-token__name">b-color-text-destructive</div>
+      <div class="magma-token__hex">#EF5C5C</div>
+    </div>
+    <div class="magma-token">
+      <div class="magma-token__swatch" style="background:rgba(255,255,255,0.96); color:#1D1D1F;"></div>
+      <div class="magma-token__name">b-color-text-primary</div>
+      <div class="magma-token__hex">#FFFFFF · α 96%</div>
+    </div>
+  </div>
+
+  <!-- COMPONENT GRID -->
+  <div class="magma-comp-grid">
+    <div class="magma-comp">
+      <div class="magma-comp__label">Buttons</div>
+      <div class="magma-comp__demo">
+        <span class="magma-btn magma-btn--primary">Create parcel</span>
+        <span class="magma-btn magma-btn--ghost">Cancel</span>
+      </div>
+    </div>
+    <div class="magma-comp">
+      <div class="magma-comp__label">Form</div>
+      <div class="magma-comp__demo">
+        <input class="magma-input" placeholder="Tracking number" />
+      </div>
+    </div>
+    <div class="magma-comp">
+      <div class="magma-comp__label">Toggle</div>
+      <div class="magma-comp__demo">
+        <span class="magma-toggle"></span>
+      </div>
+    </div>
+    <div class="magma-comp">
+      <div class="magma-comp__label">Status pill</div>
+      <div class="magma-comp__demo">
+        <span class="magma-pill magma-pill--coral">Unprocessed</span>
+        <span class="magma-pill magma-pill--green">In transit</span>
+        <span class="magma-pill magma-pill--mute">Delivered</span>
+      </div>
+    </div>
+    <div class="magma-comp">
+      <div class="magma-comp__label">Tabs</div>
+      <div class="magma-comp__demo">
+        <div class="magma-tabs" style="margin:0; border:none; padding:0;">
+          <span class="magma-tab is-active">Senders</span>
+          <span class="magma-tab">Carriers</span>
+          <span class="magma-tab">Shipments</span>
+        </div>
+      </div>
+    </div>
+    <div class="magma-comp">
+      <div class="magma-comp__label">KPI card</div>
+      <div class="magma-comp__demo" style="align-items:stretch;">
+        <div style="background:var(--magma-surface); border:1px solid var(--magma-line); border-radius:6px; padding:14px 18px; width:160px;">
+          <div style="font-size:10px; color:var(--magma-mute);">On Track</div>
+          <div style="font-size:22px; font-weight:600; color:var(--magma-text); margin-top:4px;">23 293</div>
+          <div style="font-size:10px; color:var(--magma-green); margin-top:2px;">75.54% ↑</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-decision-list" style="margin-top:64px;">
+    <div class="cs-decision">
+      <div class="cs-decision__num">01</div>
+      <div>
+        <div class="cs-decision__title">Coral as a single accent, not a palette</div>
+        <p class="cs-decision__body">One brand colour, applied surgically. Active tabs, primary actions, the status that needs attention. Everything else lives in greys so the coral never has to compete for the operator's eye.</p>
+        <div class="cs-decision__tradeoff">Trade-off. Less room to "decorate" downstream pages. Worth it for the scan-ability operators get on a 200-row queue.</div>
+      </div>
+    </div>
+    <div class="cs-decision">
+      <div class="cs-decision__num">02</div>
+      <div>
+        <div class="cs-decision__title">Tables are the hero component</div>
+        <p class="cs-decision__body">The data table got more design hours than any single screen. Sticky headers, batch selection, column-level filters, row hover states tuned for dark UI. Most of the product is a table in different clothes.</p>
+        <div class="cs-decision__tradeoff">Outcome. The intake, carrier and shipments screens share one table primitive. New views compose, they don't rebuild.</div>
+      </div>
+    </div>
+    <div class="cs-decision">
+      <div class="cs-decision__num">03</div>
+      <div>
+        <div class="cs-decision__title">Docs in the file, not in Notion</div>
+        <p class="cs-decision__body">Every component page in Figma carries its anatomy, do/don't and the engineer-facing spec. The system stays maintained because nobody has to leave the file to learn it.</p>
+        <div class="cs-decision__tradeoff">Trade-off. Slower to author. Pays back the first time a new engineer ships a screen unsupervised.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHIPMENT OVERVIEW — real frame -->
+  <div style="margin-top:64px;">
+    <div class="cs-label" style="margin-bottom:12px;">Fig. 02 — Shipment overview, 220 rows / 13 pages</div>
+    <figure style="margin:0; background:#1D1D1F; border:1px solid var(--ink); overflow:hidden;">
+      <div class="magma-mock__chrome" style="display:flex; align-items:center; gap:8px; padding:10px 14px; border-bottom:1px solid rgba(255,255,255,0.08); background:#15161a;">
+        <span style="width:9px;height:9px;border-radius:999px;background:#2a2d35;"></span>
+        <span style="width:9px;height:9px;border-radius:999px;background:#2a2d35;"></span>
+        <span style="width:9px;height:9px;border-radius:999px;background:#2a2d35;"></span>
+        <em style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.4);font-style:normal;letter-spacing:0.08em;">magma.trading · /shipments</em>
+      </div>
+      <img src="assets/magma/shipment-overview.png" alt="Magma shipment overview table with consignment, sender reference, country, postcode, carrier, upload date and status columns" style="display:block; width:100%; height:auto;" />
+    </figure>
+    <figcaption style="margin-top:10px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); line-height:1.6;">The table primitive in production. UPLOADED / Unprocessed status, country flag column, batch select, paginated filter. Same component powers Senders, Carriers and Reports.</figcaption>
+  </div>
+
+  <!-- ATOMS / MOLECULES / BOSONS — the naming system -->
+  <div style="margin-top:80px;">
+    <div class="cs-label" style="margin-bottom:12px;">Fig. 03 — The library, named after particles</div>
+    <div class="cs-2col cs-2col--60-40" style="margin-bottom:24px;">
+      <div>
+        <p class="cs-body">The library is organised by a physics taxonomy rather than the usual atomic-design vocabulary. <em class="text-blue text-semibold">Bosons</em> are the smallest forces, color and shadow. <em class="text-blue text-semibold">Atoms</em> are typography and primitive properties. <em class="text-blue text-semibold">Molecules</em> are the assembled components, buttons, inputs, nav items. Token names follow the same logic, so <code style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink);">b-color-brand-accessible</code> is a boson, <code style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink);">a-text-heading-n1</code> is an atom and <code style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink);">m-button-primary-m</code> is a molecule.</p>
+        <p class="cs-body">The naming did real work. Every token in the file maps one-to-one to its name in the codebase, and the prefix tells you exactly where it lives before you open it.</p>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; line-height:2; color:var(--ink-soft);">
+          <div style="color:var(--muted); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Prefix legend</div>
+          <span style="color:var(--blue);">b-</span> bosons / color, shadow<br>
+          <span style="color:var(--blue);">a-</span> atoms / typography, size<br>
+          <span style="color:var(--blue);">m-</span> molecules / buttons, inputs, nav<br>
+          <span style="color:var(--blue);">s-</span> states / hover, active, disabled
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr; gap:24px;">
+      <figure style="margin:0; background:#000; border:1px solid var(--ink); overflow:hidden;">
+        <img src="assets/magma/bosons-color.png" alt="Bosons / Color page from the Magma design system" style="display:block; width:100%; height:auto;" loading="lazy" />
+        <figcaption style="padding:14px 18px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; border-top:1px solid var(--ink);">Bosons / Color</figcaption>
+      </figure>
+      <figure style="margin:0; background:#000; border:1px solid var(--ink); overflow:hidden;">
+        <img src="assets/magma/atoms-typography.png" alt="Atoms / Typography page from the Magma design system" style="display:block; width:100%; height:auto;" loading="lazy" />
+        <figcaption style="padding:14px 18px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; border-top:1px solid var(--ink);">Atoms / Typography</figcaption>
+      </figure>
+      <figure style="margin:0; background:#000; border:1px solid var(--ink); overflow:hidden;">
+        <img src="assets/magma/molecules-buttons.png" alt="Molecules / Buttons page from the Magma design system" style="display:block; width:100%; height:auto;" loading="lazy" />
+        <figcaption style="padding:14px 18px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; border-top:1px solid var(--ink);">Molecules / Buttons</figcaption>
+      </figure>
+      <figure style="margin:0; background:#000; border:1px solid var(--ink); overflow:hidden;">
+        <img src="assets/magma/compounds-comboboxes.png" alt="Compounds / Comboboxes page from the Magma design system" style="display:block; width:100%; height:auto;" loading="lazy" />
+        <figcaption style="padding:14px 18px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; border-top:1px solid var(--ink);">Compounds / Comboboxes</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 07 IMPACT ────────────────────────────────────────────────────── -->
+<section class="cs-section" id="impact">
+  <div class="cs-label">(07) Impact</div>
+  <h2 class="display cs-h2">The work,<br>measured<span class="text-blue">.</span></h2>
+  <div class="cs-metric-grid">
+    <div class="cs-metric cs-metric--hero">
+      <div class="cs-metric__num">120+</div>
+      <div class="cs-metric__label">Components, tokens<br>and patterns shipped</div>
+      <div class="cs-metric__context">REUSED ACROSS<br>EVERY PRODUCT PAGE</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">4 → 1</div>
+      <div class="cs-metric__label">Legacy tools collapsed<br>into one cockpit</div>
+      <div class="cs-metric__context">CSV, PORTAL, BARCODE<br>DESKTOP, TRACKING SHEET</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">~60%</div>
+      <div class="cs-metric__label">Less engineering time<br>per new page</div>
+      <div class="cs-metric__context">VS. PRE-SYSTEM<br>STAKEHOLDER ESTIMATE</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">3</div>
+      <div class="cs-metric__label">Carrier integrations<br>at launch</div>
+      <div class="cs-metric__context">HERMES · DHL EXPRESS<br>ROYAL MAIL INTL.</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric__num" style="color:var(--ink);">0</div>
+      <div class="cs-metric__label">Spreadsheets<br>in the daily workflow</div>
+      <div class="cs-metric__context">FROM 4 SHEETS<br>PRE-LAUNCH</div>
+    </div>
+  </div>
+  <div style="margin-top:24px; padding:16px 20px; border:1px solid var(--hairline); border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); line-height:1.6;">
+    NOTE. Engineering-time figure is stakeholder-validated, not measured under controlled conditions. Reflects the team's own estimate of cost-to-ship for new pages, before and after the system was in place.
+  </div>
+</section>
+
+<!-- ─── 08 OUTCOMES ──────────────────────────────────────────────────── -->
+<section class="cs-section">
+  <div class="cs-label">(08) Outcomes</div>
+  <h2 class="display cs-h2">What changed.<br>What it earned<span class="text-blue">.</span></h2>
+  <table class="cs-ba-table">
+    <thead>
+      <tr><th>Before</th><th class="arrow">→</th><th>After</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Four disconnected tools per parcel</td><td class="arrow">→</td><td>One cockpit, one source of truth</td></tr>
+      <tr><td>Barcodes generated in a desktop app, CSV-fed</td><td class="arrow">→</td><td>Inline intake, carrier-ready barcodes in batch</td></tr>
+      <tr><td>Carrier performance lived in analyst spreadsheets</td><td class="arrow">→</td><td>Performance dashboards by sender, carrier and lane</td></tr>
+      <tr><td>Every new page redesigned from scratch</td><td class="arrow">→</td><td>Pages composed from a 120+ component system</td></tr>
+      <tr><td>Light UI built for a marketing demo</td><td class="arrow">→</td><td>Dark UI tuned for 10-hour ops shifts</td></tr>
+      <tr><td>Status communicated through paragraphs of text</td><td class="arrow">→</td><td>Pills, color and a single coral accent</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:64px; padding:64px 32px; background:var(--blue); text-align:center; border:1px solid var(--blue);">
+    <div style="font-family:'Inter Tight',sans-serif; font-weight:700; font-size:clamp(80px,12vw,160px); letter-spacing:-0.05em; line-height:0.9; color:#fff;">120+</div>
+    <div style="margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.6); text-transform:uppercase;">Components, tokens and patterns reused across every product page</div>
+  </div>
+</section>
+
+<!-- ─── 09 REFLECTION ────────────────────────────────────────────────── -->
+<section class="cs-section" id="reflection">
+  <div class="cs-label">(09) Reflection</div>
+  <h2 class="display cs-h2">What I would<br>do differently<span class="text-blue">.</span></h2>
+  <div class="cs-reflect-grid">
+    <div class="cs-reflect-col">
+      <div class="cs-reflect-col__header">What worked</div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">System before screens</div>
+        <p class="cs-reflect-item__body">Investing in tokens and primitives in week one paid off every week after. By the time the team needed an analytics view, half of it already existed in the library.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">One accent colour</div>
+        <p class="cs-reflect-item__body">Restricting coral to active states and primary actions was the single most useful constraint. It kept the UI calm at high density and made status legible from across the room.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Sitting with operators</div>
+        <p class="cs-reflect-item__body">Half a day in the warehouse beat a week of remote interviews. Watching someone tab between Hermes, an email and a CSV taught me more than any survey ever has.</p>
+      </div>
+    </div>
+    <div class="cs-reflect-col">
+      <div class="cs-reflect-col__header">What I would do differently</div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Bring engineering into the system file earlier</div>
+        <p class="cs-reflect-item__body">I documented late. Earlier paired sessions on the token names would have saved a round of refactoring after the first three screens landed.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Test density with real volume</div>
+        <p class="cs-reflect-item__body">Tables looked clean in Figma at 12 rows. At 600, the column priorities shifted. I would prototype directly against production-scale data next time.</p>
+      </div>
+      <div class="cs-reflect-item">
+        <div class="cs-reflect-item__title">Plan for a light theme</div>
+        <p class="cs-reflect-item__body">Dark was the right default for ops. Account managers asked for a light view six months in. The tokens supported it, the component states did not. Both should have been first class.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLOSING ──────────────────────────────────────────────────────── -->
+<div class="cs-closing-quote">
+  <p class="cs-closing-quote__text display">
+    The dashboard is the visible piece. The system is the work.
+  </p>
+  <div class="cs-closing-quote__attr">Artur Lopez Zarytskyi · Magma Management System · 2020</div>
+  <div style="margin-top:32px; display:flex; justify-content:center; gap:16px;">
+    <a href="index.html" class="btn btn--primary" style="max-width:200px;"><span>← Back to portfolio</span></a>
+    <a href="mailto:artur@lopezzarytskyi.com" class="btn btn--outline" style="max-width:200px;"><span>Get in touch</span><span>↗</span></a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <span class="mono">© 2026 ARTUR LOPEZ ZARYTSKYI</span>
+  <span class="mono">MAGMA CASE STUDY · 2020</span>
+  <a href="#top" class="mono footer__back-to-top">↑ BACK TO TOP</a>
+</footer>
+
+<script src="case-study.js"></script>
+</body>
+</html>

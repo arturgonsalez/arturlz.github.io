@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Arbolus">
+  <defs>
+    <radialGradient id="arb-bg" cx="20%" cy="20%" r="100%">
+      <stop offset="0%" stop-color="#7B73FD"></stop>
+      <stop offset="55%" stop-color="#6157FC"></stop>
+      <stop offset="100%" stop-color="#3A30C2"></stop>
+    </radialGradient>
+    <pattern id="arb-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"></path>
+    </pattern>
+  </defs>
+
+  <rect width="600" height="360" fill="url(#arb-bg)"></rect>
+  <rect width="600" height="360" fill="url(#arb-grid)"></rect>
+
+  
+  <g transform="translate(300, 180)">
+    
+    <g transform="translate(-200, -36)" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none">
+      
+      <line x1="36" y1="64" x2="36" y2="38"></line>
+      
+      <path d="M36 38 L18 22"></path>
+      <path d="M36 38 L54 22"></path>
+      
+      <path d="M18 22 L8 8"></path>
+      <path d="M18 22 L24 4"></path>
+      
+      <path d="M54 22 L48 4"></path>
+      <path d="M54 22 L64 8"></path>
+      
+      <circle cx="36" cy="64" r="4" fill="#fff" stroke="none"></circle>
+      <circle cx="8" cy="8" r="3.5" fill="#fff" stroke="none"></circle>
+      <circle cx="24" cy="4" r="3.5" fill="#fff" stroke="none"></circle>
+      <circle cx="48" cy="4" r="3.5" fill="#fff" stroke="none"></circle>
+      <circle cx="64" cy="8" r="3.5" fill="#fff" stroke="none"></circle>
+    </g>
+
+    
+    <text x="-104" y="14" font-family="&#39;Inter Tight&#39;, Inter, system-ui, sans-serif" font-size="72" font-weight="600" fill="#fff" letter-spacing="-0.025em">arbolus</text>
+  </g>
+
+  
+  <text x="300" y="240" text-anchor="middle" font-family="&#39;Inter Tight&#39;, Inter, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(255,255,255,0.78)" letter-spacing="0.01em">Data that superpowers your due diligence</text>
+
+  
+  <g font-family="&#39;JetBrains Mono&#39;, ui-monospace, Menlo, monospace" font-size="10" fill="rgba(255,255,255,0.6)" letter-spacing="0.12em">
+    <text x="32" y="332">B2B · DUE DILIGENCE DATA</text>
+    <text x="568" y="332" text-anchor="end">2023 / 2024</text>
+  </g>
+
+  
+  <g transform="translate(32, 32)" stroke="rgba(255,255,255,0.45)" stroke-width="1" fill="none">
+    <circle cx="6" cy="6" r="6"></circle>
+    <line x1="6" y1="0" x2="6" y2="12"></line>
+    <line x1="0" y1="6" x2="12" y2="6"></line>
+  </g>
+</svg>

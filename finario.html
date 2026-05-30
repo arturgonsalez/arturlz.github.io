@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finario — Case Study · Artur Lopez Zarytskyi</title>
-  <meta name="description" content="Finario: capital planning SaaS. Solo product designer since Jan 2024, redesigning the platform end to end.">
+  <title>Finario, case study · Artur Lopez Zarytskyi</title>
+  <meta name="description" content="Finario, enterprise capex planning SaaS. Solo product designer since January 2024, rebuilding the design system and redesigning investment cost management, approvals, data tables and settings.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="case-study.css">
+  <link rel="stylesheet" href="finario-mockups.css">
 </head>
 <body>
 
@@ -20,11 +21,11 @@
     <span>Artur L.Z.</span>
   </a>
   <div class="cs-nav__sections" role="list">
-    <button class="cs-nav__sec cs-nav__sec--active" data-target="overview" style="opacity: 1; color: rgb(0, 0, 0)">Context</button>
-    <button class="cs-nav__sec" data-target="problem" style="color: rgb(0, 0, 0)">Problem</button>
-    <button class="cs-nav__sec" data-target="initiatives" style="color: rgb(0, 0, 0)">Work</button>
-    <button class="cs-nav__sec" data-target="impact" style="color: rgb(0, 0, 0)">Impact</button>
-    <button class="cs-nav__sec" data-target="reflection" style="color: rgb(0, 0, 0)">Reflection</button>
+    <button class="cs-nav__sec cs-nav__sec--active" data-target="overview">Context</button>
+    <button class="cs-nav__sec" data-target="problem">Problem</button>
+    <button class="cs-nav__sec" data-target="initiatives">Work</button>
+    <button class="cs-nav__sec" data-target="impact">Impact</button>
+    <button class="cs-nav__sec" data-target="reflection">Reflection</button>
   </div>
   <div class="cs-nav__progress mono" id="scroll-progress">00%</div>
 </nav>
@@ -34,15 +35,13 @@
   <div class="cs-hero__top">
     <div class="cs-hero__pills">
       <span class="pill">FinTech · SaaS</span>
-      <span class="pill">Capital planning</span>
       <span class="pill pill--accent">✦ Full platform redesign</span>
-      <span class="pill">Solo Designer</span>
       <span class="pill">Since Jan 2024</span>
     </div>
     <div class="mono cs-hero__meta">
-      (01) — CASE STUDY<br>
+      (01) CASE STUDY<br>
       ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯<br>
-      FINARIO · 2024–Present<br>
+      FINARIO · 2024 / PRESENT<br>
       PRODUCT / UX DESIGN
     </div>
   </div>
@@ -50,50 +49,137 @@
   <h1 class="display cs-hero__h1" style="letter-spacing: -0.44px; line-height: 1">
     Redesigning the<br>
     platform finance<br>
-    leaders trust<br>
+    teams plan on<span class="text-blue">.</span>
   </h1>
 
   <div class="cs-hero__bottom">
-    <p class="cs-hero__lead">Finario is the capex planning tool a lot of big finance teams actually run their budgets on. I came in <em class="text-blue text-semibold">in January 2024 as the only designer</em>, and I've been working on every part of it since.</p>
+    <p class="cs-hero__lead">Finario is the capex planning platform large enterprise finance teams actually run their capital programmes through. I joined as the
+      <em class="text-blue text-semibold">only product designer in January 2024</em>, owning the design system, the platform's UX direction, and the redesign of <em class="underline-em">investment cost management</em>, <em class="underline-em">approval workflows</em>, <em class="underline-em">data tables</em>, and <em class="underline-em">settings &amp; permissions</em>.</p>
     <div class="cs-hero__stats">
-      <div class="cs-hero__stat-num">1→1</div>
-      <div class="cs-hero__stat-label">Solo designer, looking after<br>the whole product</div>
     </div>
     <div class="mono cs-hero__attrs">
-      ROLE — Solo product designer<br>
-      SCOPE — End to end<br>
-      INDUSTRY — FinTech, capex planning<br>
-      YEAR — 2024 onwards<br>
-      TEAM — Just me on design, ~15 engineers
+      ROLE Solo product designer<br>
+      SCOPE End to end<br>
+      INDUSTRY FinTech, capex planning<br>
+      YEAR 2024, ongoing<br>
+      TEAM One designer, fifteen engineers
     </div>
   </div>
 
   <figure class="cs-hero-image">
-    <div class="cs-image-placeholder" aria-label="Finario hero image" data-image-name="images/finario/hero.jpg">
-      <span class="mono">images/finario/hero.jpg</span>
+    <div class="fin-mock fin-mock--hero fin-app" aria-label="Redesigned Finario investment cost management screen">
+      <!-- top bar -->
+      <div class="fm-topbar">
+        <div class="fm-brand"><span class="fm-brand__mark"><i></i><i></i><i></i><i></i></span>FINARIO</div>
+        <nav class="fm-nav">
+          <span class="is-active">Investments</span><span>Portfolios</span><span>Plans</span><span>Forecasts</span><span>Analytics</span>
+        </nav>
+        <div class="fm-topbar__right">
+          <div class="fm-search"><span class="fm-mag"></span>Search investments</div>
+          <div class="fm-avatar">AZ</div>
+        </div>
+      </div>
+      <!-- investment header -->
+      <div class="fm-invhead">
+        <span class="fm-status-dot"></span>
+        <div class="fm-invhead__title">Cold Storage Expansion — Phase II</div>
+        <span class="fm-invhead__id">CS.2026.114</span>
+        <span class="fm-pill fm-pill--green">Approved</span>
+        <div class="fm-invhead__actions">
+          <button class="fm-btn">Forecast</button>
+          <button class="fm-btn fm-btn--primary">Add cost line</button>
+        </div>
+      </div>
+      <!-- tabs -->
+      <div class="fm-tabs">
+        <span>Overview</span><span class="is-active">Cost</span><span>Forecast</span><span>Benefit</span><span>Approval</span><span>Actuals</span><span>History</span>
+      </div>
+      <!-- canvas -->
+      <div class="fm-canvas fm-canvas--12">
+        <!-- KPI strip -->
+        <div class="fm-card" style="grid-column: span 12;">
+          <div class="fm-kpis">
+            <div class="fm-kpi"><div class="fm-kpi__label">Budgeted</div><div class="fm-kpi__val">$12.4M</div><div class="fm-kpi__delta flat">Baseline</div></div>
+            <div class="fm-kpi"><div class="fm-kpi__label">Approved</div><div class="fm-kpi__val">$11.9M</div><div class="fm-kpi__delta up">↓ 4% vs budget</div></div>
+            <div class="fm-kpi"><div class="fm-kpi__label">Actual</div><div class="fm-kpi__val">$6.8M</div><div class="fm-kpi__delta flat">57% committed</div></div>
+            <div class="fm-kpi"><div class="fm-kpi__label">Forecast</div><div class="fm-kpi__val">$11.6M</div><div class="fm-kpi__delta up">↓ $0.3M</div></div>
+            <div class="fm-kpi"><div class="fm-kpi__label">Variance</div><div class="fm-kpi__val" style="color:var(--fm-green);">+2.5%</div><div class="fm-kpi__delta up">Under plan</div></div>
+          </div>
+        </div>
+        <!-- cost table -->
+        <div class="fm-card" style="grid-column: span 8;">
+          <div class="fm-card__head">
+            <div class="fm-card__title">Cost breakdown — by work package</div>
+            <div class="fm-card__meta">USD · FY26 · 6 LINES</div>
+          </div>
+          <table class="fm-table">
+            <thead>
+              <tr><th>Work package</th><th>Approved</th><th>Actual</th><th>Forecast</th><th>Variance</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Site preparation</td><td>1,420k</td><td>1,388k</td><td>1,395k</td><td><span class="fm-var-tag pos">+1.8%</span></td></tr>
+              <tr><td>Refrigeration plant</td><td>4,860k</td><td>2,940k</td><td><span class="fm-cell-edit">4,710k<span class="fm-caret"></span></span></td><td><span class="fm-var-tag pos">+3.1%</span></td></tr>
+              <tr><td>Racking &amp; MHE</td><td>2,150k</td><td>1,120k</td><td>2,180k</td><td><span class="fm-var-tag neg">−1.4%</span></td></tr>
+              <tr><td>Electrical &amp; controls</td><td>1,640k</td><td>980k</td><td>1,610k</td><td><span class="fm-var-tag pos">+1.8%</span></td></tr>
+              <tr><td>Contingency</td><td>1,830k</td><td>372k</td><td>1,705k</td><td><span class="fm-var-tag pos">+6.8%</span></td></tr>
+              <tr class="fm-tr-total"><td>Total committed</td><td>11,900k</td><td>6,800k</td><td>11,600k</td><td><span class="fm-var-tag pos">+2.5%</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- right column -->
+        <div style="grid-column: span 4; display:flex; flex-direction:column; gap:16px;">
+          <div class="fm-card">
+            <div class="fm-card__head">
+              <div class="fm-card__title">Cumulative spend</div>
+              <div class="fm-legend"><span><i style="background:var(--fm-blue);"></i>Actual</span><span><i style="background:var(--fm-blue-2);"></i>Plan</span></div>
+            </div>
+            <div class="fm-chart">
+              <div class="fm-chart__grid"><i></i><i></i><i></i><i></i></div>
+              <div class="fm-chart__y"><span>12M</span><span>8M</span><span>4M</span><span>0</span></div>
+              <svg viewBox="0 0 380 132" preserveAspectRatio="none">
+                <path d="M0,124 L54,114 L108,100 L162,82 L216,66 L216,132 L0,132 Z" fill="var(--fm-blue-soft)"></path>
+                <path d="M0,124 L54,114 L108,100 L162,82 L216,66" fill="none" stroke="var(--fm-blue)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M216,66 L270,52 L324,40 L380,30" fill="none" stroke="var(--fm-blue)" stroke-width="2.4" stroke-dasharray="2 5" stroke-linecap="round"></path>
+                <path d="M0,120 L54,108 L108,92 L162,74 L216,58 L270,46 L324,34 L380,22" fill="none" stroke="var(--fm-blue-2)" stroke-width="1.6" stroke-dasharray="4 4"></path>
+              </svg>
+              <div class="fm-chart__x"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q5</span></div>
+            </div>
+          </div>
+          <div class="fm-card">
+            <div class="fm-card__head"><div class="fm-card__title">Approval</div><div class="fm-card__meta">3 / 4 CLEARED</div></div>
+            <div class="fm-approve">
+              <div class="fm-appr-step"><span class="fm-appr-dot done">✓</span><div><div class="fm-appr-step__name">Finance review</div><div class="fm-appr-step__sub">Cleared · Apr 12</div></div></div>
+              <div class="fm-appr-step"><span class="fm-appr-dot done">✓</span><div><div class="fm-appr-step__name">Ops sign-off</div><div class="fm-appr-step__sub">Cleared · Apr 18</div></div></div>
+              <div class="fm-appr-step"><span class="fm-appr-dot active"></span><div><div class="fm-appr-step__name">CFO authorisation</div><div class="fm-appr-step__sub">Awaiting · you are next</div></div></div>
+              <div class="fm-appr-step"><span class="fm-appr-dot wait"></span><div><div class="fm-appr-step__name">Board ratification</div><div class="fm-appr-step__sub">Scheduled · May 02</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </figure>
 </section>
 
 <!-- ─── 02 CONTEXT ───────────────────────────────────────────────────── -->
 <section class="cs-section" id="overview">
-  <div class="cs-label">(02) — Context</div>
-  <h2 class="display cs-h2">The single source<br>of truth for<br>enterprise capex</h2>
+  <div class="cs-label">(02) Context</div>
+  <h2 class="display cs-h2">A single source of truth<br>for enterprise capex<span class="text-blue">.</span></h2>
   <div class="cs-2col cs-2col--60-40">
     <div>
-      <p class="cs-body">If you've ever seen how big companies plan capital spending, it's mostly spreadsheets, email threads, and a SharePoint folder nobody fully trusts. Finario is the tool a lot of those teams have moved to instead. Budgets, approvals, forecasts, reporting, all in one place, sitting on top of whatever ERP they already run.</p>
-      <p class="cs-body">It's used in 70+ countries across all kinds of industries, from manufacturing to energy to consumer goods. The same screens have to work for a $5,000 line item and for projects worth several hundred million. So the product has a lot of depth: currencies, fiscal years, NPV, IRR, work breakdowns, the whole finance vocabulary is built in.</p>
+      <p class="cs-body">Most large companies still plan capital spending in spreadsheets, email threads and a SharePoint folder no one fully trusts. Finario is the purpose-built platform those teams move to. Investment requests, ROI modelling, approvals, forecasts and reporting all live in one place, sitting on top of whichever ERP the customer already runs.</p>
+      <p class="cs-body">The platform is used across 70+ countries and 30+ industries, from manufacturing to energy to consumer goods. The same screens have to work for a five thousand dollar line item and for a project worth several hundred million. Currencies, fiscal years, NPV, IRR, work breakdowns, multi-level approvals. The full finance vocabulary lives in the product, and the unit it organises around is the <strong>investment</strong>.</p>
     </div>
     <div>
       <div class="cs-3col" style="grid-template-columns:1fr; border: 1px solid var(--ink);">
         <div class="cs-3col__item" style="border-right:none;">
           <div class="cs-label">Company snapshot</div>
           <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
-            PRODUCT — Finario<br>
-            CATEGORY — Enterprise capex planning<br>
-            REACH — 70+ countries, 30+ industries<br>
-            CURRENCIES — 80+ supported<br>
-            COMPLIANCE — SOC 2 Type 2
+            PRODUCT Finario, purpose-built capex SaaS<br>
+            FOUNDED 2011, US-headquartered<br>
+            REACH 70+ countries, 30+ industries<br>
+            CURRENCIES 80+ supported<br>
+            LANGUAGES 100+ localised<br>
+            COMPLIANCE SOC 2 Type 2, 99.99% uptime
           </div>
         </div>
       </div>
@@ -103,36 +189,34 @@
   <div class="cs-3col" style="margin-top:48px;">
     <div class="cs-3col__item">
       <div class="cs-label">(01)</div>
-      <div class="cs-3col__title">High-stakes financial UX</div>
-      <p class="cs-3col__body">People are signing off on real money in here. A confusing screen isn't just annoying, it's an audit risk and sometimes a bad investment decision.</p>
+      <div class="cs-3col__title">High stakes financial UX</div>
+      <p class="cs-3col__body">People sign off on real money in here. A confusing screen is more than annoying. It is an audit risk and sometimes a poor capital decision.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">(02)</div>
-      <div class="cs-3col__title">Domain depth, not generic forms</div>
-      <p class="cs-3col__body">Capex has its own language. Fiscal years, cost curves, ROI models. The product has to actually understand it, not paper over it with generic UI.</p>
+      <div class="cs-3col__title">Tables are the product</div>
+      <p class="cs-3col__body">Capex lives in tables. Forecast curves, cost breakdowns, approval queues. Every read and every edit happens through dense, multi-column grids. Making those readable and editable was half the design problem.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">(03)</div>
       <div class="cs-3col__title">Global enterprise reality</div>
-      <p class="cs-3col__body">Multiple currencies, multiple languages, deep org hierarchies, complicated approval rules. Whatever I design has to hold up in all of that.</p>
+      <p class="cs-3col__body">Multiple currencies, multiple languages, deep org hierarchies, complex approval chains. Whatever ships has to hold up across all of it.</p>
     </div>
   </div>
 </section>
 
 <!-- ─── 03 PROBLEM ───────────────────────────────────────────────────── -->
 <section class="cs-section" id="problem">
-  <div class="cs-label">(03) — The Problem</div>
-  <h2 class="display cs-h2">A powerful platform,<br>asking too much<br>of the people<br>using it</h2>
+  <div class="cs-label">(03) The problem</div>
+  <h2 class="display cs-h2">A powerful platform<br>asking too much<br>of its users<span class="text-blue">.</span></h2>
 
   <div class="cs-2col cs-2col--60-40">
     <div>
-      <p class="cs-body">When I joined, the product worked. Customers were getting real value out of it. The problem was that it had been built and added to for over a decade, and you could feel that on every screen. Buttons everywhere, every option visible at once, hierarchies that made sense to whoever shipped that feature in 2017.</p>
-      <p class="cs-body">It was great if you used it every day. If you only logged in once a month to approve something or check a forecast, which is most users honestly, it was a lot. The job wasn't to dumb anything down. It was to make the same product feel obvious to the people who didn't live in it.</p>
+      <p class="cs-body">When I joined, the product worked. Customers got real value out of it. The problem was a decade of additive feature work, and you could feel that on every screen. Buttons everywhere, every option visible at once, and information hierarchies that made sense to whoever shipped that feature in 2017.</p>
+      <p class="cs-body">It was great if you used it every day. If you logged in once a month to approve a project or check a forecast, which is most users honestly, it was a lot. The job was not to dumb anything down. It was to make the same product feel obvious to people who do not live in it.</p>
     </div>
     <div class="cs-stat">
-      <div class="cs-stat__num">10+ yrs
-<div style="font-size: 20px;"><br></div>
-</div>
+      <div class="cs-stat__num">10+ yrs</div>
       <div class="cs-stat__label">of features layered on top of each other,<br>without breaking what power users rely on</div>
     </div>
   </div>
@@ -141,50 +225,144 @@
     <div class="cs-3col__item">
       <div class="cs-label">Failure mode 01</div>
       <div class="cs-3col__title">Capability over clarity</div>
-      <p class="cs-3col__body">No clear primary action on most screens. New users couldn't tell what they were supposed to click. Veterans were running on muscle memory.</p>
+      <p class="cs-3col__body">No clear primary action on most screens. New users could not tell what they were supposed to click. Veterans were running on muscle memory.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">Failure mode 02</div>
       <div class="cs-3col__title">Inconsistent patterns</div>
-      <p class="cs-3col__body">Submitting, approving, forecasting all worked slightly differently depending on where you were in the app. Each area had been designed in its own time.</p>
+      <p class="cs-3col__body">Submitting an investment, approving one, and forecasting on it all worked slightly differently depending on where in the app you were. Each surface had been designed by a different engineer in its own time.</p>
     </div>
     <div class="cs-3col__item">
       <div class="cs-label">Failure mode 03</div>
       <div class="cs-3col__title">No system, no scale</div>
-      <p class="cs-3col__body">No shared components, no tokens, no agreed patterns. Every new feature meant re-deciding what a button or a table should look like.</p>
+      <p class="cs-3col__body">No shared components, no tokens, no agreed patterns. Engineers had been making UI calls in the absence of a designer. Every new feature meant relitigating what a button, a table or a permission control should look like.</p>
     </div>
   </div>
 
   <div class="cs-quote">
     <p class="cs-quote__text">"This is where our financial truth lives. It should look like it knows that."</p>
-    <div class="cs-quote__attr">— Customer call, early 2024</div>
+    <div class="cs-quote__attr">Customer call, early 2024</div>
   </div>
 
   <figure class="cs-image-figure">
-    <div class="cs-image-placeholder" aria-label="Finario problem visualization">
-      <span class="mono">images/finario/problem.jpg</span>
+    <div class="fin-mock fin-mock--wide fin-legacy" aria-label="Finario platform before the redesign — cluttered legacy dashboard">
+      <!-- legacy top bar -->
+      <div class="fl-topbar">
+        <div class="fm-brand"><span class="fm-brand__mark"><i></i><i></i><i></i><i></i></span>FINARIO</div>
+        <nav class="fl-nav"><span>Investments</span><span>Portfolios</span><span>Budgets</span><span>Plans</span><span>Forecasts</span><span>Analytics</span><span>Settings</span><span>Support</span></nav>
+      </div>
+      <!-- crammed toolbar: every action visible, no primary -->
+      <div class="fl-toolbar">
+        <button class="fl-tbtn fl-tbtn--blue">Predict</button>
+        <button class="fl-tbtn fl-tbtn--blue">Converge</button>
+        <button class="fl-tbtn">Compare</button>
+        <span class="fl-sep"></span>
+        <button class="fl-tbtn">Save</button>
+        <button class="fl-tbtn">Save &amp; Close</button>
+        <button class="fl-tbtn">Submit</button>
+        <button class="fl-tbtn fl-tbtn--amber">Recalculate</button>
+        <button class="fl-tbtn">Duplicate</button>
+        <button class="fl-tbtn">Export</button>
+        <button class="fl-tbtn">Reassign</button>
+        <button class="fl-tbtn">Add Endorser</button>
+        <button class="fl-tbtn fl-tbtn--red">Reject</button>
+        <button class="fl-tbtn">Addendum</button>
+        <button class="fl-tbtn">Print</button>
+        <button class="fl-tbtn">History</button>
+        <button class="fl-tbtn">⋯</button>
+      </div>
+      <!-- legacy tabs -->
+      <div class="fl-tabs">
+        <span>Stream</span><span>Proposal</span><span class="is-active">Cost</span><span>Benefit</span><span>Approval</span><span>Actuals</span><span>Review</span><span>Forecast</span><span>Attachments</span><span>Audit</span>
+      </div>
+      <!-- body -->
+      <div class="fl-body" style="grid-template-columns: 1.5fr 1fr;">
+        <div style="display:grid; gap:12px;">
+          <div class="fl-panel">
+            <div class="fl-panel__head">Cost Summary (USD)<span class="fl-ico"><i></i><i></i></span></div>
+            <div class="fl-panel__body" style="padding:8px 0;">
+              <div class="fl-kpis">
+                <div class="fl-kpi"><div class="fl-kpi__label">Budgeted</div><div class="fl-kpi__val">$0.0k</div></div>
+                <div class="fl-kpi"><div class="fl-kpi__label">Approved</div><div class="fl-kpi__val">$4.9M</div></div>
+                <div class="fl-kpi"><div class="fl-kpi__label">Actual</div><div class="fl-kpi__val">$833k</div></div>
+                <div class="fl-kpi"><div class="fl-kpi__label">Forecast</div><div class="fl-kpi__val">$5.0M</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="fl-panel">
+            <div class="fl-panel__head">Costs (000s USD)<span class="fl-ico"><i></i><i></i><i></i></span></div>
+            <div class="fl-panel__body">
+              <div class="fl-chart">
+                <div class="fl-chart__y"><span>2,000</span><span>1,500</span><span>1,000</span><span>500</span><span>0</span></div>
+                <div class="fl-bars">
+                  <div class="fl-bargroup"><span class="fl-bar fl-bar--a" style="height:38%;"></span><span class="fl-bar fl-bar--f" style="height:40%;"></span></div>
+                  <div class="fl-bargroup"><span class="fl-bar fl-bar--a" style="height:8%;"></span><span class="fl-bar fl-bar--f" style="height:10%;"></span></div>
+                  <div class="fl-bargroup"><span class="fl-bar fl-bar--a" style="height:62%;"></span><span class="fl-bar fl-bar--f" style="height:63%;"></span></div>
+                  <div class="fl-bargroup"><span class="fl-bar fl-bar--a" style="height:2%;"></span><span class="fl-bar fl-bar--f" style="height:3%;"></span></div>
+                  <div class="fl-bargroup"><span class="fl-bar fl-bar--a" style="height:80%;"></span><span class="fl-bar fl-bar--f" style="height:81%;"></span></div>
+                  <div class="fl-bargroup"><span class="fl-bar fl-bar--a" style="height:1%;"></span><span class="fl-bar fl-bar--f" style="height:1%;"></span></div>
+                  <div class="fl-bargroup"><span class="fl-bar fl-bar--a" style="height:58%;"></span><span class="fl-bar fl-bar--f" style="height:59%;"></span></div>
+                </div>
+                <div class="fl-chart__x"><span>Q1 23</span><span>Q2 23</span><span>Q3 23</span><span>Q4 23</span><span>Q1 24</span><span>Q2 24</span><span>Q3 24</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="fl-panel">
+            <div class="fl-panel__head">Actual ROI Metrics<span class="fl-ico"><i></i></span></div>
+            <div class="fl-panel__body">
+              <div class="fl-kpis" style="grid-template-columns:repeat(3,1fr);">
+                <div class="fl-kpi"><div class="fl-kpi__label">PI</div><div class="fl-kpi__val">0.0</div></div>
+                <div class="fl-kpi"><div class="fl-kpi__label">NPV</div><div class="fl-kpi__val">($631K)</div></div>
+                <div class="fl-kpi"><div class="fl-kpi__label">Payback</div><div class="fl-kpi__val">∞ yrs</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fl-panel">
+          <div class="fl-panel__head">Details<span class="fl-ico"><i></i><i></i></span></div>
+          <div class="fl-panel__body">
+            <dl class="fl-detail">
+              <dt>Name</dt><dd>Wetlands Restoration</dd>
+              <dt>ID Code</dt><dd>WE.2023.73</dd>
+              <dt>Status</dt><dd>Approved</dd>
+              <dt>Last Updated</dt><dd>Nov-15-2023</dd>
+              <dt>Description</dt><dd>**Emergency compliance project**</dd>
+              <dt>Start date</dt><dd>M1 2023 (January, 2023)</dd>
+              <dt>In Service Date</dt><dd>M12 2027 (December, 2027)</dd>
+              <dt>Est. completion</dt><dd>M12 2027 (December, 2027)</dd>
+              <dt>Category</dt><dd>Environment, Health &amp; Safety</dd>
+              <dt>Organization</dt><dd>Western Ridge</dd>
+              <dt>Owner</dt><dd>Ed Davis</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <!-- annotations -->
+      <span class="fl-anno" style="top:88px; right:18px;">17 actions, no clear primary</span>
+      <span class="fl-anno" style="top:130px; left:38%;">10 tabs competing for attention</span>
+      <span class="fl-anno" style="bottom:64px; left:14px;">Header bar on every panel — gray on gray</span>
     </div>
-    <figcaption class="mono">FIG. 01 — The platform pre-redesign</figcaption>
+    <figcaption class="mono">FIG. 01 The platform pre-redesign — every capability visible at once</figcaption>
   </figure>
 </section>
 
 <!-- ─── 04 ROLE ───────────────────────────────────────────────────────── -->
 <section class="cs-section">
-  <div class="cs-label">(04) — Role</div>
-  <h2 class="display cs-h2" style="line-height: 1">Solo Product Designer.<br>since Jan 2024<span class="text-blue">.</span></h2>
+  <div class="cs-label">(04) Role</div>
+  <h2 class="display cs-h2" style="line-height: 1">Solo product designer<br>since January 2024<span class="text-blue">.</span></h2>
   <div class="cs-2col cs-2col--60-40">
     <div>
-      <p class="cs-body">I'm the only designer at Finario. There's nobody else in design above me, next to me, or under me. Every flow, screen, component, icon, micro-interaction, anything you see in the product, that's me.</p>
-      <p class="cs-body">In practice that means I'm in the room for almost everything. Working through scope with PMs, sitting with engineers while they build, jumping on customer calls, owning the design system as it gets built piece by piece. It's not a hand-off role, and that's the part I like most about it.</p>
+      <p class="cs-body">I am the only designer at Finario. No one above me, beside me, or under me. Every flow, screen, component, icon and micro-interaction in the product is mine, and so is the system underneath.</p>
+      <p class="cs-body">In practice I sit inside the product loop, not at the end of it. Scoping with PMs, pairing daily with engineering in a fully English-speaking US-based team, joining customer feasibility calls, and pushing the design system forward in parallel. It is not a hand-off role, and that is the part I like most about it.</p>
     </div>
     <div>
       <div style="font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2.2; color:var(--ink-soft);">
         <div style="color:var(--muted); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Responsibilities</div>
-        STRATEGY — Roadmap input, design vision<br>
-        PRODUCT — Discovery, IA, flows, UI<br>
-        SYSTEM — Tokens, components, patterns<br>
-        CRAFT — Visual, motion, iconography<br>
-        PARTNERSHIP — Eng pairing, customer calls
+        STRATEGY Roadmap input, design vision<br>
+        PRODUCT Discovery, IA, flows, UI<br>
+        SYSTEM Tokens, components, patterns<br>
+        CRAFT Visual, motion, iconography<br>
+        PARTNERSHIP Engineering pairing, customer calls
       </div>
     </div>
   </div>
@@ -194,7 +372,7 @@
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
         <div class="cs-timeline__period">Q1 '24</div>
-        <div class="cs-timeline__label">Audit + foundation</div>
+        <div class="cs-timeline__label">Audit and foundation</div>
       </div>
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
@@ -209,12 +387,12 @@
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
         <div class="cs-timeline__period">Q4 '24</div>
-        <div class="cs-timeline__label">Approvals + forecasting</div>
+        <div class="cs-timeline__label">Approvals and forecasting</div>
       </div>
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
         <div class="cs-timeline__period">2025</div>
-        <div class="cs-timeline__label">Reporting + analytics</div>
+        <div class="cs-timeline__label">Reporting and analytics</div>
       </div>
       <div class="cs-timeline__step">
         <div class="cs-timeline__dot"></div>
@@ -227,28 +405,39 @@
 
 <!-- ─── 05 INITIATIVES ───────────────────────────────────────────────── -->
 <section class="cs-section" id="initiatives">
-  <div class="cs-label">(05) — Initiatives</div>
-  <h2 class="display cs-h2" style="line-height: 1">Three bets.<br>One direction<span class="text-blue">.</span></h2>
-  <p class="cs-body" style="max-width:560px;">Roughly speaking the work breaks down into three threads. 
-They've been going on at the same time and feeding each other since day one.</p>
-  <div class="cs-init-grid" style="grid-template-columns:repeat(3, 1fr);">
-    <div class="cs-init-card cs-init-card--accent" style="cursor:default;">
-      <div class="cs-init-card__num">(01)</div>
-      <div class="cs-init-card__title">Platform Redesign</div>
-      <div class="cs-init-card__desc">Rethinking the main flows: investments, approvals, forecasting, reporting.</div>
-      <div class="cs-init-card__impact">↳ A coherent platform</div>
-    </div>
+  <div class="cs-label">(05) Initiatives</div>
+  <h2 class="display cs-h2" style="line-height: 1">Five surfaces.<br>One system<span class="text-blue">.</span></h2>
+  <p class="cs-body" style="max-width:560px;">The work breaks into five surfaces that have been running in parallel since day one, each feeding the design system underneath.</p>
+  <div class="cs-init-grid">
+    <a class="cs-init-card cs-init-card--accent" href="#dd-main">
+      <div class="cs-init-card__num">(01) Deep dive ↓</div>
+      <div class="cs-init-card__title">Investment cost management</div>
+      <div class="cs-init-card__desc">The platform's core surface. Forecast curves, actuals, commitments, and the cost breakdowns finance teams reconcile every month. Redesigned around the investment as the unit, with editable tables built for scale.</div>
+      <div class="cs-init-card__impact">↳ Core workflow rebuilt</div>
+    </a>
     <div class="cs-init-card" style="cursor:default;">
       <div class="cs-init-card__num">(02)</div>
-      <div class="cs-init-card__title">Design System</div>
-      <div class="cs-init-card__desc">From zero. Tokens, components, patterns, the foundation everything else sits on.</div>
-      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Single source of truth</div>
+      <div class="cs-init-card__title">Approval workflows</div>
+      <div class="cs-init-card__desc">Restructured the multi-stage approval flows that route investment requests through finance, ops and the board. Fewer modal hops, clearer state at every step, and a queue that tells reviewers what to do next.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Less friction, more clarity</div>
     </div>
     <div class="cs-init-card" style="cursor:default;">
       <div class="cs-init-card__num">(03)</div>
-      <div class="cs-init-card__title">Cross-Functional Practice</div>
-      <div class="cs-init-card__desc">Getting design into the conversations early, with PMs, engineers, customers, instead of at the end.</div>
-      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Faster, sharper decisions</div>
+      <div class="cs-init-card__title">Data tables</div>
+      <div class="cs-init-card__desc">A single table system for dense financial data. Fixed columns, inline editing, currency-aware totals, drill-down, and the keyboard ergonomics enterprise users actually expect from a tool that competes with Excel.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Readable at any scale</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(04)</div>
+      <div class="cs-init-card__title">Settings &amp; permissions</div>
+      <div class="cs-init-card__desc">A new architecture for the configuration surface admins actually live in. Roles, permissions, feature flags, fiscal calendars, currencies, approval rules, all in one place, organised by how enterprises think instead of by which team built each toggle.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Enterprise flexibility, contained</div>
+    </div>
+    <div class="cs-init-card" style="cursor:default;">
+      <div class="cs-init-card__num">(05)</div>
+      <div class="cs-init-card__title">Design system</div>
+      <div class="cs-init-card__desc">Tokens, components and patterns built from zero. The foundation every surface above sits on, documented as it grew so engineering could pick it up without me in the room.</div>
+      <div class="cs-init-card__impact" style="color:var(--blue);">↳ Single source of truth</div>
     </div>
   </div>
 </section>
@@ -256,22 +445,22 @@ They've been going on at the same time and feeding each other since day one.</p>
 <!-- ─── 06 DEEP DIVE ─────────────────────────────────────────────────── -->
 <section class="cs-section" id="dd-main">
   <div class="cs-dd-header">
-    <span class="cs-dd-tag">Deep Dive</span>
-    <div class="cs-label">Platform Redesign</div>
+    <span class="cs-dd-tag">Deep dive</span>
+    <div class="cs-label">Investment cost management</div>
   </div>
-  <h2 class="display cs-h2" style="line-height: 1;">Keep the depth.<br>Lower the floor</h2>
+  <h2 class="display cs-h2" style="line-height: 1;">Keep the depth.<br>Lower the floor<span class="text-blue">.</span></h2>
   <div class="cs-2col cs-2col--60-40">
     <div>
-      <p class="cs-body">First thing I did was put every screen of the product on one big board and just look at it. Investment forms, approval queues, forecast tables, dashboards, reports. What I was looking for wasn't what made each one different. It was what they all had in common.</p>
-      <p class="cs-body" style="margin-top:16px;">Pretty quickly it was clear: every screen is doing some mix of the same five things. Help you orient, show you data, let you filter it, let you act on it, let you report on it. The screens didn't agree on how to do any of those. Getting them to agree was where most of the wins came from.</p>
+      <p class="cs-body">Investment cost management is where Finario earns its seat at the table. It is the screen finance teams open to reconcile what was forecast against what was committed and what was actually spent, often across hundreds of cost lines and several fiscal periods, in two or three currencies at once.</p>
+      <p class="cs-body" style="margin-top:16px;">The first thing I did was put every screen of the product on one board. Investment forms, approval queues, forecast tables, dashboards, reports. The pattern was clear quickly. Every screen is some mix of the same five jobs. Orient, show data, filter, act, report. The screens did not agree on how to do any of them. Most of the wins came from getting them to agree, starting here.</p>
     </div>
     <div>
       <div class="cs-label">The approach</div>
       <div style="margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2; color:var(--ink-soft);">
-        AUDIT — Every screen in the product<br>
-        INTERVIEWS — Customers across 6+ industries<br>
-        PAIRING — Daily with engineering<br>
-        VALIDATION — On every customer call I could
+        AUDIT Every screen in the product<br>
+        INTERVIEWS Customers across six plus industries<br>
+        PAIRING Daily, with engineering<br>
+        VALIDATION On every customer call I could join
       </div>
     </div>
   </div>
@@ -280,25 +469,25 @@ They've been going on at the same time and feeding each other since day one.</p>
     <div class="cs-decision">
       <div class="cs-decision__num">01</div>
       <div>
-        <div class="cs-decision__title">A shared layout grammar</div>
-        <p class="cs-decision__body">Header for context, main work area, side panel for related stuff, sticky toolbar at the bottom. Same idea everywhere. Once you've used one screen, you know how the others work.</p>
-        <div class="cs-decision__tradeoff">Trade-off: long-time users had to relearn a few of their favourite layouts. We rolled it out gradually so the parity was visible.</div>
+        <div class="cs-decision__title">Investment as the unit</div>
+        <p class="cs-decision__body">An investment is the thing Finario was always about. Approvals, forecasts, cost lines and reports are different views into one. Once the cost management screen was rebuilt around that idea, the product stopped feeling like five separate apps stitched together.</p>
+        <div class="cs-decision__tradeoff">Result. Fewer screens, more depth per screen. Users stopped getting lost in submenus, and PMs had a clearer model to plan against.</div>
       </div>
     </div>
     <div class="cs-decision">
       <div class="cs-decision__num">02</div>
       <div>
-        <div class="cs-decision__title">Investment as the unit</div>
-        <p class="cs-decision__body">An investment is the thing Finario was always about. Approvals, forecasts and reports are all just different views into one. Once we built around that idea, the product stopped feeling like five separate apps stitched together.</p>
-        <div class="cs-decision__tradeoff">Result: fewer screens, more depth per screen. People stopped getting lost in submenus.</div>
+        <div class="cs-decision__title">A table system, not a table</div>
+        <p class="cs-decision__body">Cost management is a table. So is the approval queue, the forecast view, the actuals reconciliation. I built one table system, with fixed columns, inline editing, currency-aware totals, keyboard navigation and drill-down, and the rest of the product inherited it. The win compounds every time a new feature ships.</p>
+        <div class="cs-decision__tradeoff">Trade-off. The first table took longer than a one-off would have. Tables four and five took days, not weeks.</div>
       </div>
     </div>
     <div class="cs-decision">
       <div class="cs-decision__num">03</div>
       <div>
         <div class="cs-decision__title">Design system before features</div>
-        <p class="cs-decision__body">I refused to ship a single redesigned screen until the basics were in place. Tokens, the type system, the core components. Q1 looked slow from the outside. Everything after Q1 was way faster.</p>
-        <div class="cs-decision__tradeoff">Trade-off: needed leadership to trust me through that first quarter. Paid back several times over.</div>
+        <p class="cs-decision__body">I did not ship a redesigned screen until the basics were in place. Tokens, the type system, the core components. Q1 looked slow from the outside. Everything after Q1 was much faster, and engineering stopped having to invent UI in the middle of a sprint.</p>
+        <div class="cs-decision__tradeoff">Trade-off. It needed leadership to trust the plan through that first quarter. It paid back several times over.</div>
       </div>
     </div>
   </div>
@@ -309,23 +498,94 @@ They've been going on at the same time and feeding each other since day one.</p>
       <button class="cs-ba-tab" data-panel="after-1">After</button>
     </div>
     <div class="cs-ba-panel cs-ba-panel--active" id="before-1">
-      <div class="cs-ba-screen"><span>images/finario/before.jpg</span></div>
+      <div class="fin-mock fin-legacy" aria-label="Legacy cost table before redesign">
+        <div class="fl-toolbar">
+          <button class="fl-tbtn">Add Row</button>
+          <button class="fl-tbtn">Delete Row</button>
+          <button class="fl-tbtn fl-tbtn--amber">Recalculate</button>
+          <button class="fl-tbtn">Spread</button>
+          <button class="fl-tbtn">Reallocate</button>
+          <button class="fl-tbtn">Lock Period</button>
+          <span class="fl-sep"></span>
+          <button class="fl-tbtn">Columns</button>
+          <button class="fl-tbtn">Filter</button>
+          <button class="fl-tbtn">Export CSV</button>
+          <button class="fl-tbtn">Currency: USD ▾</button>
+        </div>
+        <div class="fl-body" style="grid-template-columns:1fr;">
+          <div class="fl-panel">
+            <div class="fl-panel__head">Cost Detail — Monthly Spread (000s)<span class="fl-ico"><i></i><i></i><i></i></span></div>
+            <div class="fl-panel__body" style="padding:0;">
+              <table class="fl-table">
+                <thead>
+                  <tr><th>Cost Line</th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th><th>Approved</th><th>Actual</th><th>Forecast</th><th>Var %</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Site Preparation</td><td>120</td><td>140</td><td>160</td><td>180</td><td>200</td><td>220</td><td>1,420</td><td>1,388</td><td>1,395</td><td>1.8</td></tr>
+                  <tr><td>Refrigeration Plant</td><td>0</td><td>0</td><td>480</td><td>620</td><td>720</td><td>800</td><td>4,860</td><td>2,940</td><td>4,710</td><td>3.1</td></tr>
+                  <tr><td>Racking &amp; MHE</td><td>0</td><td>0</td><td>0</td><td>210</td><td>340</td><td>410</td><td>2,150</td><td>1,120</td><td>2,180</td><td>-1.4</td></tr>
+                  <tr><td>Electrical &amp; Controls</td><td>40</td><td>80</td><td>120</td><td>160</td><td>200</td><td>240</td><td>1,640</td><td>980</td><td>1,610</td><td>1.8</td></tr>
+                  <tr><td>Fire Suppression</td><td>0</td><td>30</td><td>60</td><td>90</td><td>110</td><td>130</td><td>720</td><td>410</td><td>705</td><td>2.1</td></tr>
+                  <tr><td>Contingency</td><td>10</td><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td><td>1,830</td><td>372</td><td>1,705</td><td>6.8</td></tr>
+                  <tr class="fl-row-h"><td>TOTAL</td><td>170</td><td>260</td><td>840</td><td>1,290</td><td>1,610</td><td>1,850</td><td>13,220</td><td>7,210</td><td>12,305</td><td>2.5</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-ba-annotations">
+        <div class="cs-ba-ann">11 columns, no fixed header or totals — you lose the row label as you scroll right.</div>
+        <div class="cs-ba-ann">Every cell looks editable; none signal which actually are.</div>
+      </div>
     </div>
     <div class="cs-ba-panel" id="after-1">
-      <div class="cs-ba-screen"><span>images/finario/after.jpg</span></div>
+      <div class="fin-mock fin-app" aria-label="Redesigned cost table system">
+        <div class="fm-canvas" style="padding:0; display:block;">
+          <div class="fm-card" style="border:none; border-radius:0;">
+            <div class="fm-card__head">
+              <div class="fm-card__title">Cost breakdown — by work package</div>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <span class="fm-card__meta">USD · FY26</span>
+                <button class="fm-btn" style="padding:5px 11px;">Columns</button>
+                <button class="fm-btn fm-btn--primary" style="padding:5px 11px;">Add line</button>
+              </div>
+            </div>
+            <table class="fm-table">
+              <thead>
+                <tr><th style="width:34%;">Work package</th><th>Approved</th><th>Actual</th><th>% Committed</th><th>Forecast</th><th>Variance</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>▸&nbsp;&nbsp;Site preparation</td><td>1,420k</td><td>1,388k</td><td><span class="fm-bar-inline" style="width:54px;"></span> 98%</td><td>1,395k</td><td><span class="fm-var-tag pos">+1.8%</span></td></tr>
+                <tr><td>▾&nbsp;&nbsp;Refrigeration plant</td><td>4,860k</td><td>2,940k</td><td><span class="fm-bar-inline" style="width:33px;"></span> 60%</td><td><span class="fm-cell-edit">4,710k<span class="fm-caret"></span></span></td><td><span class="fm-var-tag pos">+3.1%</span></td></tr>
+                <tr><td style="color:var(--fm-mute); font-weight:400; padding-left:26px;">— Compressors &amp; condensers</td><td>3,120k</td><td>2,010k</td><td><span class="fm-bar-inline" style="width:34px;"></span> 64%</td><td>3,040k</td><td><span class="fm-var-tag pos">+2.6%</span></td></tr>
+                <tr><td style="color:var(--fm-mute); font-weight:400; padding-left:26px;">— Controls &amp; integration</td><td>1,740k</td><td>930k</td><td><span class="fm-bar-inline" style="width:28px;"></span> 53%</td><td>1,670k</td><td><span class="fm-var-tag pos">+4.0%</span></td></tr>
+                <tr><td>▸&nbsp;&nbsp;Racking &amp; MHE</td><td>2,150k</td><td>1,120k</td><td><span class="fm-bar-inline" style="width:29px;"></span> 52%</td><td>2,180k</td><td><span class="fm-var-tag neg">−1.4%</span></td></tr>
+                <tr><td>▸&nbsp;&nbsp;Electrical &amp; controls</td><td>1,640k</td><td>980k</td><td><span class="fm-bar-inline" style="width:33px;"></span> 60%</td><td>1,610k</td><td><span class="fm-var-tag pos">+1.8%</span></td></tr>
+                <tr><td>▸&nbsp;&nbsp;Contingency</td><td>1,830k</td><td>372k</td><td><span class="fm-bar-inline" style="width:11px;"></span> 20%</td><td>1,705k</td><td><span class="fm-var-tag pos">+6.8%</span></td></tr>
+                <tr class="fm-tr-total"><td>Total committed</td><td>11,900k</td><td>6,800k</td><td>57%</td><td>11,600k</td><td><span class="fm-var-tag pos">+2.5%</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="cs-ba-annotations">
+        <div class="cs-ba-ann">Fixed label column, a sticky currency-aware total, and drill-down rows inherited by every table in the product.</div>
+        <div class="cs-ba-ann">Editable cells are the only ones that look editable — the rest read as values.</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ─── 07 IMPACT ────────────────────────────────────────────────────── -->
 <section class="cs-section" id="impact">
-  <div class="cs-label">(07) — Impact</div>
+  <div class="cs-label">(07) Impact</div>
   <h2 class="display cs-h2">The work,<br>measured<span class="text-blue">.</span></h2>
   <div class="cs-metric-grid">
     <div class="cs-metric cs-metric--hero">
       <div class="cs-metric__num">1</div>
-      <div class="cs-metric__label">designer looking after<br>the whole product</div>
-      <div class="cs-metric__context">JAN 2024 → PRESENT<br>NO HAND-OFFS</div>
+      <div class="cs-metric__label">designer responsible<br>for the whole product</div>
+      <div class="cs-metric__context">JAN 2024 / PRESENT<br>NO HAND-OFFS</div>
     </div>
     <div class="cs-metric">
       <div class="cs-metric__num" style="color:var(--ink);">Full</div>
@@ -333,79 +593,80 @@ They've been going on at the same time and feeding each other since day one.</p>
       <div class="cs-metric__context">PHASED ACROSS<br>EVERY CORE FLOW</div>
     </div>
     <div class="cs-metric">
-      <div class="cs-metric__num" style="color:var(--ink);">0→1</div>
-      <div class="cs-metric__label">design system,<br>built from scratch</div>
+      <div class="cs-metric__num" style="color:var(--ink);">New</div>
+      <div class="cs-metric__label">design system built<br>from scratch</div>
       <div class="cs-metric__context">TOKENS, COMPONENTS<br>PATTERNS, DOCS</div>
     </div>
     <div class="cs-metric">
       <div class="cs-metric__num" style="color:var(--ink);">70+</div>
-      <div class="cs-metric__label">countries the new<br>UI gets used in</div>
+      <div class="cs-metric__label">countries the new<br>UI is used in</div>
       <div class="cs-metric__context">GLOBAL ENTERPRISE<br>FROM DAY ONE</div>
     </div>
     <div class="cs-metric">
       <div class="cs-metric__num" style="color:var(--ink);">∞</div>
       <div class="cs-metric__label">customer calls and<br>pairing sessions</div>
-      <div class="cs-metric__context">EMBEDDED IN PRODUCT<br>+ ENGINEERING LOOPS</div>
+      <div class="cs-metric__context">EMBEDDED IN PRODUCT<br>AND ENGINEERING LOOPS</div>
     </div>
   </div>
   <div style="margin-top:24px; padding:16px 20px; border:1px solid var(--hairline); border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); line-height:1.6;">
-    NOTE — Finario is still ongoing, and the real product metrics aren't mine to share. The numbers above are about scope and ownership, not business outcomes.
+    NOTE. Finario is ongoing, and the real product metrics are not mine to share. The numbers above describe scope and ownership, not business outcomes.
   </div>
 </section>
 
 <!-- ─── 08 OUTCOMES ──────────────────────────────────────────────────── -->
 <section class="cs-section">
-  <div class="cs-label">(08) — Outcomes</div>
+  <div class="cs-label">(08) Outcomes</div>
   <h2 class="display cs-h2">What changed.<br>What it earned<span class="text-blue">.</span></h2>
   <table class="cs-ba-table">
     <thead>
       <tr><th>Before</th><th class="arrow">→</th><th>After</th></tr>
     </thead>
     <tbody>
-      <tr><td>No design system, every feature reinvented the basics</td><td class="arrow">→</td><td>Tokens, components and patterns, all built from scratch</td></tr>
-      <tr><td>Three different ways to do the same five jobs</td><td class="arrow">→</td><td>One shared layout used across the product</td></tr>
-      <tr><td>Every option shouting at the same volume</td><td class="arrow">→</td><td>A clear primary action, with the rest tucked away properly</td></tr>
-      <tr><td>Design as a step at the end</td><td class="arrow">→</td><td>Design embedded with PMs and engineers from the start</td></tr>
-      <tr><td>Customer feedback only via PMs</td><td class="arrow">→</td><td>I'm in customer calls directly</td></tr>
-      <tr><td>A product that grew by accident</td><td class="arrow">→</td><td>A product that feels like it was made on purpose</td></tr>
+      <tr><td>No design system, every feature reinventing the basics</td><td class="arrow">→</td><td>Tokens, components and patterns built from scratch</td></tr>
+      <tr><td>Engineers making UI calls in the absence of a designer</td><td class="arrow">→</td><td>A designer in the loop from scoping to ship</td></tr>
+      <tr><td>A different table on every page</td><td class="arrow">→</td><td>One table system, currency-aware and keyboard-first</td></tr>
+      <tr><td>Approval flows with modal hops and ambiguous state</td><td class="arrow">→</td><td>A clear queue, clear status, clear next action</td></tr>
+      <tr><td>Settings scattered by which team shipped each toggle</td><td class="arrow">→</td><td>One settings architecture, organised by how admins think</td></tr>
+      <tr><td>Customer feedback only via PMs</td><td class="arrow">→</td><td>Designer in customer calls directly</td></tr>
+      <tr><td>A product that grew by accident</td><td class="arrow">→</td><td>A product that feels intentional</td></tr>
     </tbody>
   </table>
 
   <div style="margin-top:64px; padding:64px 32px; background:var(--blue); text-align:center; border:1px solid var(--blue);">
-    <div style="font-family:'Inter Tight',sans-serif; font-weight:700; font-size:clamp(80px,12vw,160px); letter-spacing:-0.05em; line-height:0.9; color:#fff;">1→1</div>
-    <div style="margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.6); text-transform:uppercase;">Solo designer · the whole product</div>
+    <div style="font-family:'Inter Tight',sans-serif; font-weight:700; font-size:clamp(80px,12vw,160px); letter-spacing:-0.05em; line-height:0.9; color:#fff;">Solo</div>
+    <div style="margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:rgba(255,255,255,0.6); text-transform:uppercase;">One designer · the whole product</div>
   </div>
 </section>
 
 <!-- ─── 09 REFLECTION ────────────────────────────────────────────────── -->
 <section class="cs-section" id="reflection">
-  <div class="cs-label">(09) — Reflection</div>
-  <h2 class="display cs-h2">What I'd do<br>differently<span class="text-blue">.</span></h2>
+  <div class="cs-label">(09) Reflection</div>
+  <h2 class="display cs-h2">What I learned<span class="text-blue">.</span></h2>
   <div class="cs-reflect-grid">
     <div class="cs-reflect-col">
       <div class="cs-reflect-col__header">What worked</div>
       <div class="cs-reflect-item">
         <div class="cs-reflect-item__title">Doing the system first</div>
-        <p class="cs-reflect-item__body">It felt slow at the time. Looking back, it's the single best decision I made. Everything after that quarter was noticeably faster, and the product started feeling consistent without me having to police it.</p>
+        <p class="cs-reflect-item__body">It felt slow at the time. Looking back, it was the single best decision I made. Everything after that quarter was noticeably faster, and the product started feeling consistent without me having to police it.</p>
       </div>
       <div class="cs-reflect-item">
-        <div class="cs-reflect-item__title">Being in customer calls</div>
-        <p class="cs-reflect-item__body">Hearing customers directly is just different from reading a Notion summary. The way someone says "yeah, it's fine" when it clearly isn't, that doesn't survive a second-hand telling.</p>
+        <div class="cs-reflect-item__title">Being on customer calls</div>
+        <p class="cs-reflect-item__body">Hearing customers directly is different from reading a Notion summary. The way someone says "yeah, it's fine" when it clearly is not does not survive a second-hand telling.</p>
       </div>
       <div class="cs-reflect-item">
-        <div class="cs-reflect-item__title">Working really closely with engineering</div>
-        <p class="cs-reflect-item__body">I'm in Slack with the engineers all day. We catch things together that would have been a back-and-forth otherwise. The closer the loop, the better the thing that ships.</p>
+        <div class="cs-reflect-item__title">Working closely with engineering</div>
+        <p class="cs-reflect-item__body">I am in Slack with the engineers all day. We catch things together that would otherwise be a back and forth ticket. The closer the loop, the better the thing that ships.</p>
       </div>
     </div>
     <div class="cs-reflect-col">
-      <div class="cs-reflect-col__header">What I'd do differently</div>
+      <div class="cs-reflect-col__header">What I would do differently</div>
       <div class="cs-reflect-item">
         <div class="cs-reflect-item__title">Document as I go</div>
-        <p class="cs-reflect-item__body">I shipped patterns way faster than I wrote them down. As the team grows that gap is going to start hurting. If I were starting over I'd write the docs at the same time, not later.</p>
+        <p class="cs-reflect-item__body">I shipped patterns faster than I wrote them down. As the team grows, that gap will start to hurt. If I were starting over I would write the docs at the same time, not later.</p>
       </div>
       <div class="cs-reflect-item">
-        <div class="cs-reflect-item__title">Set up some design metrics earlier</div>
-        <p class="cs-reflect-item__body">I spent year one on craft and shipping. I'd now love to be able to point at adoption and quality numbers. Easier to defend the work, easier to spot what's not landing.</p>
+        <div class="cs-reflect-item__title">Set up design metrics earlier</div>
+        <p class="cs-reflect-item__body">I spent year one on craft and shipping. I would now love to be able to point at adoption and quality numbers. Easier to defend the work, easier to spot what is not landing.</p>
       </div>
       <div class="cs-reflect-item">
         <div class="cs-reflect-item__title">Write the vision down</div>
@@ -418,19 +679,20 @@ They've been going on at the same time and feeding each other since day one.</p>
 <!-- ─── CLOSING ──────────────────────────────────────────────────────── -->
 <div class="cs-closing-quote">
   <p class="cs-closing-quote__text display">
-    "When you're the only designer, your job isn't to draw every pixel. It's to make sure the product feels like one person made it."
+    When you are the only designer, the job is to make sure the product
+    feels like <span class="text-blue">one person made it.</span>
   </p>
-  <div class="cs-closing-quote__attr">Artur Lopez Zarytskyi · Finario · 2024–Present</div>
+  <div class="cs-closing-quote__attr">Artur Lopez Zarytskyi · Finario · 2024 / Present</div>
   <div style="margin-top:32px; display:flex; justify-content:center; gap:16px;">
     <a href="index.html" class="btn btn--primary" style="max-width:200px;"><span>← Back to portfolio</span></a>
     <a href="mailto:artur@lopezzarytskyi.com" class="btn btn--outline" style="max-width:200px;"><span>Get in touch</span><span>↗</span></a>
   </div>
 </div>
 
-<!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
+<!-- ─── FOOTER ──────────────────────────────────────────────────────── -->
 <footer class="footer">
   <span class="mono">© 2026 ARTUR LOPEZ ZARYTSKYI</span>
-  <span class="mono">FINARIO CASE STUDY · 2024–Present</span>
+  <span class="mono">FINARIO CASE STUDY · 2024 / PRESENT</span>
   <a href="#top" class="mono footer__back-to-top">↑ BACK TO TOP</a>
 </footer>
 
