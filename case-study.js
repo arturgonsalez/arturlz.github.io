@@ -54,6 +54,32 @@
     });
   });
 
+  // ── Lightbox ────────────────────────────────────────────────────────
+  const lb = document.createElement('div');
+  lb.id = 'cs-lightbox';
+  lb.innerHTML = '<button class="cs-lb__close" aria-label="Close">\u2715</button><img class="cs-lb__img" alt="">';
+  document.body.appendChild(lb);
+
+  function openLightbox(src, alt) {
+    lb.querySelector('.cs-lb__img').src = src;
+    lb.querySelector('.cs-lb__img').alt = alt || '';
+    lb.classList.add('cs-lb--open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lb.classList.remove('cs-lb--open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.cs-shot__img').forEach(function(img) {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function() { openLightbox(img.src, img.alt); });
+  });
+
+  lb.querySelector('.cs-lb__close').addEventListener('click', closeLightbox);
+  lb.addEventListener('click', function(e) { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+
   // ── Scroll listener ─────────────────────────────────────────────────
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
